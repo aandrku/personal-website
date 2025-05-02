@@ -7,7 +7,7 @@ import (
 func Register(e *echo.Echo) {
 	e.GET("/", indexHandler)
 	e.GET("/home", getHomeHandler)
-	e.GET("/about", getAboutHandler)
+	e.GET("/about", getAboutHandler())
 	e.GET("/projects", getProjectsHandler)
 	e.GET("/blog", getBlogHandler)
 	e.GET("/links", getLinksHandler)

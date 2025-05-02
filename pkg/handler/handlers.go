@@ -1,7 +1,9 @@
 package handler
 
 import (
+	"log"
 	"net/http"
+	"template1/pkg/model"
 	"template1/pkg/view"
 	"template1/pkg/view/components"
 	"template1/pkg/view/pages"
@@ -15,12 +17,16 @@ func indexHandler(c echo.Context) error {
 	return view.Render(c, http.StatusOK, page)
 }
 
-func getAboutHandler(c echo.Context) error {
-	content := view.Unsafe("<div>Hello, world</div>")
+func getAboutHandler() func(echo.Context) error {
+	creator, err := model.NewCreator()
+	if err != nil {
+		log.Fatalf("failed to create creator model: %v\n", err)
+	}
+	component := components.AboutWindow(creator)
 
-	component := components.AboutWindow(content)
-
-	return view.Render(c, http.StatusOK, component)
+	return func(c echo.Context) error {
+		return view.Render(c, http.StatusOK, component)
+	}
 }
 
 func getHomeHandler(c echo.Context) error {

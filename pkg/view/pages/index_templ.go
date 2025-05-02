@@ -43,7 +43,7 @@ func Index() templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div id=\"window-container\" class=\"select-none w-full h-full fixed z-10 flex justify-center items-center backdrop-blur-xs sm:backdrop-blur-xs\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div id=\"window-container\" class=\"select-none w-full h-full fixed z-10 flex justify-center items-center backdrop-blur-xs\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}

@@ -1,24 +1,40 @@
 package windows
 
 import "template1/pkg/view/components/common"
+import "template1/pkg/model"
+import "template1/pkg/view"
 
 const aboutTitle = "about"
 
-templ AboutWindow(content templ.Component) {
-	<div class="sm:bg-neutral-500/20 sm:dark:bg-neutral-900/50 relative w-full h-full md:w-3xl md:h-2/3 md:border md:border-neutral-500 dark:md:border-sky-900
-		 backdrop-blur-sm overflow-hidden md:rounded-lg
+templ AboutWindow(c model.Creator) {
+		<div class="bg-neutral-400/90 dark:bg-neutral-900/90 relative w-full h-full md:w-3xl 
+		md:h-2/3 md:border md:border-neutral-500 dark:md:border-sky-900
+		 backdrop-blur-sm overflow-hidden md:rounded-lg pt-10
 		">
 		@common.TitleBarWithButton(aboutTitle, common.WindowCloseButton())
-		@headerComponent()
+		<div class="overflow-auto h-full w-full px-4">
+			@creatorCard(c.Name, c.DescShort, c.AvatarURL)
+			@description(c.DescDoc)
+		</div>
 	</div>
 }
 
 
 
-templ headerComponent() {
-
+templ creatorCard(name string, shortDesc string, avatarURL string) {
+	<div class="flex flex-col sm:flex-row w-full justify-center items-center gap-10 p-10">
+		<img class="w-32 h-32 object-cover rounded-full" src={avatarURL}>
+		<div class="flex flex-col justify-center items-center">
+			<h1 class="text-neutral-950 dark:text-neutral-400 text-2xl">{name}</h1>
+			<h2 class="text-neutral-900 dark:text-neutral-500 text-xl">{shortDesc}</h2>
+		</div>
+	</div>
 }
 
-templ contentComponent() {
+templ description(desc string) {
+{{content := view.Unsafe(desc)}}
+<article class="markdown">
+	@content
+</article>
 
 }

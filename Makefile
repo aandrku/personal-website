@@ -28,7 +28,7 @@ live/sync_assets:
 	--build.delay "100" \
 	--build.exclude_dir "" \
 	--build.include_dir "assets" \
-	--build.include_ext "js,css"
+	--build.include_ext "js,css,md"
 
 live:
 	make -j3 live/templ live/server live/sync_assets

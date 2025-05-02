@@ -1,7 +1,6 @@
-package layout
+package pages
 
-import "template1/pkg/view/shared/canvas"
-import "template1/pkg/view/shared/button"
+import "template1/pkg/view/components"
 
 templ BaseWithBgDots() {
 <!DOCTYPE html>
@@ -12,8 +11,8 @@ templ BaseWithBgDots() {
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	</head>
 	<body ontouchstart="" class="overflow-hidden">
-		@canvas.WithParticles()
-		@button.ThemeSwitcher()
+		@components.CanvasWithParticles()
+		@components.ThemeSwitcher()
 
 		{children...}
 

@@ -5,5 +5,8 @@ import (
 )
 
 func Register(e *echo.Echo) {
-	e.GET("/", rootHandler)
+	e.GET("/", indexHandler)
+	e.GET("/home", getHomeHandler)
+	e.GET("/about", getAboutHandler)
+	e.GET("/delete", deleteHandler)
 }

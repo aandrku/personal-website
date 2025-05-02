@@ -1,0 +1,11 @@
+package pages
+
+import "template1/pkg/view/components"
+
+templ Index() {
+	@BaseWithBgDots() {
+		<div id="window-container" class="select-none w-full h-full fixed z-10 flex justify-center items-center backdrop-blur-xs sm:backdrop-blur-xs">
+			@components.HomeWindow()
+		</div>
+	}
+}

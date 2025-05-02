@@ -2,10 +2,61 @@ package root
 
 import (
 	"template1/pkg/view/layout"
+	"template1/pkg/view/svgs"
 )
 
+type linkProps struct {
+	name string
+	link string
+	icon templ.Component 
+}
+
+var linkList = []linkProps{
+	{"about", "/about", svgs.AboutIcon()},
+	{"projects", "/projects", svgs.ProjectsIcon()},
+	{"blog", "/blog", svgs.BlogIcon()},
+	{"links", "/links", svgs.LinksIcon()},
+	{"contact", "/contact", svgs.ContactIcon()},
+
+
+}
+
 templ Page() {
-	@layout.Base() {
-		<h1>Hello, World</h1>
+	@layout.BaseWithBgDots() {
+		<div class="select-none w-full h-full fixed z-10 flex justify-center items-center backdrop-blur-xs sm:backdrop-blur-xs">
+			<div class="sm:bg-neutral-500/20 sm:dark:bg-neutral-900/50  sm:backdrop-blur-sm w-full h-full md:w-3xl md:h-[36rem]
+			md:border md:border-neutral-500 dark:md:border-sky-900
+			flex flex-col gap-8 justify-center items-center
+			sm:rounded-2xl ">
+				@header()
+				@links()
+			</div>
+		</div>
 	}
+}
+
+templ header() {
+	<div class="flex flex-col gap-2 items-center">
+		<p class="text-3xl sm:text-5xl text-neutral-800 dark:text-neutral-400">hello, i'm <span class="text-violet-600 dark:text-sky-700">andrii</span></p>
+		<p class="text-2xl sm:text-4xl text-neutral-600 dark:text-neutral-500">a software developer</p>
+	</div>
+}
+
+templ links() {
+	<div class="flex flex-wrap flex-row gap-4 items-center justify-center">
+		for _, l := range linkList {
+			@link(l)
+		}
+	</div>
+}
+
+templ link(props linkProps) {
+	<div class="flex flex-col items-center gap-2">
+		<div hx-get={props.link} class="w-22 h-22 bg-violet-600/20 dark:bg-sky-700/30
+		hover:scale-90 active:bg-violet-700/20 dark:active:bg-sky-800/30
+		p-4 rounded-2xl transition duration-150 ease-in-out">
+			@props.icon
+		</div>
+		<p class="text-neutral-600 dark:text-neutral-500">{props.name}</p>	
+	</div>
 }

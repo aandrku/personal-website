@@ -1,0 +1,10 @@
+package common
+
+import "template1/pkg/view/svgs"
+
+templ WindowCloseButton() {
+	<div hx-get="/home" hx-target="#window-container" hx-swap="innerHTML" 
+	class="hover:active:scale-90 transition duration-150 ease-in-out absolute left-2 ">
+		@svgs.CloseIcon()
+	</div>
+}

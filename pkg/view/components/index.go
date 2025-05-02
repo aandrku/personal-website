@@ -10,7 +10,7 @@ var (
 	AboutWindow         = windows.AboutWindow
 	ProjectsWindow      = windows.ProjectsWindow
 	BlogWindow          = windows.BlogWindow
-	LinksWindow         = windows.ContactWindow
+	LinksWindow         = windows.LinksWindow
 	ContactWindow       = windows.ContactWindow
 	ThemeSwitchButton   = common.ThemeSwitcher
 	CanvasWithParticles = common.CanvasWithParticles

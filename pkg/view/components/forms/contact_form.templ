@@ -1,0 +1,67 @@
+package forms
+
+templ ContactForm() {
+ <form action="/submit" method="POST" class="w-full h-full sm:h-auto max-w-md 
+ space-y-4 p-6 rounded-lg ">
+	 @nameInput()
+	 @emailInput()
+	 @messageInput()
+	 @submitButton()
+  </form>
+}
+
+templ nameInput() {
+    <div>
+      <input
+        type="text"
+		placeholder="your name"
+        id="name"
+        name="name"
+        required
+        class="w-full rounded-md border border-neutral-300
+		dark:border-neutral-700 p-2 bg-neutral-50 dark:bg-neutral-900 
+		text-lg text-neutral-900 dark:text-neutral-400 focus:outline-none
+		focus:ring-2 focus:ring-violet-500 dark:focus:ring-sky-500"
+      />
+    </div>
+}
+
+templ emailInput() {
+	<div>
+		<input
+		placeholder="your email"
+		type="email" id="email"
+		name="email"
+		required
+		class="w-full rounded-md border border-neutral-300 text-neutral-900 dark:text-neutral-400
+		dark:border-neutral-700 p-2 bg-neutral-50 dark:bg-neutral-900
+		text-lg focus:outline-none focus:ring-2 focus:ring-violet-500 dark:focus:ring-sky-500"
+		/>
+	</div>
+}
+
+templ messageInput() {
+    <div>
+      <textarea
+        id="message"
+        name="message"
+        rows="4"
+        required
+		placeholder="type your message"
+        class="w-full rounded-md border border-neutral-300 dark:border-neutral-700 p-2
+		bg-neutral-50 dark:bg-neutral-900 text-lg 
+		text-neutral-900 dark:text-neutral-400 focus:ring-2 resize-none
+		focus:outline-none focus:ring-violet-500 dark:focus:ring-sky-500"
+      ></textarea>
+    </div>
+}
+
+templ submitButton() {
+    <button
+      type="submit"
+      class="w-full py-2 px-4 bg-violet-600 dark:bg-sky-700 
+	  text-white rounded-md font-medium transition"
+    >
+      Send Message
+    </button>
+}

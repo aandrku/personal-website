@@ -35,7 +35,7 @@ func AboutWindow(c model.Creator) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"bg-neutral-400/90 dark:bg-neutral-900/90 relative w-full h-full md:w-3xl \n\t\tmd:h-2/3 md:border md:border-neutral-500 dark:md:border-sky-900\n\t\t backdrop-blur-sm overflow-hidden md:rounded-lg pt-10\n\t\t\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"bg-neutral-500/70 dark:bg-neutral-900/90 relative w-full h-full md:w-3xl \n\t\tmd:h-2/3 md:border md:border-neutral-500 dark:md:border-sky-900\n\t\t backdrop-blur-sm overflow-hidden md:rounded-lg pt-10\n\t\t\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

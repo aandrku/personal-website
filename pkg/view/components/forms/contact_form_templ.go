@@ -29,7 +29,7 @@ func ContactForm() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<form action=\"/submit\" method=\"POST\" class=\"w-full h-full sm:h-auto max-w-md \n space-y-4 p-6 rounded-lg \">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<form action=\"/submit\" method=\"POST\" class=\"w-full h-full sm:h-auto max-w-md \n\tspace-y-4 p-6 rounded-lg \">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -57,7 +57,7 @@ func ContactForm() templ.Component {
 	})
 }
 
-func nameInput() templ.Component {
+func ContactFormHeader() templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -78,7 +78,36 @@ func nameInput() templ.Component {
 			templ_7745c5c3_Var2 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<div><input type=\"text\" placeholder=\"your name\" id=\"name\" name=\"name\" required class=\"w-full rounded-md border border-neutral-300\n\t\tdark:border-neutral-700 p-2 bg-neutral-50 dark:bg-neutral-900 \n\t\ttext-lg text-neutral-900 dark:text-neutral-400 focus:outline-none\n\t\tfocus:ring-2 focus:ring-violet-500 dark:focus:ring-sky-500\"></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<div class=\"flex flex-col gap-2 justify-center items-center px-5\"><h1 class=\"text-neutral-900 text-center dark:text-neutral-400 text-xl\">Have a question or would like to connect?</h1><h2 class=\"text-neutral-800 text-center dark:text-neutral-500 text-lg\">Here fill out your info and I will get back to you promptly</h2></div>")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		return nil
+	})
+}
+
+func nameInput() templ.Component {
+	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
+		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
+		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
+			return templ_7745c5c3_CtxErr
+		}
+		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templruntime.GetBuffer(templ_7745c5c3_W)
+		if !templ_7745c5c3_IsBuffer {
+			defer func() {
+				templ_7745c5c3_BufErr := templruntime.ReleaseBuffer(templ_7745c5c3_Buffer)
+				if templ_7745c5c3_Err == nil {
+					templ_7745c5c3_Err = templ_7745c5c3_BufErr
+				}
+			}()
+		}
+		ctx = templ.InitializeContext(ctx)
+		templ_7745c5c3_Var3 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var3 == nil {
+			templ_7745c5c3_Var3 = templ.NopComponent
+		}
+		ctx = templ.ClearChildren(ctx)
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "<div><input type=\"text\" placeholder=\"your name\" id=\"name\" name=\"name\" required class=\"w-full rounded-md border border-neutral-300\n\t\tdark:border-neutral-700 p-2 bg-neutral-300 dark:bg-neutral-900 \n\t\ttext-lg text-neutral-900 dark:text-neutral-400 focus:outline-none\n\t\tfocus:ring-2 focus:ring-violet-500 dark:focus:ring-sky-500\"></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -102,12 +131,12 @@ func emailInput() templ.Component {
 			}()
 		}
 		ctx = templ.InitializeContext(ctx)
-		templ_7745c5c3_Var3 := templ.GetChildren(ctx)
-		if templ_7745c5c3_Var3 == nil {
-			templ_7745c5c3_Var3 = templ.NopComponent
+		templ_7745c5c3_Var4 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var4 == nil {
+			templ_7745c5c3_Var4 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "<div><input placeholder=\"your email\" type=\"email\" id=\"email\" name=\"email\" required class=\"w-full rounded-md border border-neutral-300 text-neutral-900 dark:text-neutral-400\n\t\tdark:border-neutral-700 p-2 bg-neutral-50 dark:bg-neutral-900\n\t\ttext-lg focus:outline-none focus:ring-2 focus:ring-violet-500 dark:focus:ring-sky-500\"></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "<div><input placeholder=\"your email\" type=\"email\" id=\"email\" name=\"email\" required class=\"w-full rounded-md border border-neutral-300 text-neutral-900 dark:text-neutral-400\n\t\tdark:border-neutral-700 p-2 bg-neutral-300 dark:bg-neutral-900\n\t\ttext-lg focus:outline-none focus:ring-2 focus:ring-violet-500 dark:focus:ring-sky-500\"></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -131,12 +160,12 @@ func messageInput() templ.Component {
 			}()
 		}
 		ctx = templ.InitializeContext(ctx)
-		templ_7745c5c3_Var4 := templ.GetChildren(ctx)
-		if templ_7745c5c3_Var4 == nil {
-			templ_7745c5c3_Var4 = templ.NopComponent
+		templ_7745c5c3_Var5 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var5 == nil {
+			templ_7745c5c3_Var5 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "<div><textarea id=\"message\" name=\"message\" rows=\"4\" required placeholder=\"type your message\" class=\"w-full rounded-md border border-neutral-300 dark:border-neutral-700 p-2\n\t\tbg-neutral-50 dark:bg-neutral-900 text-lg \n\t\ttext-neutral-900 dark:text-neutral-400 focus:ring-2 resize-none\n\t\tfocus:outline-none focus:ring-violet-500 dark:focus:ring-sky-500\"></textarea></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "<div><textarea id=\"message\" name=\"message\" rows=\"4\" required placeholder=\"type your message\" class=\"w-full rounded-md border border-neutral-300 dark:border-neutral-700 p-2\n\t\tbg-neutral-300 dark:bg-neutral-900 text-lg \n\t\ttext-neutral-900 dark:text-neutral-400 focus:ring-2 resize-none\n\t\tfocus:outline-none focus:ring-violet-500 dark:focus:ring-sky-500\"></textarea></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -160,12 +189,12 @@ func submitButton() templ.Component {
 			}()
 		}
 		ctx = templ.InitializeContext(ctx)
-		templ_7745c5c3_Var5 := templ.GetChildren(ctx)
-		if templ_7745c5c3_Var5 == nil {
-			templ_7745c5c3_Var5 = templ.NopComponent
+		templ_7745c5c3_Var6 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var6 == nil {
+			templ_7745c5c3_Var6 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "<button type=\"submit\" class=\"w-full py-2 px-4 bg-violet-600 dark:bg-sky-700 \n\t  text-white rounded-md font-medium transition\">Send Message</button>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "<button type=\"submit\" class=\"w-full py-2 px-4 bg-violet-600/50 dark:bg-sky-700 \n\t  text-white rounded-md font-medium transition\">Send Message</button>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

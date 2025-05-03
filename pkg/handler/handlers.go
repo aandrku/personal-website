@@ -91,7 +91,7 @@ func getBlogHandler(c echo.Context) error {
 func getLinksHandler() func(echo.Context) error {
 	links := []model.Link{
 		{"github", "https://github.com/aandrku", svgs.GithubIcon()},
-		{"linkdln", "https://www.linkedin.com/in/aandrku/", svgs.LinkdlnIcon()},
+		{"linkedin", "https://www.linkedin.com/in/aandrku/", svgs.LinkdlnIcon()},
 	}
 
 	return func(c echo.Context) error {

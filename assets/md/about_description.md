@@ -1,5 +1,6 @@
-I’m a tech enthusiast with a strong interest in building simple, useful tools — from web apps to command-line utilities. I’m especially drawn to operating systems and how things work under the hood.
-While I’m not a full-fledged software developer (yet!), I enjoy solving real-world problems through scripting, automation, and creative tinkering.
+I'm a developer living in Antelope, CA. Today I spend
+most of my time learning how build and design applications.
+
 
 ## My skills
 

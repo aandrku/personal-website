@@ -3,12 +3,12 @@ package blog
 import (
 	"template1/pkg/model"
 	"template1/pkg/store"
-	"template1/pkg/store/mock"
+	"template1/pkg/store/fs"
 )
 
 func NewService() *Service {
 	return &Service{
-		store: mock.GetStore(),
+		store: fs.Store{},
 	}
 }
 
@@ -26,11 +26,6 @@ func (s *Service) FindPost(id string) (*model.Post, error) {
 	return post, nil
 }
 
-func (s *Service) Posts() []*model.Post {
+func (s *Service) Posts() ([]*model.Post, error) {
 	return s.store.GetPosts()
-}
-
-func (s *Service) PostsWithoutContent() []*model.Post {
-	return s.store.GetPosts()
-
 }

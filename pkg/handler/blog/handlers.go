@@ -12,8 +12,12 @@ import (
 
 func blogHandler(c echo.Context) error {
 	service := blog.NewService()
+	posts, err := service.Posts()
+	if err != nil {
+		return err
+	}
 
-	component := components.BlogWindow(service.PostsWithoutContent())
+	component := components.BlogWindow(posts)
 	return view.Render(c, http.StatusOK, component)
 }
 

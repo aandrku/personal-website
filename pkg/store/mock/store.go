@@ -55,8 +55,8 @@ type Store struct {
 	posts []*model.Post
 }
 
-func (s *Store) GetPosts() []*model.Post {
-	return s.posts
+func (s *Store) GetPosts() ([]*model.Post, error) {
+	return s.posts, nil
 }
 
 func (s *Store) FindPost(id string) (*model.Post, error) {

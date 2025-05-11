@@ -1,0 +1,29 @@
+package pages
+
+import "template1/pkg/model"
+import "bytes"
+import "github.com/yuin/goldmark"
+import "template1/pkg/view"
+
+func postContentToTempl(content string) templ.Component {
+	var buf bytes.Buffer
+	if err := goldmark.Convert([]byte(content), &buf); err != nil {
+		return errorRenderingPostContent()
+	}
+
+	return view.Unsafe(buf.String())
+}
+
+templ errorRenderingPostContent() {
+	<h1>There was an error rendering this post.</h1>
+}
+
+
+templ PostPage(post *model.Post) {
+	@BlogPostBase() {
+		<h1 class="text-2xl sm:text-3xl text-neutral-400">{post.Title}</h1>
+		<div class="markdown px-2 w-full sm:w-2/3">
+			@postContentToTempl(post.Content)
+		</div>
+	}
+}

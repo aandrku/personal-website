@@ -84,10 +84,6 @@ func getProjectsHandler() func(echo.Context) error {
 
 }
 
-func getBlogHandler(c echo.Context) error {
-	component := components.BlogWindow()
-	return view.Render(c, http.StatusOK, component)
-}
 func getLinksHandler() func(echo.Context) error {
 	links := []model.Link{
 		{"github", "https://github.com/aandrku", svgs.GithubIcon()},

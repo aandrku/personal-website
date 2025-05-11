@@ -21,3 +21,21 @@ templ BaseWithBgDots() {
 	</body>
 </html>
 }
+
+templ BlogPostBase() {
+<!DOCTYPE html>
+<html class="bg-neutral-400 dark:bg-stone-900 font-mono dark">
+	<head>
+		<title>aandrku's portfolio</title>
+		<link href="/assets/css/tailwind.css" rel="stylesheet">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	</head>
+	<body ontouchstart="" class="overflow-hidden w-full flex flex-col items-center">
+		@components.ThemeSwitchButton()
+
+		{children...}
+
+		<script src="https://unpkg.com/htmx.org@2.0.4" integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+" crossorigin="anonymous"></script>
+	</body>
+</html>
+}

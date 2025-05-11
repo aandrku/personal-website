@@ -31,6 +31,6 @@ func (s *Service) Posts() []*model.Post {
 }
 
 func (s *Service) PostsWithoutContent() []*model.Post {
-	return s.store.GetPostsWithoutContent()
+	return s.store.GetPosts()
 
 }

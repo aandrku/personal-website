@@ -59,10 +59,6 @@ func (s *Store) GetPosts() []*model.Post {
 	return s.posts
 }
 
-func (s *Store) GetPostsWithoutContent() []*model.Post {
-	return s.posts
-}
-
 func (s *Store) FindPost(id string) (*model.Post, error) {
 	for _, v := range s.posts {
 		if v.Id.String() == id {

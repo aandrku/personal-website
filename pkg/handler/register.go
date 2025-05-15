@@ -14,6 +14,10 @@ func Register(e *echo.Echo) {
 	e.GET("/links", getLinksHandler())
 	e.GET("/contact", getContactHandler)
 	e.GET("/delete", deleteHandler)
+
+	// TODO: this must be protected with middleware
+	e.GET("/dashboard", getDashboardHandler)
+
 	blogGroup := e.Group("/blog")
 	blog.Register(blogGroup)
 }

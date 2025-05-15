@@ -95,6 +95,15 @@ func getLinksHandler() func(echo.Context) error {
 		return view.Render(c, http.StatusOK, component)
 	}
 }
+
+func getDashboardHandler(c echo.Context) error {
+	props := pages.DashboardProps{}
+
+	dashboard := pages.Dashboard(props)
+
+	return view.Render(c, http.StatusOK, dashboard)
+}
+
 func getContactHandler(c echo.Context) error {
 	component := components.ContactWindow()
 	return view.Render(c, http.StatusOK, component)

@@ -4,6 +4,7 @@ import (
 	"log"
 	"net/http"
 	"template1/pkg/model"
+	"template1/pkg/services/analytics"
 	"template1/pkg/services/project"
 	"template1/pkg/view"
 	"template1/pkg/view/components"
@@ -14,6 +15,9 @@ import (
 )
 
 func indexHandler(c echo.Context) error {
+	as := analytics.Service{}
+	as.IncrementVisits()
+
 	page := pages.Index()
 
 	return view.Render(c, http.StatusOK, page)

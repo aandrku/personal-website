@@ -2,13 +2,15 @@ package pages
 
 import "template1/pkg/view/components/dashboard"
 
-type DashboardProps struct {}
+type DashboardProps struct {
+	dashboard.AnalyticsWidgetProps
+}
 
 templ Dashboard(props DashboardProps) {
 	@BaseWithTitle("dashboard") {
 		<div id="root" class="flex flex-row w-full h-full p-10 gap-4 bg-zinc-900 text-zinc-100">
 		  <section id="left-column" class="flex flex-col w-full h-full gap-6">
-			@dashboard.AnalyticsWidget()
+			@dashboard.AnalyticsWidget(props.AnalyticsWidgetProps)
 			@dashboard.AboutWidget()
 			@dashboard.SystemStatsWidget()
 		  </section>

@@ -8,6 +8,7 @@ import (
 	"template1/pkg/services/project"
 	"template1/pkg/view"
 	"template1/pkg/view/components"
+	"template1/pkg/view/components/dashboard"
 	"template1/pkg/view/pages"
 	"template1/pkg/view/svgs"
 
@@ -101,8 +102,16 @@ func getLinksHandler() func(echo.Context) error {
 }
 
 func getDashboardHandler(c echo.Context) error {
-	props := pages.DashboardProps{}
+	as := analytics.Service{}
 
+	awp := dashboard.AnalyticsWidgetProps{
+		VisitsToday: as.TotalVisits(),
+		VisitsTotal: as.TotalVisits(),
+	}
+
+	props := pages.DashboardProps{
+		AnalyticsWidgetProps: awp,
+	}
 	dashboard := pages.Dashboard(props)
 
 	return view.Render(c, http.StatusOK, dashboard)

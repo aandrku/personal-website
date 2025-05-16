@@ -25,3 +25,16 @@ func getDashboardHandler(c echo.Context) error {
 
 	return view.Render(c, http.StatusOK, dashboard)
 }
+
+func getAnalyticsHandler(c echo.Context) error {
+	s := analytics.Service{}
+
+	p := dashboard.AnalyticsWidgetProps{
+		VisitsToday: s.TotalVisits(),
+		VisitsTotal: s.TotalVisits(),
+	}
+
+	w := dashboard.AnalyticsWidget(p)
+
+	return view.Render(c, http.StatusOK, w)
+}

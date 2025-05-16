@@ -101,22 +101,6 @@ func getLinksHandler() func(echo.Context) error {
 	}
 }
 
-func getDashboardHandler(c echo.Context) error {
-	as := analytics.Service{}
-
-	awp := dashboard.AnalyticsWidgetProps{
-		VisitsToday: as.TotalVisits(),
-		VisitsTotal: as.TotalVisits(),
-	}
-
-	props := pages.DashboardProps{
-		AnalyticsWidgetProps: awp,
-	}
-	dashboard := pages.Dashboard(props)
-
-	return view.Render(c, http.StatusOK, dashboard)
-}
-
 func getContactHandler(c echo.Context) error {
 	component := components.ContactWindow()
 	return view.Render(c, http.StatusOK, component)

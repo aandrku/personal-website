@@ -1,6 +1,7 @@
 package handler
 
 import (
+	"template1/pkg/handler/admin"
 	"template1/pkg/handler/blog"
 
 	"github.com/labstack/echo/v4"
@@ -15,9 +16,10 @@ func Register(e *echo.Echo) {
 	e.GET("/contact", getContactHandler)
 	e.GET("/delete", deleteHandler)
 
-	// TODO: this must be protected with middleware
-	e.GET("/dashboard", getDashboardHandler)
-
 	blogGroup := e.Group("/blog")
 	blog.Register(blogGroup)
+
+	// TODO: need to protect this with middleware lateer
+	adminGroup := e.Group("/admin")
+	admin.Register(adminGroup)
 }

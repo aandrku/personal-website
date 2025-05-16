@@ -46,3 +46,16 @@ func getAnalyticsHandler(c echo.Context) error {
 
 	return view.Render(c, http.StatusOK, w)
 }
+
+func getStatsHandler(c echo.Context) error {
+	s := stats.Service{}
+
+	stats, err := s.Stats()
+	if err != nil {
+		return err
+	}
+
+	w := dashboard.SystemStatsWidget(stats)
+	return view.Render(c, http.StatusOK, w)
+
+}

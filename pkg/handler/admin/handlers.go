@@ -3,6 +3,7 @@ package admin
 import (
 	"net/http"
 	"template1/pkg/services/analytics"
+	"template1/pkg/services/stats"
 	"template1/pkg/view"
 	"template1/pkg/view/components/dashboard"
 	"template1/pkg/view/pages"
@@ -12,14 +13,21 @@ import (
 
 func getDashboardHandler(c echo.Context) error {
 	as := analytics.Service{}
+	ss := stats.Service{}
 
 	awp := dashboard.AnalyticsWidgetProps{
 		VisitsToday: as.TotalVisits(),
 		VisitsTotal: as.TotalVisits(),
 	}
 
+	stats, err := ss.Stats()
+	if err != nil {
+		return err
+	}
+
 	props := pages.DashboardProps{
 		AnalyticsWidgetProps: awp,
+		Stats:                stats,
 	}
 	dashboard := pages.Dashboard(props)
 

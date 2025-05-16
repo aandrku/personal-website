@@ -1,9 +1,11 @@
 package pages
 
 import "template1/pkg/view/components/dashboard"
+import "template1/pkg/model"
 
 type DashboardProps struct {
 	dashboard.AnalyticsWidgetProps
+	model.Stats
 }
 
 templ Dashboard(props DashboardProps) {
@@ -12,7 +14,7 @@ templ Dashboard(props DashboardProps) {
 		  <section id="left-column" class="flex flex-col w-full h-full gap-6">
 			@dashboard.AnalyticsWidget(props.AnalyticsWidgetProps)
 			@dashboard.AboutWidget()
-			@dashboard.SystemStatsWidget()
+			@dashboard.SystemStatsWidget(props.Stats)
 		  </section>
 
 		  <section id="middle-column" class="flex flex-col w-full h-full gap-6">

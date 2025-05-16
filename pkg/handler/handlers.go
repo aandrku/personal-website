@@ -8,7 +8,6 @@ import (
 	"template1/pkg/services/project"
 	"template1/pkg/view"
 	"template1/pkg/view/components"
-	"template1/pkg/view/components/dashboard"
 	"template1/pkg/view/pages"
 	"template1/pkg/view/svgs"
 

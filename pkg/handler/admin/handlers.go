@@ -6,6 +6,7 @@ import (
 	"template1/pkg/services/stats"
 	"template1/pkg/view"
 	"template1/pkg/view/components/dashboard"
+	"template1/pkg/view/components/forms"
 	"template1/pkg/view/pages"
 
 	"github.com/labstack/echo/v4"
@@ -55,4 +56,9 @@ func getStatsHandler(c echo.Context) error {
 	w := dashboard.SystemStatsWidget(stats)
 	return view.Render(c, http.StatusOK, w)
 
+}
+
+func getFormsUpload(c echo.Context) error {
+	form := forms.UploadAsset()
+	return view.Render(c, http.StatusOK, form)
 }

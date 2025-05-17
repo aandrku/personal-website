@@ -13,14 +13,13 @@ import (
 
 func getDashboardHandler(c echo.Context) error {
 	as := analytics.Service{}
-	ss := stats.Service{}
 
 	awp := dashboard.AnalyticsWidgetProps{
 		VisitsToday: as.TotalVisits(),
 		VisitsTotal: as.TotalVisits(),
 	}
 
-	stats, err := ss.Stats()
+	stats, err := stats.Get()
 	if err != nil {
 		return err
 	}
@@ -48,9 +47,7 @@ func getAnalyticsHandler(c echo.Context) error {
 }
 
 func getStatsHandler(c echo.Context) error {
-	s := stats.Service{}
-
-	stats, err := s.Stats()
+	stats, err := stats.Get()
 	if err != nil {
 		return err
 	}

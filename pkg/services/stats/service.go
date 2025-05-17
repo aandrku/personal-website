@@ -10,10 +10,7 @@ import (
 	"github.com/shirou/gopsutil/v4/mem"
 )
 
-type Service struct {
-}
-
-func (s Service) Stats() (model.Stats, error) {
+func Get() (model.Stats, error) {
 	var stats model.Stats
 
 	m, err := mem.VirtualMemory()

@@ -14,12 +14,12 @@ type Stats struct {
 	Uptime      uint64
 }
 
-func (s Stats) MemoryUsedMB() string {
-	return fmt.Sprintf("%.2fMB", float64(s.MemoryUsed)/(1024*1024*1024))
+func (s Stats) MemoryUsedGB() string {
+	return fmt.Sprintf("%.2fGB", float64(s.MemoryUsed)/(1024*1024*1024))
 }
 
-func (s Stats) MemoryTotalMB() string {
-	return fmt.Sprintf("%.2fMB", float64(s.MemoryTotal)/(1024*1024*1024))
+func (s Stats) MemoryTotalGB() string {
+	return fmt.Sprintf("%.2fGB", float64(s.MemoryTotal)/(1024*1024*1024))
 }
 
 func (s Stats) DiskUsedGB() string {

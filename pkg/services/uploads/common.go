@@ -7,20 +7,20 @@ import (
 )
 
 const (
-	uploadsDir = "./data/uploads/"
+	UploadsDir = "./data/uploads/"
 )
 
 func init() {
-	err := os.Mkdir(uploadsDir, 0755)
+	err := os.Mkdir(UploadsDir, 0755)
 	if err != nil && !os.IsExist(err) {
-		log.Fatalf("Unable to create %s directory %v", uploadsDir, err)
+		log.Fatalf("Unable to create %s directory %v", UploadsDir, err)
 	}
 }
 
 func Get() ([]os.FileInfo, error) {
 	var infos []os.FileInfo
 
-	files, err := os.ReadDir(uploadsDir)
+	files, err := os.ReadDir(UploadsDir)
 	if err != nil {
 		return infos, err
 	}
@@ -38,7 +38,7 @@ func Get() ([]os.FileInfo, error) {
 }
 
 func New(r io.Reader, name string) error {
-	f, err := os.Create(uploadsDir + name)
+	f, err := os.Create(UploadsDir + name)
 	if err != nil {
 		return err
 	}
@@ -52,7 +52,7 @@ func New(r io.Reader, name string) error {
 }
 
 func Remove(name string) error {
-	err := os.Remove(uploadsDir + name)
+	err := os.Remove(UploadsDir + name)
 	if err != nil {
 		return err
 	}

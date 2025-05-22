@@ -1,15 +1,17 @@
 package site
 
 import (
+	"log"
+	"net/http"
+
 	"github.com/aandrku/portfolio-v2/pkg/model"
+	"github.com/aandrku/portfolio-v2/pkg/services/about"
 	"github.com/aandrku/portfolio-v2/pkg/services/analytics"
 	"github.com/aandrku/portfolio-v2/pkg/services/project"
 	"github.com/aandrku/portfolio-v2/pkg/view"
 	"github.com/aandrku/portfolio-v2/pkg/view/components"
 	"github.com/aandrku/portfolio-v2/pkg/view/pages"
 	"github.com/aandrku/portfolio-v2/pkg/view/svgs"
-	"log"
-	"net/http"
 
 	"github.com/labstack/echo/v4"
 )
@@ -24,18 +26,14 @@ func getIndex(c echo.Context) error {
 	return view.Render(c, http.StatusOK, page)
 }
 
-// newGetAboutWindow return a getAboutWindowHandler,
-// which serves about window to the client.
-func newGetAboutWindow() func(echo.Context) error {
-	creator, err := model.NewCreator()
+// getAboutWindow serves about window to the client.
+func getAboutWindow(c echo.Context) error {
+	info, err := about.GetInfo()
 	if err != nil {
-		log.Fatalf("failed to create creator model: %v\n", err)
+		log.Fatalf("failed to get about info: %v\n", err)
 	}
-	component := components.AboutWindow(creator)
-
-	return func(c echo.Context) error {
-		return view.Render(c, http.StatusOK, component)
-	}
+	component := components.AboutWindow(info)
+	return view.Render(c, http.StatusOK, component)
 }
 
 // getHomeWindow serves home window to the client.

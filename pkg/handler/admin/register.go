@@ -1,13 +1,22 @@
 package admin
 
-import "github.com/labstack/echo/v4"
+import (
+	"github.com/aandrku/portfolio-v2/pkg/handler/admin/about"
+	"github.com/labstack/echo/v4"
+)
 
 func Register(g *echo.Group) {
 	// dashboard
 	g.GET("/dashboard", getDashboardPage)
 
+	// markdown preview
+	g.POST("/markdown-preview", postMarkdownPreview)
+
 	// analytics
 	g.GET("/analytics", getAnalyticsWidget)
+
+	// about
+	about.Register(g.Group("/about"))
 
 	// statistics
 	g.GET("/stats", getStatsWidget)

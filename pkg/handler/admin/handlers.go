@@ -1,15 +1,17 @@
 package admin
 
 import (
+	"log"
+	"net/http"
+
 	"github.com/aandrku/portfolio-v2/pkg/services/analytics"
+	"github.com/aandrku/portfolio-v2/pkg/services/markdown"
 	"github.com/aandrku/portfolio-v2/pkg/services/stats"
 	"github.com/aandrku/portfolio-v2/pkg/services/uploads"
 	"github.com/aandrku/portfolio-v2/pkg/view"
 	"github.com/aandrku/portfolio-v2/pkg/view/components/dashboard"
 	"github.com/aandrku/portfolio-v2/pkg/view/components/forms"
 	"github.com/aandrku/portfolio-v2/pkg/view/pages"
-	"log"
-	"net/http"
 
 	"github.com/labstack/echo/v4"
 )
@@ -120,4 +122,17 @@ func deleteUpload(c echo.Context) error {
 	}
 
 	return c.NoContent(http.StatusOK)
+}
+
+func postMarkdownPreview(c echo.Context) error {
+	md := c.FormValue("markdown")
+
+	html, err := markdown.ToHTML(md)
+	if err != nil {
+		return err
+	}
+
+	t := view.Unsafe(html)
+
+	return view.Render(c, http.StatusOK, t)
 }

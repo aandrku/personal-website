@@ -1,20 +1,25 @@
 package windows
 
 import "github.com/aandrku/portfolio-v2/pkg/view/components/common"
-import "github.com/aandrku/portfolio-v2/pkg/model"
 import "github.com/aandrku/portfolio-v2/pkg/view"
+import "github.com/aandrku/portfolio-v2/pkg/services/about"
 
 const aboutTitle = "about"
 
-templ AboutWindow(c model.Creator) {
+templ AboutWindow(info about.AboutInfo) {
 		<div class="bg-neutral-500/70 dark:bg-neutral-900/90 relative w-full h-full md:w-3xl 
 		md:h-2/3 md:border md:border-neutral-500 dark:md:border-sky-900
 		 backdrop-blur-sm overflow-hidden md:rounded-lg pt-10
 		">
 		@common.TitleBarWithButton(aboutTitle, common.WindowCloseButton())
 		<div class="overflow-auto h-full w-full px-4">
-			@creatorCard(c.Name, c.DescShort, c.AvatarURL)
-			@description(c.DescDoc)
+			@creatorCard(info.Name, info.DescShort, info.AvatarURL)
+			{{ descriptionHTML, err := info.DescriptionHTML() }}
+			if err != nil {
+				@description("There was an error while getting this info:/")
+			} else {
+				@description(descriptionHTML)
+			}
 		</div>
 	</div>
 }

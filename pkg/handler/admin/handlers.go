@@ -4,6 +4,7 @@ import (
 	"net/http"
 	"template1/pkg/services/analytics"
 	"template1/pkg/services/stats"
+	"template1/pkg/services/uploads"
 	"template1/pkg/view"
 	"template1/pkg/view/components/dashboard"
 	"template1/pkg/view/components/forms"
@@ -15,12 +16,21 @@ import (
 func getDashboardHandler(c echo.Context) error {
 	as := analytics.Service{}
 
+	// TODO: give this better name, after I get rid of these redundant props
 	awp := dashboard.AnalyticsWidgetProps{
 		VisitsToday: as.TotalVisits(),
 		VisitsTotal: as.TotalVisits(),
 	}
 
+	// this is here, cause of error handlign
 	stats, err := stats.Get()
+	if err != nil {
+		return err
+	}
+
+	// same here
+	// ups means uploads
+	ups, err := uploads.Get()
 	if err != nil {
 		return err
 	}
@@ -28,7 +38,9 @@ func getDashboardHandler(c echo.Context) error {
 	props := pages.DashboardProps{
 		AnalyticsWidgetProps: awp,
 		Stats:                stats,
+		Uploads:              ups,
 	}
+
 	dashboard := pages.Dashboard(props)
 
 	return view.Render(c, http.StatusOK, dashboard)

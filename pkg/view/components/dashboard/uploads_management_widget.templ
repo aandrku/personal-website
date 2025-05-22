@@ -1,6 +1,9 @@
 package dashboard
 
-templ UploadsManagementWidget() {
+import "os"
+import "fmt"
+
+templ UploadsManagementWidget(uploads []os.FileInfo) {
 <div id="assets-widget" class="border border-zinc-700 w-full h-1/4 rounded-md relative bg-zinc-800 shadow-lg shadow-black/20">
   <div class="absolute -top-3 left-5 bg-zinc-900 px-2 text-lg text-zinc-400 rounded-md border border-zinc-700">
 	Uploads Management Widget
@@ -13,67 +16,47 @@ templ UploadsManagementWidget() {
       Upload New Asset
     </button>
 
-    <!-- Asset Items -->
-    <div class="flex justify-between items-center text-sm text-zinc-400">
-      <span>project-docs.pdf</span>
-      <div class="flex items-center gap-2">
-        <span>412 KB</span>
-        <button class="ml-2 bg-red-800/50 hover:bg-red-900 text-white px-2 py-1 rounded-md text-xs transition">
-          Remove
-        </button>
-      </div>
-    </div>
+	for _, upload := range uploads {
+		@UploadCard(upload)
+	}
 
-    <div class="flex justify-between items-center text-sm text-zinc-400">
-      <span>logo.png</span>
-      <div class="flex items-center gap-2">
-        <span>96 KB</span>
-        <button class="ml-2 bg-red-800/50 hover:bg-red-900 text-white px-2 py-1 rounded-md text-xs transition">
-          Remove
-        </button>
-      </div>
-    </div>
-
-    <div class="flex justify-between items-center text-sm text-zinc-400">
-      <span>notes.md</span>
-      <div class="flex items-center gap-2">
-        <span>5.2 KB</span>
-        <button class="ml-2 bg-red-800/50 hover:bg-red-900 text-white px-2 py-1 rounded-md text-xs transition">
-          Remove
-        </button>
-      </div>
-    </div>
-
-    <div class="flex justify-between items-center text-sm text-zinc-400">
-      <span>backup.zip</span>
-      <div class="flex items-center gap-2">
-        <span>1.3 MB</span>
-        <button class="ml-2 bg-red-800/50 hover:bg-red-900 text-white px-2 py-1 rounded-md text-xs transition">
-          Remove
-        </button>
-      </div>
-    </div>
-
-    <div class="flex justify-between items-center text-sm text-zinc-400">
-      <span>resume.pdf</span>
-      <div class="flex items-center gap-2">
-        <span>232 KB</span>
-        <button class="ml-2 bg-red-800/50 hover:bg-red-900 text-white px-2 py-1 rounded-md text-xs transition">
-          Remove
-        </button>
-      </div>
-    </div>
-
-    <div class="flex justify-between items-center text-sm text-zinc-400">
-      <span>banner.jpg</span>
-      <div class="flex items-center gap-2">
-        <span>680 KB</span>
-        <button class="ml-2 bg-red-800/50 hover:bg-red-900 text-white px-2 py-1 rounded-md text-xs transition">
-          Remove
-        </button>
-      </div>
-    </div>
   </div>
 </div>
 
+}
+
+templ UploadCard(upload os.FileInfo) {
+    <div class="flex justify-between items-center text-sm text-zinc-400">
+      <span>{upload.Name()}</span>
+      <div class="flex items-center gap-2">
+        <span>{bytesToSizeString(upload.Size())}</span>
+        <button class="ml-2 bg-red-800/50 hover:bg-red-900 text-white px-2 py-1 rounded-md text-xs transition">
+          Remove
+        </button>
+      </div>
+    </div>
+}
+
+// bytesToSizeString takes in the amount of bytes 
+// and returns a nicely formatted string like this - 246kb
+func bytesToSizeString(bytes int64) string {
+	const (
+		kb = 1 << 10 // 1024
+		mb = 1 << 20 // 1024 * 1024
+		gb = 1 << 30 // etc.
+		tb = 1 << 40
+	)
+
+	switch {
+	case bytes >= tb:
+		return fmt.Sprintf("%.1ftb", float64(bytes)/float64(tb))
+	case bytes >= gb:
+		return fmt.Sprintf("%.1fgb", float64(bytes)/float64(gb))
+	case bytes >= mb:
+		return fmt.Sprintf("%.1fmb", float64(bytes)/float64(mb))
+	case bytes >= kb:
+		return fmt.Sprintf("%.1fkb", float64(bytes)/float64(kb))
+	default:
+		return fmt.Sprintf("%d bytes", bytes)
+	}
 }

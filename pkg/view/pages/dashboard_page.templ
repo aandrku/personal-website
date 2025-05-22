@@ -2,10 +2,12 @@ package pages
 
 import "template1/pkg/view/components/dashboard"
 import "template1/pkg/model"
+import "os"
 
 type DashboardProps struct {
 	dashboard.AnalyticsWidgetProps
 	model.Stats
+	Uploads []os.FileInfo
 }
 
 templ Dashboard(props DashboardProps) {
@@ -18,7 +20,7 @@ templ Dashboard(props DashboardProps) {
 		  </section>
 
 		  <section id="middle-column" class="flex flex-col w-full h-full gap-6">
-		   @dashboard.UploadsManagementWidget()
+		   @dashboard.UploadsManagementWidget(props.Uploads)
 		   @dashboard.ProjectsWidget()
 		  </section>
 

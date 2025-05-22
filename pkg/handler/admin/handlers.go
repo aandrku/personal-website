@@ -1,6 +1,7 @@
 package admin
 
 import (
+	"log"
 	"net/http"
 	"template1/pkg/services/analytics"
 	"template1/pkg/services/stats"
@@ -73,4 +74,22 @@ func getStatsHandler(c echo.Context) error {
 func getFormsUpload(c echo.Context) error {
 	form := forms.UploadAsset()
 	return view.Render(c, http.StatusOK, form)
+}
+
+func getFormsUploadDelete(c echo.Context) error {
+	filename := c.Param("filename")
+	form := forms.DeleteUploadConfirmationForm(filename)
+	return view.Render(c, http.StatusOK, form)
+}
+
+func deleteUpload(c echo.Context) error {
+	filename := c.Param("filename")
+
+	err := uploads.Remove(filename)
+	if err != nil {
+		log.Fatalf("%s file, %v", filename, err)
+		return err
+	}
+
+	return c.NoContent(http.StatusOK)
 }

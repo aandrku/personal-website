@@ -4,7 +4,7 @@ import "os"
 import "fmt"
 
 templ UploadsManagementWidget(uploads []os.FileInfo) {
-<div id="assets-widget" class="border border-zinc-700 w-full h-1/4 rounded-md relative bg-zinc-800 shadow-lg shadow-black/20">
+<div id="uploads-widget" class="border border-zinc-700 w-full h-1/4 rounded-md relative bg-zinc-800 shadow-lg shadow-black/20">
   <div class="absolute -top-3 left-5 bg-zinc-900 px-2 text-lg text-zinc-400 rounded-md border border-zinc-700">
 	Uploads Management Widget
   </div>
@@ -30,7 +30,10 @@ templ UploadCard(upload os.FileInfo) {
       <span>{upload.Name()}</span>
       <div class="flex items-center gap-2">
         <span>{bytesToSizeString(upload.Size())}</span>
-        <button class="ml-2 bg-red-800/50 hover:bg-red-900 text-white px-2 py-1 rounded-md text-xs transition">
+        <button class="ml-2 bg-red-800/50 hover:bg-red-900 text-white px-2 py-1 rounded-md text-xs transition"
+		hx-get={"/admin/forms/upload/delete/" + upload.Name()} hx-target="#root"
+		hx-swap="afterbegin">
+		
           Remove
         </button>
       </div>

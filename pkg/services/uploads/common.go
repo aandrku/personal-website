@@ -6,7 +6,7 @@ import (
 )
 
 const (
-	uploadsDir = "./data/uploads"
+	uploadsDir = "./data/uploads/"
 )
 
 func init() {
@@ -37,6 +37,10 @@ func Get() ([]os.FileInfo, error) {
 }
 
 func Remove(name string) error {
+	err := os.Remove(uploadsDir + name)
+	if err != nil {
+		return err
+	}
 
 	return nil
 }

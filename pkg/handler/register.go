@@ -8,6 +8,10 @@ import (
 )
 
 func Register(e *echo.Echo) {
+	// static file serving
+	e.Static("/assets", "assets")
+	e.Static("/uploads", "./data/uploads")
+
 	e.GET("/", indexHandler)
 	e.GET("/home", getHomeHandler)
 	e.GET("/about", getAboutHandler())

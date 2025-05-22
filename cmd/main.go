@@ -9,8 +9,6 @@ import (
 func main() {
 	e := echo.New()
 
-	e.Static("/assets", "assets")
-
 	handler.Register(e)
 
 	e.Logger.Fatal(e.Start(":3000"))

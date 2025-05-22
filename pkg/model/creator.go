@@ -13,7 +13,7 @@ const descFile = "assets/md/about_description.md"
 func NewCreator() (Creator, error) {
 	c := Creator{
 		Name:      "Andrii Sozonik",
-		AvatarURL: "/assets/pics/avatar.png",
+		AvatarURL: "/uploads/avatar.png",
 		DescShort: "self-taught developer",
 	}
 

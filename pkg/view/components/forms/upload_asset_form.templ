@@ -2,7 +2,7 @@ package forms
 
 
 templ UploadAsset() {
-	<div id="overlay" class="fixed inset-0 z-50 bg-black/60 flex items-center justify-center">
+	<div id="upload-form-overlay" class="fixed inset-0 z-50 bg-black/60 flex items-center justify-center">
 	  <!-- Modal Dialog -->
 	  <div class="bg-zinc-800 border border-zinc-700 shadow-lg shadow-black/40 rounded-xl w-full max-w-md p-6 space-y-6 relative">
 		<div class="absolute -top-4 left-6 bg-zinc-900 text-zinc-300 text-lg px-3 py-1 rounded-md border border-zinc-700">
@@ -10,7 +10,8 @@ templ UploadAsset() {
 		</div>
 
 		<!-- Form -->
-		<form action="/upload" method="POST" enctype="multipart/form-data" class="space-y-4">
+		<form hx-post="/admin/upload" hx-encoding="multipart/form-data"
+		hx-swap="delete" hx-target="#upload-form-overlay" class="space-y-4">
 		  <div class="flex flex-col">
 			<label for="filename" class="text-zinc-300 mb-1">File Name</label>
 			<input id="filename" name="filename" type="text" required

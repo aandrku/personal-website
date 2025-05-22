@@ -18,7 +18,7 @@ templ DeleteUploadConfirmationForm(fileName string) {
 		  </button>
 		  <button 
 			class="bg-red-700 hover:bg-red-800 text-white px-4 py-2 rounded-md font-medium"
-			hx-delete={"/admin/upload/delete/" + fileName}
+			hx-delete={"/admin/upload/" + fileName}
 			hx-target="#confirm-delete-overlay"
 			hx-swap="delete">
 			Yes, Delete

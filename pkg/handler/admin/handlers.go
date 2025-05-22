@@ -82,6 +82,27 @@ func getFormsUploadDelete(c echo.Context) error {
 	return view.Render(c, http.StatusOK, form)
 }
 
+func postUpload(c echo.Context) error {
+	name := c.FormValue("filename")
+
+	file, err := c.FormFile("file")
+	if err != nil {
+		return err
+	}
+
+	src, err := file.Open()
+	if err != nil {
+		return err
+	}
+
+	err = uploads.New(src, name)
+	if err != nil {
+		return err
+	}
+
+	return c.NoContent(http.StatusOK)
+}
+
 func deleteUpload(c echo.Context) error {
 	filename := c.Param("filename")
 

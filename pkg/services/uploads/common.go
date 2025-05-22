@@ -1,6 +1,7 @@
 package uploads
 
 import (
+	"io"
 	"log"
 	"os"
 )
@@ -34,6 +35,20 @@ func Get() ([]os.FileInfo, error) {
 	}
 
 	return infos, nil
+}
+
+func New(r io.Reader, name string) error {
+	f, err := os.Create(uploadsDir + name)
+	if err != nil {
+		return err
+	}
+
+	_, err = io.Copy(f, r)
+	if err != nil {
+		return err
+	}
+	return nil
+
 }
 
 func Remove(name string) error {

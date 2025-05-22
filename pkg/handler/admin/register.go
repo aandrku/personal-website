@@ -8,5 +8,6 @@ func Register(g *echo.Group) {
 	g.GET("/stats", getStatsHandler)
 	g.GET("/forms/upload", getFormsUpload)
 	g.GET("/forms/upload/delete/:filename", getFormsUploadDelete)
-	g.DELETE("/upload/delete/:filename", deleteUpload)
+	g.DELETE("/upload/:filename", deleteUpload)
+	g.POST("/upload", postUpload)
 }

@@ -1,8 +1,6 @@
 package fs
 
-import (
-	"template1/pkg/model"
-)
+import "github.com/aandrku/portfolio-v2/pkg/model"
 
 type Store struct{}
 

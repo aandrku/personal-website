@@ -1,15 +1,15 @@
 package admin
 
 import (
+	"github.com/aandrku/portfolio-v2/pkg/services/analytics"
+	"github.com/aandrku/portfolio-v2/pkg/services/stats"
+	"github.com/aandrku/portfolio-v2/pkg/services/uploads"
+	"github.com/aandrku/portfolio-v2/pkg/view"
+	"github.com/aandrku/portfolio-v2/pkg/view/components/dashboard"
+	"github.com/aandrku/portfolio-v2/pkg/view/components/forms"
+	"github.com/aandrku/portfolio-v2/pkg/view/pages"
 	"log"
 	"net/http"
-	"template1/pkg/services/analytics"
-	"template1/pkg/services/stats"
-	"template1/pkg/services/uploads"
-	"template1/pkg/view"
-	"template1/pkg/view/components/dashboard"
-	"template1/pkg/view/components/forms"
-	"template1/pkg/view/pages"
 
 	"github.com/labstack/echo/v4"
 )

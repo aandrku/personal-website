@@ -1,6 +1,6 @@
 package project
 
-import "template1/pkg/model"
+import "github.com/aandrku/portfolio-v2/pkg/model"
 
 func NewManager() *Manager {
 	return &Manager{}

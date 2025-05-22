@@ -1,11 +1,11 @@
 package blog
 
 import (
+	"github.com/aandrku/portfolio-v2/pkg/services/blog"
+	"github.com/aandrku/portfolio-v2/pkg/view"
+	"github.com/aandrku/portfolio-v2/pkg/view/components"
+	"github.com/aandrku/portfolio-v2/pkg/view/pages"
 	"net/http"
-	"template1/pkg/services/blog"
-	"template1/pkg/view"
-	"template1/pkg/view/components"
-	"template1/pkg/view/pages"
 
 	"github.com/labstack/echo/v4"
 )

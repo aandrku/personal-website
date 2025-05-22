@@ -1,8 +1,8 @@
 package handler
 
 import (
-	"template1/pkg/handler/admin"
-	"template1/pkg/handler/blog"
+	"github.com/aandrku/portfolio-v2/pkg/handler/admin"
+	"github.com/aandrku/portfolio-v2/pkg/handler/blog"
 
 	"github.com/labstack/echo/v4"
 )

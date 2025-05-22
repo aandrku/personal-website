@@ -1,8 +1,7 @@
 package main
 
 import (
-	"template1/pkg/handler"
-
+	"github.com/aandrku/portfolio-v2/pkg/handler"
 	"github.com/labstack/echo/v4"
 )
 

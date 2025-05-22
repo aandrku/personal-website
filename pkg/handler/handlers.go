@@ -1,15 +1,15 @@
 package handler
 
 import (
+	"github.com/aandrku/portfolio-v2/pkg/model"
+	"github.com/aandrku/portfolio-v2/pkg/services/analytics"
+	"github.com/aandrku/portfolio-v2/pkg/services/project"
+	"github.com/aandrku/portfolio-v2/pkg/view"
+	"github.com/aandrku/portfolio-v2/pkg/view/components"
+	"github.com/aandrku/portfolio-v2/pkg/view/pages"
+	"github.com/aandrku/portfolio-v2/pkg/view/svgs"
 	"log"
 	"net/http"
-	"template1/pkg/model"
-	"template1/pkg/services/analytics"
-	"template1/pkg/services/project"
-	"template1/pkg/view"
-	"template1/pkg/view/components"
-	"template1/pkg/view/pages"
-	"template1/pkg/view/svgs"
 
 	"github.com/labstack/echo/v4"
 )

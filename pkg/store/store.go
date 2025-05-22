@@ -1,6 +1,6 @@
 package store
 
-import "template1/pkg/model"
+import "github.com/aandrku/portfolio-v2/pkg/model"
 
 type Store interface {
 	GetPosts() ([]*model.Post, error)

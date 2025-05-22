@@ -1,9 +1,9 @@
 package stats
 
 import (
-	"template1/pkg/model"
 	"time"
 
+	"github.com/aandrku/portfolio-v2/pkg/model"
 	"github.com/shirou/gopsutil/v4/cpu"
 	"github.com/shirou/gopsutil/v4/disk"
 	"github.com/shirou/gopsutil/v4/host"

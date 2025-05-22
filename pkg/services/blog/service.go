@@ -1,9 +1,9 @@
 package blog
 
 import (
-	"template1/pkg/model"
-	"template1/pkg/store"
-	"template1/pkg/store/fs"
+	"github.com/aandrku/portfolio-v2/pkg/model"
+	"github.com/aandrku/portfolio-v2/pkg/store"
+	"github.com/aandrku/portfolio-v2/pkg/store/fs"
 )
 
 func NewService() *Service {

@@ -1,4 +1,4 @@
-module template1
+module github.com/aandrku/portfolio-v2
 
 go 1.24.2
 

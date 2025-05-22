@@ -1,8 +1,8 @@
 package components
 
 import (
-	"template1/pkg/view/components/common"
-	"template1/pkg/view/components/windows"
+	"github.com/aandrku/portfolio-v2/pkg/view/components/common"
+	"github.com/aandrku/portfolio-v2/pkg/view/components/windows"
 )
 
 var (

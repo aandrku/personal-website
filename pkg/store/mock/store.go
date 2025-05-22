@@ -2,8 +2,8 @@ package mock
 
 import (
 	"errors"
-	"template1/pkg/model"
 
+	"github.com/aandrku/portfolio-v2/pkg/model"
 	"github.com/google/uuid"
 )
 

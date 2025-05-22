@@ -14,7 +14,8 @@ import (
 	"github.com/labstack/echo/v4"
 )
 
-func getDashboardHandler(c echo.Context) error {
+// getDashboardPage serves dashboard page to the client.
+func getDashboardPage(c echo.Context) error {
 	as := analytics.Service{}
 
 	// TODO: give this better name, after I get rid of these redundant props
@@ -47,7 +48,8 @@ func getDashboardHandler(c echo.Context) error {
 	return view.Render(c, http.StatusOK, dashboard)
 }
 
-func getAnalyticsHandler(c echo.Context) error {
+// / getAnalyticsWidget serves analytics widget to the client.
+func getAnalyticsWidget(c echo.Context) error {
 	s := analytics.Service{}
 
 	p := dashboard.AnalyticsWidgetProps{
@@ -60,7 +62,8 @@ func getAnalyticsHandler(c echo.Context) error {
 	return view.Render(c, http.StatusOK, w)
 }
 
-func getStatsHandler(c echo.Context) error {
+// getStatsWidget serves stats widget to the client.
+func getStatsWidget(c echo.Context) error {
 	stats, err := stats.Get()
 	if err != nil {
 		return err
@@ -71,17 +74,20 @@ func getStatsHandler(c echo.Context) error {
 
 }
 
-func getFormsUpload(c echo.Context) error {
+// getUploadForm serves upload form to the client.
+func getUploadForm(c echo.Context) error {
 	form := forms.UploadAsset()
 	return view.Render(c, http.StatusOK, form)
 }
 
-func getFormsUploadDelete(c echo.Context) error {
+// getUploadDeleteForm server upload-delete form to the client.
+func getUploadDeleteForm(c echo.Context) error {
 	filename := c.Param("filename")
 	form := forms.DeleteUploadConfirmationForm(filename)
 	return view.Render(c, http.StatusOK, form)
 }
 
+// postUpload store a new upload on the server's filesystem.
 func postUpload(c echo.Context) error {
 	name := c.FormValue("filename")
 
@@ -103,6 +109,7 @@ func postUpload(c echo.Context) error {
 	return c.NoContent(http.StatusOK)
 }
 
+// deleteUpload deletes an upload from the server.
 func deleteUpload(c echo.Context) error {
 	filename := c.Param("filename")
 

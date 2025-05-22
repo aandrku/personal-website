@@ -10,7 +10,8 @@ import (
 	"github.com/labstack/echo/v4"
 )
 
-func blogHandler(c echo.Context) error {
+// getWindow serves a blog window to the client.
+func getWindow(c echo.Context) error {
 	service := blog.NewService()
 	posts, err := service.Posts()
 	if err != nil {
@@ -21,7 +22,8 @@ func blogHandler(c echo.Context) error {
 	return view.Render(c, http.StatusOK, component)
 }
 
-func postHandler(c echo.Context) error {
+// getPost serves a post to the client.
+func getPost(c echo.Context) error {
 	id := c.Param("id")
 	service := blog.NewService()
 

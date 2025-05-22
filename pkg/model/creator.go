@@ -37,7 +37,6 @@ func NewCreator() (Creator, error) {
 	return c, nil
 }
 
-// This is me
 type Creator struct {
 	Name      string
 	AvatarURL string

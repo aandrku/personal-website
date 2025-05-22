@@ -1,4 +1,4 @@
-package handler
+package site
 
 import (
 	"github.com/aandrku/portfolio-v2/pkg/model"
@@ -14,7 +14,8 @@ import (
 	"github.com/labstack/echo/v4"
 )
 
-func indexHandler(c echo.Context) error {
+// getIndex serves index page to the client.
+func getIndex(c echo.Context) error {
 	as := analytics.Service{}
 	as.IncrementVisits()
 
@@ -23,7 +24,9 @@ func indexHandler(c echo.Context) error {
 	return view.Render(c, http.StatusOK, page)
 }
 
-func getAboutHandler() func(echo.Context) error {
+// newGetAboutWindow return a getAboutWindowHandler,
+// which serves about window to the client.
+func newGetAboutWindow() func(echo.Context) error {
 	creator, err := model.NewCreator()
 	if err != nil {
 		log.Fatalf("failed to create creator model: %v\n", err)
@@ -35,12 +38,15 @@ func getAboutHandler() func(echo.Context) error {
 	}
 }
 
-func getHomeHandler(c echo.Context) error {
+// getHomeWindow serves home window to the client.
+func getHomeWindow(c echo.Context) error {
 	component := components.HomeWindow()
 	return view.Render(c, http.StatusOK, component)
 }
 
-func getProjectsHandler() func(echo.Context) error {
+// newGetProjectsWindow return a handler that serves
+// projects window to the client.
+func newGetProjectsWindow() func(echo.Context) error {
 	m := project.NewManager()
 
 	m.AddProject(model.Project{
@@ -88,7 +94,8 @@ func getProjectsHandler() func(echo.Context) error {
 
 }
 
-func getLinksHandler() func(echo.Context) error {
+// newGetLinksWindow return a handler that serves links window to the client.
+func newGetLinksWindow() func(echo.Context) error {
 	links := []model.Link{
 		{"github", "https://github.com/aandrku", svgs.GithubIcon()},
 		{"linkedin", "https://www.linkedin.com/in/aandrku/", svgs.LinkdlnIcon()},
@@ -100,11 +107,15 @@ func getLinksHandler() func(echo.Context) error {
 	}
 }
 
-func getContactHandler(c echo.Context) error {
+// getContactWindow serves contact window to the client.
+func getContactWindow(c echo.Context) error {
 	component := components.ContactWindow()
 	return view.Render(c, http.StatusOK, component)
 }
 
-func deleteHandler(c echo.Context) error {
+// getDelete serves empty http response to the client.
+//
+// This handler is used for removal of html elements, while using HTMX.
+func getDelete(c echo.Context) error {
 	return c.NoContent(http.StatusOK)
 }

@@ -12,7 +12,7 @@ templ UploadsManagementWidget(uploads []os.FileInfo) {
   <div class="h-full flex flex-col gap-4 p-6 pt-10 overflow-y-auto">
     <!-- Upload Button -->
     <button class="w-full text-left bg-zinc-700 hover:bg-zinc-600 text-zinc-100 px-4 py-2 rounded-md text-sm font-medium transition"
-	hx-get="/admin/forms/upload" hx-target="#root" hx-swap="afterbegin">
+	hx-get="/admin/upload/form" hx-target="#root" hx-swap="afterbegin">
       Upload New Asset
     </button>
 
@@ -31,7 +31,7 @@ templ UploadCard(upload os.FileInfo) {
       <div class="flex items-center gap-2">
         <span>{bytesToSizeString(upload.Size())}</span>
         <button class="ml-2 bg-red-800/50 hover:bg-red-900 text-white px-2 py-1 rounded-md text-xs transition"
-		hx-get={"/admin/forms/upload/delete/" + upload.Name()} hx-target="#root"
+		hx-get={"/admin/upload/delete-form/" + upload.Name()} hx-target="#root"
 		hx-swap="afterbegin">
 		
           Remove

@@ -76,6 +76,16 @@ func getStatsWidget(c echo.Context) error {
 
 }
 
+// getUploadWidget serves upload widget to the client.
+func getUploadWidget(c echo.Context) error {
+	ups, err := uploads.Get()
+	if err != nil {
+		return err
+	}
+	w := dashboard.UploadsManagementWidget(ups)
+	return view.Render(c, http.StatusOK, w)
+}
+
 // getUploadForm serves upload form to the client.
 func getUploadForm(c echo.Context) error {
 	form := forms.UploadAsset()
@@ -108,6 +118,7 @@ func postUpload(c echo.Context) error {
 		return err
 	}
 
+	c.Response().Header().Add("HX-Trigger", "updateUploads")
 	return c.NoContent(http.StatusOK)
 }
 
@@ -121,6 +132,7 @@ func deleteUpload(c echo.Context) error {
 		return err
 	}
 
+	c.Response().Header().Add("HX-Trigger", "updateUploads")
 	return c.NoContent(http.StatusOK)
 }
 

@@ -24,9 +24,6 @@ func Register(e *echo.Echo) {
 	// projects window
 	e.GET("/projects-window", newGetProjectsWindow())
 
-	// links window
-	e.GET("/links-window", newGetLinksWindow())
-
 	// contact window
 	e.GET("/contact-window", getContactWindow)
 

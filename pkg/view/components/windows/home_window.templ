@@ -19,40 +19,24 @@ var linkList = []linkProps{
 	{"contact", "/contact-window", svgs.ContactIcon()},
 }
 
+
 templ HomeWindow() {
-		<div id="home-window" class="sm:bg-neutral-500/20 sm:dark:bg-neutral-900/50  sm:backdrop-blur-sm w-full h-full md:w-3xl md:h-[36rem]
-		md:border md:border-neutral-500 dark:md:border-sky-900
-		flex flex-col gap-16 justify-center items-center
-		sm:rounded-lg overflow-hidden">
-			@common.TitleBar(homeTitle)
-			@header()
-			@links()
-		</div>
+  @common.WindowBase("Home") {
+    <div class="w-full h-full sm:h-auto sm:max-w-[36rem] sm:max-h-[60vh] overflow-auto no-scrollbar pt-32 sm:pt-6 px-6 py-6 flex flex-col items-center text-center text-zinc-200 space-y-4">
+
+      <h1 class="text-3xl sm:text-2xl font-bold">
+        Hi, I'm <span class="text-blue-400">Andrii</span>
+      </h1>
+
+      <p class="text-lg sm:text-base">
+        I'm a software developer.
+      </p>
+
+      <p class="text-base sm:text-sm text-zinc-400">
+        Use the dock below to open sections of the site.
+      </p>
+
+    </div>
+  }
 }
 
-
-templ header() {
-	<div class="flex flex-col gap-2 items-center">
-		<p class="text-3xl sm:text-5xl text-neutral-800 dark:text-neutral-400">hi, i'm <span class="text-violet-500 dark:text-sky-700">andrii</span></p>
-		<p class="text-2xl sm:text-4xl text-neutral-700 dark:text-neutral-500">a software developer</p>
-	</div>
-}
-
-templ links() {
-	<div class="flex flex-wrap flex-row gap-4 items-center justify-center">
-		for _, l := range linkList {
-			@link(l)
-		}
-	</div>
-}
-
-templ link(props linkProps) {
-	<div class="flex flex-col items-center gap-2">
-		<div hx-get={props.link} hx-target="#window-container" hx-swap="innerHTML" class="w-22 h-22 md:w-20 md:h-20 bg-violet-600/20 dark:bg-sky-700/30
-		hover:scale-90 active:bg-violet-700/40 dark:active:bg-sky-800/30
-		p-4 rounded-2xl transition duration-150 ease-in-out">
-			@props.icon
-		</div>
-		<p class="text-lg text-neutral-800 dark:text-neutral-500">{props.name}</p>	
-	</div>
-}

@@ -4,20 +4,15 @@ import "github.com/aandrku/portfolio-v2/pkg/view/components/common"
 import "github.com/aandrku/portfolio-v2/pkg/model"
 
 
-const blogTitle = "blog"
 
 templ BlogWindow(posts []*model.Post) {
-	<div class="bg-neutral-500/70 dark:bg-neutral-900/90 relative w-full h-full md:w-3xl 
-		md:h-2/3 md:border md:border-neutral-500 dark:md:border-sky-900
-		 backdrop-blur-sm overflow-hidden md:rounded-lg pt-10
-		">
-		@common.TitleBarWithButton(blogTitle, common.WindowCloseButton())
+	@common.WindowBase("blog") {
 		<div class="overflow-auto h-full w-full p-2">
 			for _, v := range posts {
 				@postCard(v)
 			}
 		</div>
-	</div>
+	}
 }
 
 

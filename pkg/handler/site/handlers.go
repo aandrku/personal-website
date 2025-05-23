@@ -11,7 +11,6 @@ import (
 	"github.com/aandrku/portfolio-v2/pkg/view"
 	"github.com/aandrku/portfolio-v2/pkg/view/components"
 	"github.com/aandrku/portfolio-v2/pkg/view/pages"
-	"github.com/aandrku/portfolio-v2/pkg/view/svgs"
 
 	"github.com/labstack/echo/v4"
 )
@@ -49,38 +48,38 @@ func newGetProjectsWindow() func(echo.Context) error {
 
 	m.AddProject(model.Project{
 		Name:         "Hangman TUI",
-		DemoURL:      "/assets/pics/hangman-demo.gif",
+		DemoURL:      "/uploads/hangman-demo.gif",
 		Technologies: []string{"Go", "ANSI", "GameDev", "Terminal"},
 		MoreInfoFile: "/assets/md/hangman.md",
 	})
 
 	m.AddProject(model.Project{
 		Name:         "Hangman TUI",
-		DemoURL:      "/assets/pics/hangman-demo.gif",
+		DemoURL:      "/uploads/hangman-demo.gif",
 		Technologies: []string{"Go", "ANSI"},
 		MoreInfoFile: "/assets/md/hangman.md",
 	})
 	m.AddProject(model.Project{
 		Name:         "Hangman TUI",
-		DemoURL:      "/assets/pics/hangman-demo.gif",
+		DemoURL:      "/uploads/hangman-demo.gif",
 		Technologies: []string{"Go", "ANSI"},
 		MoreInfoFile: "/assets/md/hangman.md",
 	})
 	m.AddProject(model.Project{
 		Name:         "Hangman TUI",
-		DemoURL:      "/assets/pics/hangman-demo.gif",
+		DemoURL:      "/uploads/hangman-demo.gif",
 		Technologies: []string{"Go", "ANSI"},
 		MoreInfoFile: "/assets/md/hangman.md",
 	})
 	m.AddProject(model.Project{
 		Name:         "Hangman TUI",
-		DemoURL:      "/assets/pics/hangman-demo.gif",
+		DemoURL:      "/uploads/hangman-demo.gif",
 		Technologies: []string{"Go", "ANSI"},
 		MoreInfoFile: "/assets/md/hangman.md",
 	})
 	m.AddProject(model.Project{
 		Name:         "Hangman TUI",
-		DemoURL:      "/assets/pics/hangman-demo.gif",
+		DemoURL:      "/uploads/hangman-demo.gif",
 		Technologies: []string{"Go", "ANSI"},
 		MoreInfoFile: "/assets/md/hangman.md",
 	})
@@ -90,19 +89,6 @@ func newGetProjectsWindow() func(echo.Context) error {
 		return view.Render(c, http.StatusOK, component)
 	}
 
-}
-
-// newGetLinksWindow return a handler that serves links window to the client.
-func newGetLinksWindow() func(echo.Context) error {
-	links := []model.Link{
-		{"github", "https://github.com/aandrku", svgs.GithubIcon()},
-		{"linkedin", "https://www.linkedin.com/in/aandrku/", svgs.LinkdlnIcon()},
-	}
-
-	return func(c echo.Context) error {
-		component := components.LinksWindow(links)
-		return view.Render(c, http.StatusOK, component)
-	}
 }
 
 // getContactWindow serves contact window to the client.

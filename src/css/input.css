@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "./no-scroll-bar.css";
 @import "./markdown.css";
 
 

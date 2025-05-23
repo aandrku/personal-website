@@ -39,20 +39,27 @@ templ BaseWithTitle(title string) {
 </html>
 }
 
+
 templ BlogPostBase() {
 <!DOCTYPE html>
-<html class="bg-neutral-400 dark:bg-stone-900 font-mono dark">
-	<head>
-		<title>aandrku's portfolio</title>
-		<link href="/assets/css/tailwind.css" rel="stylesheet">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	</head>
-	<body ontouchstart="" class="overflow-hidden w-full flex flex-col items-center">
-		@components.ThemeSwitchButton()
+<html class="bg-zinc-900 text-zinc-100 font-mono bg-[url('/uploads/blog-noise.svg')] bg-repeat bg-fixed">
+  <head>
+    <title>aandrku's portfolio</title>
+    <link href="/assets/css/tailwind.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
 
-		{children...}
+  <body ontouchstart=""
+        class="min-h-screen w-full flex flex-col items-center overflow-x-hidden">
 
-		<script src="https://unpkg.com/htmx.org@2.0.4" integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+" crossorigin="anonymous"></script>
-	</body>
+    <div class="w-full sm:max-w-7xl  sm:px-6 lg:px-8">
+      {children...}
+    </div>
+
+    <script src="https://unpkg.com/htmx.org@2.0.4"
+            integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+"
+            crossorigin="anonymous">
+    </script>
+  </body>
 </html>
 }

@@ -23,3 +23,7 @@ type Post struct {
 	UpdatedAt time.Time `json:"updatedAt"`
 	ViewCount int       `json:"viewCount"`
 }
+
+func (p *Post) Filename() string {
+	return p.Id.String() + ".json"
+}

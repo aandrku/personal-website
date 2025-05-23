@@ -1,6 +1,9 @@
 package fs
 
-import "github.com/aandrku/portfolio-v2/pkg/model"
+import (
+	"github.com/aandrku/portfolio-v2/pkg/model"
+	"github.com/google/uuid"
+)
 
 type Store struct{}
 
@@ -40,4 +43,19 @@ func (s Store) FindPost(id string) (*model.Post, error) {
 	}
 
 	return &model.Post{}, nil
+}
+
+func (s Store) CreatePost(post *model.Post) error {
+
+	return nil
+}
+
+func (s Store) UpdatePost(post *model.Post) error {
+
+	return nil
+}
+
+func (s Store) DeletePost(id uuid.UUID) error {
+
+	return nil
 }

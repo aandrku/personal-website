@@ -2,6 +2,7 @@ package admin
 
 import (
 	"github.com/aandrku/portfolio-v2/pkg/handler/admin/about"
+	"github.com/aandrku/portfolio-v2/pkg/handler/admin/blog"
 	"github.com/labstack/echo/v4"
 )
 
@@ -27,4 +28,7 @@ func Register(g *echo.Group) {
 	g.GET("/upload/delete-form/:filename", getUploadDeleteForm)
 	g.POST("/upload", postUpload)
 	g.DELETE("/upload/:filename", deleteUpload)
+
+	// blog
+	blog.Register(g.Group("/blog"))
 }

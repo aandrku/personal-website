@@ -5,6 +5,7 @@ import (
 	"net/http"
 
 	"github.com/aandrku/portfolio-v2/pkg/services/analytics"
+	"github.com/aandrku/portfolio-v2/pkg/services/blog"
 	"github.com/aandrku/portfolio-v2/pkg/services/markdown"
 	"github.com/aandrku/portfolio-v2/pkg/services/stats"
 	"github.com/aandrku/portfolio-v2/pkg/services/uploads"
@@ -19,6 +20,7 @@ import (
 // getDashboardPage serves dashboard page to the client.
 func getDashboardPage(c echo.Context) error {
 	as := analytics.Service{}
+	bs := blog.NewService()
 
 	// TODO: give this better name, after I get rid of these redundant props
 	awp := dashboard.AnalyticsWidgetProps{
@@ -39,10 +41,16 @@ func getDashboardPage(c echo.Context) error {
 		return err
 	}
 
+	posts, err := bs.Posts()
+	if err != nil {
+		return err
+	}
+
 	props := pages.DashboardProps{
 		AnalyticsWidgetProps: awp,
 		Stats:                stats,
 		Uploads:              ups,
+		Posts:                posts,
 	}
 
 	dashboard := pages.Dashboard(props)

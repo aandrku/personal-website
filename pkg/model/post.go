@@ -18,6 +18,7 @@ func NewPost(title string, content string) *Post {
 type Post struct {
 	Id        uuid.UUID `json:"id"`
 	Title     string    `json:"title"`
+	ShortDesc string    `json:"shortDescription"`
 	Content   string    `json:"content"`
 	CreatedAt time.Time `json:"createdAt"`
 	UpdatedAt time.Time `json:"updatedAt"`

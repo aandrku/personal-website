@@ -1,8 +1,10 @@
 package fs
 
 import (
+	"encoding/json"
+	"os"
+
 	"github.com/aandrku/portfolio-v2/pkg/model"
-	"github.com/google/uuid"
 )
 
 type Store struct{}
@@ -26,10 +28,6 @@ func (s Store) GetPosts() ([]*model.Post, error) {
 	return posts, nil
 }
 
-func (s Store) StorePost(post model.Post) error {
-	return createPostFile(post)
-}
-
 func (s Store) FindPost(id string) (*model.Post, error) {
 	posts, err := s.GetPosts()
 	if err != nil {
@@ -46,16 +44,41 @@ func (s Store) FindPost(id string) (*model.Post, error) {
 }
 
 func (s Store) CreatePost(post *model.Post) error {
+	path := postsDirectory + post.Filename()
+	f, err := os.Create(path)
+	if err != nil {
+		return err
+	}
+	defer f.Close()
+
+	enc := json.NewEncoder(f)
+	if err = enc.Encode(post); err != nil {
+		return err
+	}
 
 	return nil
 }
 
 func (s Store) UpdatePost(post *model.Post) error {
+	path := postsDirectory + post.Filename()
+	f, err := os.OpenFile(path, os.O_TRUNC|os.O_WRONLY, 0)
+	if err != nil {
+		return err
+	}
+
+	enc := json.NewEncoder(f)
+	if err = enc.Encode(post); err != nil {
+		return err
+	}
 
 	return nil
 }
 
-func (s Store) DeletePost(id uuid.UUID) error {
+func (s Store) DeletePost(id string) error {
+	path := postsDirectory + id + ".json"
+	if err := os.Remove(path); err != nil {
+		return err
+	}
 
 	return nil
 }

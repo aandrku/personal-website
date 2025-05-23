@@ -8,6 +8,7 @@ type DashboardProps struct {
 	dashboard.AnalyticsWidgetProps
 	model.Stats
 	Uploads []os.FileInfo
+	Posts []*model.Post
 }
 
 templ Dashboard(props DashboardProps) {
@@ -25,7 +26,7 @@ templ Dashboard(props DashboardProps) {
 		  </section>
 
 		  <section id="right-column" class="flex flex-col w-full h-full gap-6">
-		   @dashboard.BlogWidget()
+		   @dashboard.BlogWidget(props.Posts)
 		  </section>
 
 		</div>

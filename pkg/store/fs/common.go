@@ -2,7 +2,6 @@ package fs
 
 import (
 	"encoding/json"
-	"fmt"
 	"os"
 
 	"github.com/aandrku/portfolio-v2/pkg/model"
@@ -27,22 +26,6 @@ func parsePostFromFile(filename string) (model.Post, error) {
 		return post, err
 	}
 	return post, nil
-}
-
-func createPostFile(post model.Post) error {
-	filename := fmt.Sprintf("%s%s.json", postsDirectory, post.Id.String())
-	f, err := os.OpenFile(filename, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0644)
-	if err != nil {
-		return err
-	}
-	defer f.Close()
-
-	encoder := json.NewEncoder(f)
-	if err = encoder.Encode(post); err != nil {
-		return err
-	}
-
-	return nil
 }
 
 func readPostFileNames() ([]string, error) {

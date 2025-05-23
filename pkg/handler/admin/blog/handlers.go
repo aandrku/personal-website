@@ -3,6 +3,7 @@ package blog
 import (
 	"net/http"
 
+	"github.com/aandrku/portfolio-v2/pkg/model"
 	"github.com/aandrku/portfolio-v2/pkg/services/blog"
 	"github.com/aandrku/portfolio-v2/pkg/services/markdown"
 	"github.com/aandrku/portfolio-v2/pkg/view"
@@ -89,6 +90,27 @@ func (ct *Controller) getDeleteForm(c echo.Context) error {
 	form := forms.DeletePost(post)
 
 	return view.Render(c, http.StatusOK, form)
+}
+
+func (ct *Controller) getCreateForm(c echo.Context) error {
+	form := forms.CreateForm()
+
+	return view.Render(c, http.StatusOK, form)
+}
+
+func (ct *Controller) createPost(c echo.Context) error {
+	t := c.FormValue("title")
+	sh := c.FormValue("short")
+	cnt := c.FormValue("markdown")
+
+	post := model.NewPost(t, sh, cnt)
+
+	if err := ct.service.CreatePost(post); err != nil {
+		return nil
+	}
+
+	c.Response().Header().Add("HX-Trigger", "updateBlog")
+	return c.NoContent(http.StatusOK)
 }
 
 func (ct *Controller) updatePostTitle(c echo.Context) error {

@@ -5,10 +5,11 @@ import (
 	"time"
 )
 
-func NewPost(title string, content string) *Post {
+func NewPost(title, short, content string) *Post {
 	return &Post{
 		Id:        uuid.New(),
 		Title:     title,
+		ShortDesc: short,
 		Content:   content,
 		CreatedAt: time.Now(),
 		UpdatedAt: time.Now(),

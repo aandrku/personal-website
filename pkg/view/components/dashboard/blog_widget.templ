@@ -3,18 +3,29 @@ package dashboard
 import "github.com/aandrku/portfolio-v2/pkg/model"
 
 templ BlogWidget(posts []*model.Post) {
-<div id="blog-widget" class="border border-zinc-700 w-full h-full rounded-md relative bg-zinc-800 shadow-lg shadow-black/20"
- hx-get="/admin/blog" hx-swap="outerHTML" hx-trigger="updateBlog from:body">
-  <div class="absolute -top-3 left-5 bg-zinc-900 px-2 text-lg text-zinc-400 rounded-md border border-zinc-700">
-    Blog
-  </div>
+	<div id="blog-widget" class="border border-zinc-700 w-full h-full rounded-md relative bg-zinc-800 shadow-lg shadow-black/20"
+	 hx-get="/admin/blog" hx-swap="outerHTML" hx-trigger="updateBlog from:body">
+	  
+	  <div class="absolute -top-3 left-5 bg-zinc-900 px-2 text-lg text-zinc-400 rounded-md border border-zinc-700">
+		Blog
+	  </div>
 
-  <div class="flex flex-col gap-6 p-6 pt-10 overflow-y-auto h-full">
-	  for _, p := range posts {
-		  @postCard(p)
-	  }
-  </div>
-</div>
+	  <div class="absolute top-4 right-4">
+		<button
+		  class="bg-zinc-700 hover:bg-zinc-600 text-zinc-100 text-sm font-medium px-3 py-1 rounded-md border border-zinc-600 shadow-sm"
+		  hx-get="/admin/blog/post/create-form"
+		  hx-target="#root"
+		  hx-swap="afterbegin">
+		  + New Post
+		</button>
+	  </div>
+
+	  <div class="flex flex-col gap-6 p-6 pt-10 overflow-y-auto h-full">
+		  for _, p := range posts {
+			  @postCard(p)
+		  }
+	  </div>
+	</div>
 }
 
 templ postCard(post *model.Post) {

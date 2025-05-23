@@ -3,6 +3,53 @@ package forms
 import "github.com/aandrku/portfolio-v2/pkg/model"
 import "github.com/aandrku/portfolio-v2/pkg/view/components/common"
 
+templ CreateForm() {
+<div id="overlay" class="fixed inset-0 z-50 bg-black/70 flex items-center justify-center">
+  <form class="bg-zinc-800 border border-zinc-700 shadow-lg shadow-black/40 rounded-xl w-full h-full p-6 flex flex-col space-y-4 overflow-hidden"
+    hx-post={"/admin/blog/post"} hx-target="#overlay" hx-swap="delete"
+  >
+    <div class="flex justify-between items-center border-b border-zinc-700 pb-2">
+      <h2 class="text-lg text-zinc-300">New Post</h2>
+      <button class="text-zinc-400 hover:text-zinc-100 text-sm">
+        Save
+      </button>
+      <button type="button" class="text-zinc-400 hover:text-zinc-100 text-sm"
+        hx-get="/delete" hx-target="#overlay" hx-swap="delete">
+        Close
+      </button>
+    </div>
+
+    <!-- Title input -->
+    <div class="flex flex-col gap-1">
+      <label for="title" class="text-sm text-zinc-400">Title</label>
+      <input
+        id="title"
+        name="title"
+        type="text"
+        class="bg-zinc-900 border border-zinc-700 rounded-md px-3 py-2 text-zinc-100 text-sm focus:outline-none focus:ring-2
+		focus:ring-zinc-500 w-3xl"
+      />
+    </div>
+
+    <!-- Short Description input -->
+    <div class="flex flex-col gap-1">
+      <label for="short" class="text-sm text-zinc-400">Short Description</label>
+      <input
+        id="short"
+        name="short"
+        type="text"
+        class="bg-zinc-900 border border-zinc-700 rounded-md px-3 py-2 text-zinc-100 text-sm focus:outline-none focus:ring-2 
+		focus:ring-zinc-500 w-3xl" />
+    </div>
+
+    <!-- Markdown editor -->
+    <div class="flex-1 overflow-auto">
+      @common.MarkdownEditor("", "")
+    </div>
+  </form>
+</div>
+}
+
 templ EditPostTitle(post *model.Post) {
 	@Overlay("Edit Post Title"){
 		<form hx-post={"/admin/blog/post/update-title/" + post.Id.String()} hx-target="#overlay" hx-swap="delete" class="space-y-4">

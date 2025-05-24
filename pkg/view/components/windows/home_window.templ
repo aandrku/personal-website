@@ -1,6 +1,5 @@
 package windows
 
-import "github.com/aandrku/portfolio-v2/pkg/view/svgs"
 import "github.com/aandrku/portfolio-v2/pkg/view/components/common"
 
 type linkProps struct {
@@ -10,14 +9,6 @@ type linkProps struct {
 }
 
 const homeTitle = "Home"
-
-var linkList = []linkProps{
-	{"about", "/about-window", svgs.AboutIcon()},
-	{"projects", "/projects-window", svgs.ProjectsIcon()},
-	{"blog", "/blog/window", svgs.BlogIcon()},
-	{"links", "/links-window", svgs.LinksIcon()},
-	{"contact", "/contact-window", svgs.ContactIcon()},
-}
 
 
 templ HomeWindow() {

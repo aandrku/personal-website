@@ -11,6 +11,5 @@ var (
 	ProjectsWindow      = windows.ProjectsWindow
 	BlogWindow          = windows.BlogWindow
 	ContactWindow       = windows.ContactWindow
-	ThemeSwitchButton   = common.ThemeSwitcher
 	CanvasWithParticles = common.CanvasWithParticles
 )

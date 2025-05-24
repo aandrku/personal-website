@@ -1,7 +1,7 @@
 package forms
 
 templ ContactForm() {
-  <form action="/submit" method="POST"
+  <form hx-post="/contact" hx-target="body" hx-trigger="submit throttle:3s" hx-swap="afterbegin"
         class="w-full h-full sm:h-auto sm:max-w-md space-y-5 px-6 pt-6 sm:pb-8  rounded-xl
                bg-zinc-800/30 sm:border border-blue-950 backdrop-blur-md shadow-xl text-zinc-200">
     @nameInput()

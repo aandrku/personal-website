@@ -7,9 +7,11 @@ import (
 	"github.com/aandrku/portfolio-v2/pkg/model"
 	"github.com/aandrku/portfolio-v2/pkg/services/about"
 	"github.com/aandrku/portfolio-v2/pkg/services/analytics"
+	"github.com/aandrku/portfolio-v2/pkg/services/email"
 	"github.com/aandrku/portfolio-v2/pkg/services/project"
 	"github.com/aandrku/portfolio-v2/pkg/view"
 	"github.com/aandrku/portfolio-v2/pkg/view/components"
+	"github.com/aandrku/portfolio-v2/pkg/view/components/common"
 	"github.com/aandrku/portfolio-v2/pkg/view/pages"
 
 	"github.com/labstack/echo/v4"
@@ -95,6 +97,20 @@ func newGetProjectsWindow() func(echo.Context) error {
 func getContactWindow(c echo.Context) error {
 	component := components.ContactWindow()
 	return view.Render(c, http.StatusOK, component)
+}
+
+func postContact(c echo.Context) error {
+	n := c.FormValue("name")
+	e := c.FormValue("email")
+	msg := c.FormValue("message")
+
+	if err := email.SendContact(n, e, msg); err != nil {
+		ntf := common.Notification("Due to my skill issues sending your email failed:(")
+		return view.Render(c, http.StatusOK, ntf)
+	}
+	ntf := common.Notification("Success! Your email was send and I'll get back to you once I see it.")
+
+	return view.Render(c, http.StatusOK, ntf)
 }
 
 // getDelete serves empty http response to the client.

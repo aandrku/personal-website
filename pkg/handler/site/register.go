@@ -5,6 +5,7 @@ import (
 	"github.com/aandrku/portfolio-v2/pkg/handler/blog"
 
 	"github.com/labstack/echo/v4"
+	"github.com/labstack/echo/v4/middleware"
 )
 
 func Register(e *echo.Echo) {
@@ -26,6 +27,8 @@ func Register(e *echo.Echo) {
 
 	// contact window
 	e.GET("/contact-window", getContactWindow)
+
+	e.POST("/contact", postContact, middleware.RateLimiter(middleware.NewRateLimiterMemoryStore(1)))
 
 	// delete endpoint, used to delete elements from a webpage using HTMX
 	e.GET("/delete", getDelete)

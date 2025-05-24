@@ -1,19 +1,25 @@
 package project
 
-import "github.com/aandrku/portfolio-v2/pkg/model"
-
-func NewManager() *Manager {
-	return &Manager{}
+func NewManager(store Store) *Manager {
+	return &Manager{
+		store: store,
+	}
 }
 
 type Manager struct {
-	projects []model.Project
+	store Store
 }
 
-func (m *Manager) Projects() []model.Project {
-	return m.projects
-}
+func (m *Manager) UpdateTitle(id, title string) error {
+	p, err := m.store.FindProject(id)
+	if err != nil {
+		return err
+	}
 
-func (m *Manager) AddProject(project model.Project) {
-	m.projects = append(m.projects, project)
+	p.Title = title
+
+	if err := m.store.UpdateProject(p); err != nil {
+		return err
+	}
+	return nil
 }

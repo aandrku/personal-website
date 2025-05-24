@@ -5,6 +5,7 @@ import (
 	"os"
 
 	"github.com/aandrku/portfolio-v2/pkg/model"
+	"github.com/aandrku/portfolio-v2/pkg/services/project"
 )
 
 type Store struct{}
@@ -79,6 +80,30 @@ func (s Store) DeletePost(id string) error {
 	if err := os.Remove(path); err != nil {
 		return err
 	}
+
+	return nil
+}
+
+func (s Store) Projects() ([]project.Project, error) {
+
+	return []project.Project{}, nil
+}
+
+func (s Store) FindProject(id string) (project.Project, error) {
+
+	return project.Project{}, nil
+}
+
+func (s Store) CreateProject(project project.Project) error {
+
+	return nil
+}
+
+func (s Store) UpdateProject(project project.Project) error {
+
+	return nil
+}
+func (s Store) DeleteProject(project project.Project) error {
 
 	return nil
 }

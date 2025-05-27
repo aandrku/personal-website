@@ -3,12 +3,14 @@ package pages
 import "github.com/aandrku/portfolio-v2/pkg/view/components/dashboard"
 import "github.com/aandrku/portfolio-v2/pkg/model"
 import "os"
+import "github.com/aandrku/portfolio-v2/pkg/services/project"
 
 type DashboardProps struct {
 	dashboard.AnalyticsWidgetProps
 	model.Stats
 	Uploads []os.FileInfo
 	Posts []*model.Post
+	Projects []project.Project
 }
 
 templ Dashboard(props DashboardProps) {
@@ -22,7 +24,7 @@ templ Dashboard(props DashboardProps) {
 
 		  <section id="middle-column" class="flex flex-col w-full h-full gap-6">
 		   @dashboard.UploadsManagementWidget(props.Uploads)
-		   @dashboard.ProjectsWidget()
+		   @dashboard.ProjectsWidget(props.Projects)
 		  </section>
 
 		  <section id="right-column" class="flex flex-col w-full h-full gap-6">

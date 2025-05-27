@@ -8,8 +8,9 @@ import (
 )
 
 const (
-	dataDirectory  = "./data/"
-	postsDirectory = dataDirectory + "posts/"
+	dataDirectory     = "./data/"
+	postsDirectory    = dataDirectory + "posts/"
+	projectsDirectory = dataDirectory + "projects/"
 )
 
 func parsePostFromFile(filename string) (model.Post, error) {

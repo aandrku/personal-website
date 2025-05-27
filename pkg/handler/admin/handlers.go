@@ -7,8 +7,10 @@ import (
 	"github.com/aandrku/portfolio-v2/pkg/services/analytics"
 	"github.com/aandrku/portfolio-v2/pkg/services/blog"
 	"github.com/aandrku/portfolio-v2/pkg/services/markdown"
+	"github.com/aandrku/portfolio-v2/pkg/services/project"
 	"github.com/aandrku/portfolio-v2/pkg/services/stats"
 	"github.com/aandrku/portfolio-v2/pkg/services/uploads"
+	"github.com/aandrku/portfolio-v2/pkg/store/fs"
 	"github.com/aandrku/portfolio-v2/pkg/view"
 	"github.com/aandrku/portfolio-v2/pkg/view/components/dashboard"
 	"github.com/aandrku/portfolio-v2/pkg/view/components/forms"
@@ -21,6 +23,7 @@ import (
 func getDashboardPage(c echo.Context) error {
 	as := analytics.Service{}
 	bs := blog.NewService()
+	ps := project.NewManager(fs.Store{})
 
 	// TODO: give this better name, after I get rid of these redundant props
 	awp := dashboard.AnalyticsWidgetProps{
@@ -46,11 +49,18 @@ func getDashboardPage(c echo.Context) error {
 		return err
 	}
 
+	projects, err := ps.Projects()
+	if err != nil {
+		log.Print(err)
+		return err
+	}
+
 	props := pages.DashboardProps{
 		AnalyticsWidgetProps: awp,
 		Stats:                stats,
 		Uploads:              ups,
 		Posts:                posts,
+		Projects:             projects,
 	}
 
 	dashboard := pages.Dashboard(props)

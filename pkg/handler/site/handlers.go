@@ -27,6 +27,12 @@ func getIndex(c echo.Context) error {
 	return view.Render(c, http.StatusOK, page)
 }
 
+func getLogin(c echo.Context) error {
+	page := pages.LoginPage()
+
+	return view.Render(c, http.StatusOK, page)
+}
+
 // getAboutWindow serves about window to the client.
 func getAboutWindow(c echo.Context) error {
 	info, err := about.GetInfo()

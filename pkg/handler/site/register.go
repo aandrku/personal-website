@@ -16,6 +16,8 @@ func Register(e *echo.Echo) {
 	// index page
 	e.GET("/", getIndex)
 
+	e.GET("/login", getLogin)
+
 	// home window
 	e.GET("/home-window", getHomeWindow)
 

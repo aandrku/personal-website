@@ -4,10 +4,10 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/aandrku/portfolio-v2/pkg/model"
 	"github.com/aandrku/portfolio-v2/pkg/services/about"
 	"github.com/aandrku/portfolio-v2/pkg/services/analytics"
 	"github.com/aandrku/portfolio-v2/pkg/services/project"
+	"github.com/aandrku/portfolio-v2/pkg/store/fs"
 	"github.com/aandrku/portfolio-v2/pkg/view"
 	"github.com/aandrku/portfolio-v2/pkg/view/components"
 	"github.com/aandrku/portfolio-v2/pkg/view/pages"
@@ -41,54 +41,15 @@ func getHomeWindow(c echo.Context) error {
 	return view.Render(c, http.StatusOK, component)
 }
 
-// newGetProjectsWindow return a handler that serves
-// projects window to the client.
-func newGetProjectsWindow() func(echo.Context) error {
-	m := project.NewManager()
-
-	m.AddProject(model.Project{
-		Name:         "Hangman TUI",
-		DemoURL:      "/uploads/hangman-demo.gif",
-		Technologies: []string{"Go", "ANSI", "GameDev", "Terminal"},
-		MoreInfoFile: "/assets/md/hangman.md",
-	})
-
-	m.AddProject(model.Project{
-		Name:         "Hangman TUI",
-		DemoURL:      "/uploads/hangman-demo.gif",
-		Technologies: []string{"Go", "ANSI"},
-		MoreInfoFile: "/assets/md/hangman.md",
-	})
-	m.AddProject(model.Project{
-		Name:         "Hangman TUI",
-		DemoURL:      "/uploads/hangman-demo.gif",
-		Technologies: []string{"Go", "ANSI"},
-		MoreInfoFile: "/assets/md/hangman.md",
-	})
-	m.AddProject(model.Project{
-		Name:         "Hangman TUI",
-		DemoURL:      "/uploads/hangman-demo.gif",
-		Technologies: []string{"Go", "ANSI"},
-		MoreInfoFile: "/assets/md/hangman.md",
-	})
-	m.AddProject(model.Project{
-		Name:         "Hangman TUI",
-		DemoURL:      "/uploads/hangman-demo.gif",
-		Technologies: []string{"Go", "ANSI"},
-		MoreInfoFile: "/assets/md/hangman.md",
-	})
-	m.AddProject(model.Project{
-		Name:         "Hangman TUI",
-		DemoURL:      "/uploads/hangman-demo.gif",
-		Technologies: []string{"Go", "ANSI"},
-		MoreInfoFile: "/assets/md/hangman.md",
-	})
-
-	return func(c echo.Context) error {
-		component := components.ProjectsWindow(m.Projects())
-		return view.Render(c, http.StatusOK, component)
+func getProjectsWindow(c echo.Context) error {
+	s := project.NewManager(fs.Store{})
+	p, err := s.Projects()
+	if err != nil {
+		return err
 	}
 
+	component := components.ProjectsWindow(p)
+	return view.Render(c, http.StatusOK, component)
 }
 
 // getContactWindow serves contact window to the client.

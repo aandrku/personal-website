@@ -22,7 +22,7 @@ func Register(e *echo.Echo) {
 	e.GET("/about-window", getAboutWindow)
 
 	// projects window
-	e.GET("/projects-window", newGetProjectsWindow())
+	e.GET("/projects-window", getProjectsWindow)
 
 	// contact window
 	e.GET("/contact-window", getContactWindow)

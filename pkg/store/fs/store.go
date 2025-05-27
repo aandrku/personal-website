@@ -85,25 +85,91 @@ func (s Store) DeletePost(id string) error {
 }
 
 func (s Store) Projects() ([]project.Project, error) {
+	// project list
+	var pl []project.Project
 
-	return []project.Project{}, nil
+	entries, err := os.ReadDir(projectsDirectory)
+	if err != nil {
+		return pl, err
+	}
+
+	for _, e := range entries {
+		var p project.Project
+		path := projectsDirectory + e.Name()
+
+		f, err := os.Open(path)
+		if err != nil {
+			return pl, err
+		}
+
+		dec := json.NewDecoder(f)
+
+		if err := dec.Decode(&p); err != nil {
+			return pl, err
+		}
+		pl = append(pl, p)
+
+		f.Close()
+	}
+
+	return pl, nil
 }
 
 func (s Store) FindProject(id string) (project.Project, error) {
+	var p project.Project
+	path := projectsDirectory + id + ".json"
 
-	return project.Project{}, nil
+	f, err := os.Open(path)
+	if err != nil {
+		return p, err
+	}
+	defer f.Close()
+
+	dec := json.NewDecoder(f)
+
+	if err = dec.Decode(&p); err != nil {
+		return p, err
+	}
+	return p, nil
 }
 
 func (s Store) CreateProject(project project.Project) error {
+	path := projectsDirectory + project.ID.String() + ".json"
 
+	f, err := os.OpenFile(path, os.O_CREATE|os.O_RDWR, 0666)
+	if err != nil {
+		return err
+	}
+
+	enc := json.NewEncoder(f)
+
+	if err := enc.Encode(project); err != nil {
+		return err
+	}
 	return nil
 }
 
 func (s Store) UpdateProject(project project.Project) error {
+	path := projectsDirectory + project.ID.String() + ".json"
 
+	f, err := os.Create(path)
+	if err != nil {
+		return err
+	}
+
+	enc := json.NewEncoder(f)
+
+	if err := enc.Encode(project); err != nil {
+		return err
+	}
 	return nil
 }
-func (s Store) DeleteProject(project project.Project) error {
+func (s Store) DeleteProject(id string) error {
+	path := projectsDirectory + id + ".json"
+
+	if err := os.Remove(path); err != nil {
+		return err
+	}
 
 	return nil
 }

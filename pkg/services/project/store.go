@@ -1,9 +1,9 @@
 package project
 
 type Store interface {
-	Projects() []Project
+	Projects() ([]Project, error)
 	FindProject(id string) (Project, error)
 	CreateProject(project Project) error
 	UpdateProject(project Project) error
-	DeleteProject(project Project) error
+	DeleteProject(project string) error
 }

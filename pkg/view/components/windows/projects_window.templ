@@ -15,11 +15,11 @@ templ ProjectsWindow(projects []project.Project) {
   }
 }
 templ projectCard(project project.Project) {
-  <div class="w-full bg-zinc-800/30 backdrop-blur-sm border border-blue-950 rounded-xl shadow-lg p-4 flex flex-col gap-4 transition-transform duration-150 ease-in-out hover:scale-[0.98]">
+  <div class="w-full  bg-zinc-800/30 backdrop-blur-sm border border-blue-950 rounded-xl shadow-lg p-4 flex flex-col gap-4 transition-transform duration-150 ease-in-out hover:scale-[0.98]">
     
     <h1 class="text-left font-semibold text-lg text-blue-300">{project.Title}</h1>
 
-    <p class="text-left text-sm text-zinc-400">{project.Description}</p>
+    <p class="text-left text-sm text-zinc-400">{project.ShortDesc}</p>
 
     <div class="flex flex-wrap gap-2 justify-start">
       for _, t := range project.Technologies {

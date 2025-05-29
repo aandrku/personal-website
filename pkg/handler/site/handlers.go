@@ -1,11 +1,15 @@
 package site
 
 import (
+	"fmt"
 	"log"
 	"net/http"
+	"os"
+	"time"
 
 	"github.com/aandrku/portfolio-v2/pkg/services/about"
 	"github.com/aandrku/portfolio-v2/pkg/services/analytics"
+	"github.com/aandrku/portfolio-v2/pkg/services/auth"
 	"github.com/aandrku/portfolio-v2/pkg/services/email"
 	"github.com/aandrku/portfolio-v2/pkg/services/project"
 	"github.com/aandrku/portfolio-v2/pkg/store/fs"
@@ -13,6 +17,7 @@ import (
 	"github.com/aandrku/portfolio-v2/pkg/view/components"
 	"github.com/aandrku/portfolio-v2/pkg/view/components/common"
 	"github.com/aandrku/portfolio-v2/pkg/view/pages"
+	"github.com/golang-jwt/jwt/v5"
 
 	"github.com/labstack/echo/v4"
 )
@@ -30,7 +35,54 @@ func getIndex(c echo.Context) error {
 func getLogin(c echo.Context) error {
 	page := pages.LoginPage()
 
+	_, err := auth.GetCurrentOTP()
+	if err != nil {
+		return err
+	}
+
 	return view.Render(c, http.StatusOK, page)
+}
+
+func postLogin(c echo.Context) error {
+	OTP := c.FormValue("otp")
+
+	cOTP, err := auth.GetCurrentOTP()
+	if err != nil {
+		return c.Redirect(http.StatusSeeOther, "/login")
+	}
+
+	if OTP != cOTP {
+		fmt.Printf("cotp %s, otp %s", cOTP, OTP)
+		return c.Redirect(http.StatusSeeOther, "/login")
+	}
+
+	secretKey := os.Getenv("JWT_KEY")
+
+	// Create a new token object, specifying signing method and the claims
+	// you would like it to contain.
+	token := jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.MapClaims{
+		"admin": true,
+	})
+
+	// Sign and get the complete encoded token as a string using the secret
+	authToken, err := token.SignedString([]byte(secretKey))
+	if err != nil {
+		fmt.Printf("failed to sing token %v", err)
+		return c.Redirect(http.StatusSeeOther, "/login")
+	}
+
+	cookie := &http.Cookie{
+		Name:     "auth",
+		Value:    authToken,
+		Path:     "/",
+		Expires:  time.Now().Add(24 * time.Hour),
+		MaxAge:   86400,
+		Secure:   false,
+		HttpOnly: true,
+	}
+
+	c.SetCookie(cookie)
+	return c.Redirect(http.StatusSeeOther, "/admin/dashboard")
 }
 
 // getAboutWindow serves about window to the client.

@@ -6,7 +6,7 @@ templ LoginPage() {
 	  <div class="flex items-center justify-center h-screen bg-zinc-900">
 		<div class="w-full max-w-sm mx-auto border border-zinc-700 rounded-md p-6 bg-zinc-800/50 shadow-lg">
 		  <h2 class="text-center text-2xl font-semibold text-zinc-100 mb-4">Login</h2>
-		  <form class="flex flex-col gap-4" hx-post="/login/otp" hx-target="#root" hx-swap="innerHTML">
+		  <form class="flex flex-col gap-4" action="/login" method="POST">
 			<div class="flex flex-col gap-1">
 			  <label for="otp" class="text-sm text-zinc-300">One-Time Password</label>
 			  <input

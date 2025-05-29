@@ -48,3 +48,24 @@ func renderContactEmail(name, email, message string) (string, error) {
 	}
 	return buf.String(), nil
 }
+
+func SendString(subject, str string) error {
+	emailSender := os.Getenv("EMAIL_SENDER")
+	emailRecepient := os.Getenv("EMAIL_RECEPIENT")
+	emailPassword := os.Getenv("EMAIL_PASSWORD")
+
+	d := gomail.NewDialer(host, port, emailSender, emailPassword)
+
+	m := gomail.NewMessage()
+	m.SetHeader("From", emailSender)
+	m.SetHeader("To", emailRecepient)
+	m.SetHeader("Subject", subject)
+	m.SetBody("text/html", str)
+
+	if err := d.DialAndSend(m); err != nil {
+		return err
+	}
+
+	return nil
+
+}

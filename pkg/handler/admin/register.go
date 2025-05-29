@@ -8,6 +8,7 @@ import (
 )
 
 func Register(g *echo.Group) {
+	g.Use(auth)
 	// dashboard
 	g.GET("/dashboard", getDashboardPage)
 

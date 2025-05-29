@@ -17,6 +17,7 @@ func Register(e *echo.Echo) {
 	e.GET("/", getIndex)
 
 	e.GET("/login", getLogin)
+	e.POST("/login", postLogin)
 
 	// home window
 	e.GET("/home-window", getHomeWindow)

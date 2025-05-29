@@ -95,6 +95,20 @@ func getAboutWindow(c echo.Context) error {
 	return view.Render(c, http.StatusOK, component)
 }
 
+func getProject(c echo.Context) error {
+	id := c.Param("id")
+	s := project.NewManager(fs.Store{})
+
+	p, err := s.FindProject(id)
+	if err != nil {
+		return err
+	}
+
+	page := pages.ProjectPage(p)
+
+	return view.Render(c, http.StatusOK, page)
+}
+
 // getHomeWindow serves home window to the client.
 func getHomeWindow(c echo.Context) error {
 	component := components.HomeWindow()

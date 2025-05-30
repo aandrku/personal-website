@@ -1,6 +1,8 @@
 package main
 
 import (
+	"flag"
+
 	"github.com/aandrku/portfolio-v2/pkg/handler/site"
 	"github.com/aandrku/portfolio-v2/pkg/services/auth"
 	"github.com/joho/godotenv"
@@ -8,6 +10,10 @@ import (
 )
 
 func main() {
+	tls := flag.Bool("tls", false, "Usage: -tls")
+	port := flag.String("port", "3000", "Usage: -port=3000")
+	flag.Parse()
+
 	err := godotenv.Load()
 	if err != nil {
 		panic(err)
@@ -21,5 +27,9 @@ func main() {
 
 	site.Register(e)
 
-	e.Logger.Fatal(e.Start(":3000"))
+	if *tls {
+		e.Logger.Fatal(e.StartTLS(":"+*port, "tls/certFile", "tls/keyFile"))
+	} else {
+		e.Logger.Fatal(e.Start(":" + *port))
+	}
 }

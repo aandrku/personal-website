@@ -9,6 +9,9 @@ import (
 )
 
 func Register(e *echo.Echo) {
+	e.Use(middleware.Recover())
+	e.Use(middleware.Logger())
+
 	// static file serving
 	e.Static("/assets", "assets")
 	e.Static("/uploads", "./data/uploads")

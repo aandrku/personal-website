@@ -32,3 +32,12 @@ live/sync_assets:
 
 live:
 	make -j3 live/templ live/server live/sync_assets
+
+build/tailwind:
+	npx --yes @tailwindcss/cli -i ./src/css/input.css -o ./assets/css/tailwind.css --minify
+
+build/server:
+	go build -o main cmd/main.go
+
+build:
+	make build/tailwind build/server

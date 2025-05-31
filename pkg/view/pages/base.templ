@@ -3,71 +3,61 @@ package pages
 import "github.com/aandrku/portfolio-v2/pkg/view/components"
 import "github.com/aandrku/portfolio-v2/pkg/view/components/common"
 
-
 templ BaseWithBgDots() {
-<!DOCTYPE html>
-<html class="bg-neutral-400 dark:bg-stone-900 font-mono dark">
-  <head>
-    <title>aandrku | software developer </title>
-    <link href="/assets/css/tailwind.css" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  </head>
-
-  <body ontouchstart="" class="overflow-hidden">
-    @components.CanvasWithParticles()
-
-    <div id="window-container"
-         class="select-none w-screen h-screen fixed z-10 flex justify-start items-start sm:justify-center sm:items-center backdrop-blur-xs sm:p-0">
-      {children...}
-    </div>
-
-    @common.DockContainer()
-
-    <script src="https://unpkg.com/htmx.org@2.0.4"
-            integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+"
-            crossorigin="anonymous"></script>
-    <script src="/assets/js/canvas.js"></script>
-  </body>
-</html>
+	<!DOCTYPE html>
+	<html class="bg-neutral-400 dark:bg-stone-900 font-mono dark">
+		<head>
+			<title>aandrku | software developer </title>
+			<link href="/assets/css/tailwind.css" rel="stylesheet"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		</head>
+		<body ontouchstart="" class="overflow-hidden">
+			@components.CanvasWithParticles()
+			<div
+				id="window-container"
+				class="select-none w-screen h-screen fixed z-10 flex justify-start items-start sm:justify-center sm:items-center backdrop-blur-xs sm:p-0"
+			>
+				{ children... }
+			</div>
+			@common.DockContainer()
+			<script src="https://unpkg.com/htmx.org@2.0.4" integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+" crossorigin="anonymous"></script>
+			<script src="/assets/js/canvas.js"></script>
+		</body>
+	</html>
 }
 
 templ BaseWithTitle(title string) {
-<!DOCTYPE html>
-<html class="bg-neutral-400 dark:bg-stone-900 font-mono dark">
-	<head>
-		<title>{title}</title>
-		<link href="/assets/css/tailwind.css" rel="stylesheet">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	</head>
-	<body ontouchstart="" class="h-screen overflow-hidden">
-		{children...}
-
-		<script src="https://unpkg.com/htmx.org@2.0.4" integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+" crossorigin="anonymous"></script>
-	</body>
-</html>
+	<!DOCTYPE html>
+	<html class="bg-neutral-400 dark:bg-stone-900 font-mono dark">
+		<head>
+			<title>{ title }</title>
+			<link href="/assets/css/tailwind.css" rel="stylesheet"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		</head>
+		<body ontouchstart="" class="h-screen overflow-hidden">
+			{ children... }
+			<script src="https://unpkg.com/htmx.org@2.0.4" integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+" crossorigin="anonymous"></script>
+		</body>
+	</html>
 }
 
-
 templ BlogPostBase() {
-<!DOCTYPE html>
-<html class="bg-zinc-900 text-zinc-100 font-mono bg-[url('/uploads/blog-noise.svg')] bg-repeat bg-fixed">
-  <head>
-    <title>aandrku's portfolio</title>
-    <link href="/assets/css/tailwind.css" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  </head>
-
-  <body ontouchstart=""
-        class="min-h-screen w-full flex flex-col items-center overflow-x-hidden">
-
-    <div class="w-full sm:max-w-7xl  sm:px-6 lg:px-8">
-      {children...}
-    </div>
-
-    <script src="https://unpkg.com/htmx.org@2.0.4"
-            integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+"
-            crossorigin="anonymous">
+	<!DOCTYPE html>
+	<html class="bg-zinc-900 text-zinc-100 font-mono bg-[url('/uploads/blog-noise.svg')] bg-repeat bg-fixed">
+		<head>
+			<title>aandrku's portfolio</title>
+			<link href="/assets/css/tailwind.css" rel="stylesheet"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		</head>
+		<body
+			ontouchstart=""
+			class="min-h-screen w-full flex flex-col items-center overflow-x-hidden"
+		>
+			<div class="w-full sm:max-w-7xl  sm:px-6 lg:px-8">
+				{ children... }
+			</div>
+			<script src="https://unpkg.com/htmx.org@2.0.4" integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+" crossorigin="anonymous">
     </script>
-  </body>
-</html>
+		</body>
+	</html>
 }

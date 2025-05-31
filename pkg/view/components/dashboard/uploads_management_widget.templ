@@ -4,44 +4,51 @@ import "os"
 import "fmt"
 
 templ UploadsManagementWidget(uploads []os.FileInfo) {
-<div id="uploads-widget" class="border border-zinc-700 w-full h-1/4 rounded-md relative bg-zinc-800 shadow-lg shadow-black/20"
-hx-get="/admin/upload" hx-trigger="updateUploads from:body" hx-swap="outerHTML">
-  <div class="absolute -top-3 left-5 bg-zinc-900 px-2 text-lg text-zinc-400 rounded-md border border-zinc-700">
-	Uploads Management Widget
-  </div>
-
-  <div class="h-full flex flex-col gap-4 p-6 pt-10 overflow-y-auto">
-    <!-- Upload Button -->
-    <button class="w-full text-left bg-zinc-700 hover:bg-zinc-600 text-zinc-100 px-4 py-2 rounded-md text-sm font-medium transition"
-	hx-get="/admin/upload/form" hx-target="#root" hx-swap="afterbegin">
-      Upload New Asset
-    </button>
-
-	for _, upload := range uploads {
-		@UploadCard(upload)
-	}
-
-  </div>
-</div>
-
+	<div
+		id="uploads-widget"
+		class="border border-zinc-700 w-full h-1/4 rounded-md relative bg-zinc-800 shadow-lg shadow-black/20"
+		hx-get="/admin/upload"
+		hx-trigger="updateUploads from:body"
+		hx-swap="outerHTML"
+	>
+		<div class="absolute -top-3 left-5 bg-zinc-900 px-2 text-lg text-zinc-400 rounded-md border border-zinc-700">
+			Uploads Management Widget
+		</div>
+		<div class="h-full flex flex-col gap-4 p-6 pt-10 overflow-y-auto">
+			<!-- Upload Button -->
+			<button
+				class="w-full text-left bg-zinc-700 hover:bg-zinc-600 text-zinc-100 px-4 py-2 rounded-md text-sm font-medium transition"
+				hx-get="/admin/upload/form"
+				hx-target="#root"
+				hx-swap="afterbegin"
+			>
+				Upload New Asset
+			</button>
+			for _, upload := range uploads {
+				@UploadCard(upload)
+			}
+		</div>
+	</div>
 }
 
 templ UploadCard(upload os.FileInfo) {
-    <div class="flex justify-between items-center text-sm text-zinc-400">
-      <span>{upload.Name()}</span>
-      <div class="flex items-center gap-2">
-        <span>{bytesToSizeString(upload.Size())}</span>
-        <button class="ml-2 bg-red-800/50 hover:bg-red-900 text-white px-2 py-1 rounded-md text-xs transition"
-		hx-get={"/admin/upload/delete-form/" + upload.Name()} hx-target="#root"
-		hx-swap="afterbegin">
-		
-          Remove
-        </button>
-      </div>
-    </div>
+	<div class="flex justify-between items-center text-sm text-zinc-400">
+		<span>{ upload.Name() }</span>
+		<div class="flex items-center gap-2">
+			<span>{ bytesToSizeString(upload.Size()) }</span>
+			<button
+				class="ml-2 bg-red-800/50 hover:bg-red-900 text-white px-2 py-1 rounded-md text-xs transition"
+				hx-get={ "/admin/upload/delete-form/" + upload.Name() }
+				hx-target="#root"
+				hx-swap="afterbegin"
+			>
+				Remove
+			</button>
+		</div>
+	</div>
 }
 
-// bytesToSizeString takes in the amount of bytes 
+// bytesToSizeString takes in the amount of bytes
 // and returns a nicely formatted string like this - 246kb
 func bytesToSizeString(bytes int64) string {
 	const (

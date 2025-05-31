@@ -62,5 +62,8 @@ jobs:
         target: "/home/${{ secrets.SERVER_USER }}/server" 
         recursive: true                          
 
+    - name: Restart the server
+      run: echo "${{ secrets.SERVER_USER_PASSWORD }}" | sudo -S systemctl restart personal-website.service
+
 
 

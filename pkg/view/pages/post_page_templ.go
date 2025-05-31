@@ -12,6 +12,7 @@ import "github.com/aandrku/portfolio-v2/pkg/model"
 import "bytes"
 import "github.com/yuin/goldmark"
 import "github.com/aandrku/portfolio-v2/pkg/view"
+import "github.com/aandrku/portfolio-v2/pkg/view/layout"
 
 func postContentToTempl(content string) templ.Component {
 	var buf bytes.Buffer
@@ -91,7 +92,7 @@ func PostPage(post *model.Post) templ.Component {
 			var templ_7745c5c3_Var4 string
 			templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(post.Title)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/pages/post_page.templ`, Line: 28, Col: 21}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/pages/post_page.templ`, Line: 28, Col: 17}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 			if templ_7745c5c3_Err != nil {
@@ -104,7 +105,7 @@ func PostPage(post *model.Post) templ.Component {
 			var templ_7745c5c3_Var5 string
 			templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(post.UpdatedAt.Format("Jan, 2, 2006"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/pages/post_page.templ`, Line: 33, Col: 61}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/pages/post_page.templ`, Line: 32, Col: 57}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
 			if templ_7745c5c3_Err != nil {
@@ -117,7 +118,7 @@ func PostPage(post *model.Post) templ.Component {
 			var templ_7745c5c3_Var6 string
 			templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(post.ShortDesc)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/pages/post_page.templ`, Line: 33, Col: 82}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/pages/post_page.templ`, Line: 32, Col: 80}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 			if templ_7745c5c3_Err != nil {
@@ -137,7 +138,7 @@ func PostPage(post *model.Post) templ.Component {
 			}
 			return nil
 		})
-		templ_7745c5c3_Err = BlogPostBase().Render(templ.WithChildren(ctx, templ_7745c5c3_Var3), templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = layout.ArticleBase(post.Title).Render(templ.WithChildren(ctx, templ_7745c5c3_Var3), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

@@ -36,7 +36,7 @@ func Notification(message string) templ.Component {
 		var templ_7745c5c3_Var2 string
 		templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(message)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/components/common/notification.templ`, Line: 21, Col: 14}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/components/common/notification.templ`, Line: 28, Col: 12}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
 		if templ_7745c5c3_Err != nil {

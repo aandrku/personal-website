@@ -1,9 +1,10 @@
 package pages
 
 import "github.com/aandrku/portfolio-v2/pkg/view/components"
+import "github.com/aandrku/portfolio-v2/pkg/view/layout"
 
 templ Index() {
-	@BaseWithBgDots() {
+	@layout.BaseWithBgCanvas("aandrku | software developer") {
 		@components.HomeWindow()
 	}
 }

@@ -1,13 +1,28 @@
-package pages
+package layout
 
 import "github.com/aandrku/portfolio-v2/pkg/view/components"
 import "github.com/aandrku/portfolio-v2/pkg/view/components/common"
 
-templ BaseWithBgDots() {
+templ Base(title string) {
 	<!DOCTYPE html>
 	<html class="bg-neutral-400 dark:bg-stone-900 font-mono dark">
 		<head>
-			<title>aandrku | software developer </title>
+			<title>{ title }</title>
+			<link href="/assets/css/tailwind.css" rel="stylesheet"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		</head>
+		<body ontouchstart="" class="h-screen overflow-hidden">
+			{ children... }
+			<script src="https://unpkg.com/htmx.org@2.0.4" integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+" crossorigin="anonymous"></script>
+		</body>
+	</html>
+}
+
+templ BaseWithBgCanvas(title string) {
+	<!DOCTYPE html>
+	<html class="bg-neutral-400 dark:bg-stone-900 font-mono dark">
+		<head>
+			<title>{ title }</title>
 			<link href="/assets/css/tailwind.css" rel="stylesheet"/>
 			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		</head>
@@ -26,26 +41,11 @@ templ BaseWithBgDots() {
 	</html>
 }
 
-templ BaseWithTitle(title string) {
-	<!DOCTYPE html>
-	<html class="bg-neutral-400 dark:bg-stone-900 font-mono dark">
-		<head>
-			<title>{ title }</title>
-			<link href="/assets/css/tailwind.css" rel="stylesheet"/>
-			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-		</head>
-		<body ontouchstart="" class="h-screen overflow-hidden">
-			{ children... }
-			<script src="https://unpkg.com/htmx.org@2.0.4" integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+" crossorigin="anonymous"></script>
-		</body>
-	</html>
-}
-
-templ BlogPostBase() {
+templ ArticleBase(title string) {
 	<!DOCTYPE html>
 	<html class="bg-zinc-900 text-zinc-100 font-mono bg-[url('/uploads/blog-noise.svg')] bg-repeat bg-fixed">
 		<head>
-			<title>aandrku's portfolio</title>
+			<title>{ title }</title>
 			<link href="/assets/css/tailwind.css" rel="stylesheet"/>
 			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		</head>

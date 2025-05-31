@@ -12,6 +12,7 @@ import "bytes"
 import "github.com/yuin/goldmark"
 import "github.com/aandrku/portfolio-v2/pkg/view"
 import "github.com/aandrku/portfolio-v2/pkg/services/project"
+import "github.com/aandrku/portfolio-v2/pkg/view/layout"
 
 func projectContentToTempl(content string) templ.Component {
 	var buf bytes.Buffer
@@ -91,7 +92,7 @@ func ProjectPage(project project.Project) templ.Component {
 			var templ_7745c5c3_Var4 string
 			templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(project.Title)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/pages/project_page.templ`, Line: 28, Col: 24}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/pages/project_page.templ`, Line: 28, Col: 20}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 			if templ_7745c5c3_Err != nil {
@@ -104,7 +105,7 @@ func ProjectPage(project project.Project) templ.Component {
 			var templ_7745c5c3_Var5 string
 			templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(project.ShortDesc)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/pages/project_page.templ`, Line: 33, Col: 28}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/pages/project_page.templ`, Line: 32, Col: 24}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
 			if templ_7745c5c3_Err != nil {
@@ -124,7 +125,7 @@ func ProjectPage(project project.Project) templ.Component {
 			}
 			return nil
 		})
-		templ_7745c5c3_Err = BlogPostBase().Render(templ.WithChildren(ctx, templ_7745c5c3_Var3), templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = layout.ArticleBase(project.Title).Render(templ.WithChildren(ctx, templ_7745c5c3_Var3), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

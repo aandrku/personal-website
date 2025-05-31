@@ -41,3 +41,11 @@ jobs:
           cd /home/${{ secrets.SERVER_USER }}/server
           rm main
           rm -rf assets
+
+    - name: Copy binary via scp
+      run: scp ./main ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:/home/${{ secrets.SERVER_USER }}/server
+
+    - name: Copy assets directory via scp
+      run: scp -r ./assets ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:/home/${{ secrets.SERVER_USER }}/server
+
+

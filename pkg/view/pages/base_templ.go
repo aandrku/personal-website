@@ -32,7 +32,7 @@ func BaseWithBgDots() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<!doctype html><html class=\"bg-neutral-400 dark:bg-stone-900 font-mono dark\"><head><title>aandrku's portfolio</title><link href=\"/assets/css/tailwind.css\" rel=\"stylesheet\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"></head><body ontouchstart=\"\" class=\"overflow-hidden\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<!doctype html><html class=\"bg-neutral-400 dark:bg-stone-900 font-mono dark\"><head><title>aandrku | software developer </title><link href=\"/assets/css/tailwind.css\" rel=\"stylesheet\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"></head><body ontouchstart=\"\" class=\"overflow-hidden\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

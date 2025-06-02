@@ -53,7 +53,7 @@ templ AboutWidget() {
 		<div class="flex flex-col gap-4 p-6">
 			<button
 				class="w-full text-left bg-zinc-700 hover:bg-zinc-600 text-zinc-100 px-6 py-2 rounded-md text-sm font-medium transition"
-				hx-get="/admin/about/form/update-name"
+				hx-get="/admin/about/update-name-form"
 				hx-target="#root"
 				hx-swap="afterbegin"
 			>
@@ -61,7 +61,7 @@ templ AboutWidget() {
 			</button>
 			<button
 				class="w-full text-left bg-zinc-700 hover:bg-zinc-600 text-zinc-100 px-6 py-2 rounded-md text-sm font-medium transition"
-				hx-get="/admin/about/form/update-short-desc"
+				hx-get="/admin/about/update-short-desc-form"
 				hx-target="#root"
 				hx-swap="afterbegin"
 			>
@@ -69,7 +69,7 @@ templ AboutWidget() {
 			</button>
 			<button
 				class="w-full text-left bg-zinc-700 hover:bg-zinc-600 text-zinc-100 px-6 py-2 rounded-md text-sm font-medium transition"
-				hx-get="/admin/about/form/update-avatar"
+				hx-get="/admin/about/update-avatar-form"
 				hx-target="#root"
 				hx-swap="afterbegin"
 			>
@@ -77,7 +77,7 @@ templ AboutWidget() {
 			</button>
 			<button
 				class="w-full text-left bg-zinc-700 hover:bg-zinc-600 text-zinc-100 px-6 py-2 rounded-md text-sm font-medium transition"
-				hx-get="/admin/about/form/update-description"
+				hx-get="/admin/about/update-description-form"
 				hx-target="#root"
 				hx-swap="afterbegin"
 			>
@@ -91,7 +91,7 @@ templ BlogWidget(posts []*model.Post) {
 	<div
 		id="blog-widget"
 		class="border border-zinc-700 w-full h-full rounded-md relative bg-zinc-800 shadow-lg shadow-black/20"
-		hx-get="/admin/blog"
+		hx-get="/admin/blog/widget"
 		hx-swap="outerHTML"
 		hx-trigger="updateBlog from:body"
 	>
@@ -101,7 +101,7 @@ templ BlogWidget(posts []*model.Post) {
 		<div class="absolute top-4 right-4">
 			<button
 				class="bg-zinc-700 hover:bg-zinc-600 text-zinc-100 text-sm font-medium px-3 py-1 rounded-md border border-zinc-600 shadow-sm"
-				hx-get="/admin/blog/post/create-form"
+				hx-get="/admin/blog/create-form"
 				hx-target="#root"
 				hx-swap="afterbegin"
 			>
@@ -123,7 +123,7 @@ templ postCard(post *model.Post) {
 		<div class="flex justify-between flex-wrap gap-2 text-sm mt-1">
 			<button
 				class="bg-zinc-700 hover:bg-zinc-600 text-zinc-100 px-3 py-1 rounded-md transition"
-				hx-get={ "/admin/blog/forms/update-title/" + post.Id.String() }
+				hx-get={ "/admin/blog/update-title-form/" + post.Id.String() }
 				hx-target="#root"
 				hx-swap="afterbegin"
 			>
@@ -131,7 +131,7 @@ templ postCard(post *model.Post) {
 			</button>
 			<button
 				class="bg-zinc-700 hover:bg-zinc-600 text-zinc-100 px-3 py-1 rounded-md transition"
-				hx-get={ "/admin/blog/forms/update-short-desc/" + post.Id.String() }
+				hx-get={ "/admin/blog/update-short-desc-form/" + post.Id.String() }
 				hx-target="#root"
 				hx-swap="afterbegin"
 			>
@@ -139,7 +139,7 @@ templ postCard(post *model.Post) {
 			</button>
 			<button
 				class="bg-zinc-700 hover:bg-zinc-600 text-zinc-100 px-3 py-1 rounded-md transition"
-				hx-get={ "/admin/blog/forms/update-content/" + post.Id.String() }
+				hx-get={ "/admin/blog/update-content-form/" + post.Id.String() }
 				hx-target="#root"
 				hx-swap="afterbegin"
 			>
@@ -147,7 +147,7 @@ templ postCard(post *model.Post) {
 			</button>
 			<button
 				class="ml-auto bg-red-800/50 hover:bg-red-900 text-white px-3 py-1 rounded-md transition"
-				hx-get={ "/admin/blog/forms/delete/" + post.Id.String() }
+				hx-get={ "/admin/blog/delete-form/" + post.Id.String() }
 				hx-target="#root"
 				hx-swap="afterbegin"
 			>

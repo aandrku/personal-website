@@ -36,7 +36,7 @@ func UpdateAboutDescriptionForm(html, markdown string) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div id=\"update-about-description-form\" class=\"fixed inset-0 z-50 bg-black/70 flex items-center justify-center\"><form class=\"bg-zinc-800 border border-zinc-700 shadow-lg shadow-black/40 rounded-xl w-full h-full p-6 flex flex-col space-y-4 overflow-hidden\"><div class=\"flex justify-between items-center border-b border-zinc-700 pb-2\"><h2 class=\"text-lg text-zinc-300\">Your Title Here</h2><button class=\"text-zinc-400 hover:text-zinc-100 text-sm\" hx-post=\"/admin/about/update-description\" hx-target=\"#update-about-description-form\" hx-swap=\"delete\">Save</button> <button type=\"button\" class=\"text-zinc-400 hover:text-zinc-100 text-sm\" hx-get=\"/delete\" hx-target=\"#update-about-description-form\" hx-swap=\"delete\">Close</button></div><div class=\"flex-1 overflow-auto\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div id=\"update-about-description-form\" class=\"fixed inset-0 z-50 bg-black/70 flex items-center justify-center\"><form class=\"bg-zinc-800 border border-zinc-700 shadow-lg shadow-black/40 rounded-xl w-full h-full p-6 flex flex-col space-y-4 overflow-hidden\"><div class=\"flex justify-between items-center border-b border-zinc-700 pb-2\"><h2 class=\"text-lg text-zinc-300\">Your Title Here</h2><button class=\"text-zinc-400 hover:text-zinc-100 text-sm\" hx-post=\"/admin/about/description\" hx-target=\"#update-about-description-form\" hx-swap=\"delete\">Save</button> <button type=\"button\" class=\"text-zinc-400 hover:text-zinc-100 text-sm\" hx-get=\"/delete\" hx-target=\"#update-about-description-form\" hx-swap=\"delete\">Close</button></div><div class=\"flex-1 overflow-auto\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -73,7 +73,7 @@ func UpdateAvatarForm(files []os.FileInfo) templ.Component {
 			templ_7745c5c3_Var2 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<div id=\"update-avatar-form-overlay\" class=\"fixed inset-0 z-50 bg-black/60 flex items-center justify-center\"><div class=\"bg-zinc-800 border border-zinc-700 shadow-lg shadow-black/40 rounded-xl w-full max-w-md p-6 space-y-6 relative\"><div class=\"absolute -top-4 left-6 bg-zinc-900 text-zinc-300 text-lg px-3 py-1 rounded-md border border-zinc-700\">Update Avatar</div><form hx-post=\"/admin/about/update-avatar\" hx-target=\"#update-avatar-form-overlay\" hx-swap=\"delete\" class=\"space-y-4\"><div class=\"flex flex-col\"><label for=\"avatar\" class=\"text-zinc-300 mb-1\">Choose Avatar</label> <select id=\"avatar\" name=\"avatar\" required class=\"bg-zinc-900 border border-zinc-700 text-zinc-100 px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500\"><option value=\"\">-- Select avatar image --</option> ")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<div id=\"update-avatar-form-overlay\" class=\"fixed inset-0 z-50 bg-black/60 flex items-center justify-center\"><div class=\"bg-zinc-800 border border-zinc-700 shadow-lg shadow-black/40 rounded-xl w-full max-w-md p-6 space-y-6 relative\"><div class=\"absolute -top-4 left-6 bg-zinc-900 text-zinc-300 text-lg px-3 py-1 rounded-md border border-zinc-700\">Update Avatar</div><form hx-post=\"/admin/about/avatar\" hx-target=\"#update-avatar-form-overlay\" hx-swap=\"delete\" class=\"space-y-4\"><div class=\"flex flex-col\"><label for=\"avatar\" class=\"text-zinc-300 mb-1\">Choose Avatar</label> <select id=\"avatar\" name=\"avatar\" required class=\"bg-zinc-900 border border-zinc-700 text-zinc-100 px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500\"><option value=\"\">-- Select avatar image --</option> ")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -167,7 +167,7 @@ func UpdateNameForm() templ.Component {
 			templ_7745c5c3_Var6 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "<div id=\"update-name-form-overlay\" class=\"fixed inset-0 z-50 bg-black/60 flex items-center justify-center\"><!-- Modal Dialog --><div class=\"bg-zinc-800 border border-zinc-700 shadow-lg shadow-black/40 rounded-xl w-full max-w-md p-6 space-y-6 relative\"><div class=\"absolute -top-4 left-6 bg-zinc-900 text-zinc-300 text-lg px-3 py-1 rounded-md border border-zinc-700\">Update Name</div><!-- Form --><form hx-post=\"/admin/about/update-name\" hx-target=\"#update-name-form-overlay\" hx-swap=\"delete\" class=\"space-y-4\"><div class=\"flex flex-col\"><label for=\"name\" class=\"text-zinc-300 mb-1\">New Name</label> <input id=\"name\" name=\"name\" type=\"text\" required class=\"bg-zinc-900 border border-zinc-700 text-zinc-100 px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500\"></div><div class=\"flex justify-end gap-3 pt-4\"><button type=\"button\" class=\"text-zinc-400 hover:text-zinc-100\" hx-get=\"/delete\" hx-target=\"#update-name-form-overlay\" hx-swap=\"delete\">Cancel</button> <button type=\"submit\" class=\"bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md font-medium\">Save</button></div></form></div></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "<div id=\"update-name-form-overlay\" class=\"fixed inset-0 z-50 bg-black/60 flex items-center justify-center\"><!-- Modal Dialog --><div class=\"bg-zinc-800 border border-zinc-700 shadow-lg shadow-black/40 rounded-xl w-full max-w-md p-6 space-y-6 relative\"><div class=\"absolute -top-4 left-6 bg-zinc-900 text-zinc-300 text-lg px-3 py-1 rounded-md border border-zinc-700\">Update Name</div><!-- Form --><form hx-post=\"/admin/about/name\" hx-target=\"#update-name-form-overlay\" hx-swap=\"delete\" class=\"space-y-4\"><div class=\"flex flex-col\"><label for=\"name\" class=\"text-zinc-300 mb-1\">New Name</label> <input id=\"name\" name=\"name\" type=\"text\" required class=\"bg-zinc-900 border border-zinc-700 text-zinc-100 px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500\"></div><div class=\"flex justify-end gap-3 pt-4\"><button type=\"button\" class=\"text-zinc-400 hover:text-zinc-100\" hx-get=\"/delete\" hx-target=\"#update-name-form-overlay\" hx-swap=\"delete\">Cancel</button> <button type=\"submit\" class=\"bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md font-medium\">Save</button></div></form></div></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -196,7 +196,7 @@ func UpdateShortDescForm() templ.Component {
 			templ_7745c5c3_Var7 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 9, "<div id=\"update-short-desc-form-overlay\" class=\"fixed inset-0 z-50 bg-black/60 flex items-center justify-center\"><!-- Modal Dialog --><div class=\"bg-zinc-800 border border-zinc-700 shadow-lg shadow-black/40 rounded-xl w-full max-w-md p-6 space-y-6 relative\"><div class=\"absolute -top-4 left-6 bg-zinc-900 text-zinc-300 text-lg px-3 py-1 rounded-md border border-zinc-700\">Update Short Description</div><!-- Form --><form hx-post=\"/admin/about/update-short-desc\" hx-target=\"#update-short-desc-form-overlay\" hx-swap=\"delete\" class=\"space-y-4\"><div class=\"flex flex-col\"><label for=\"short-desc\" class=\"text-zinc-300 mb-1\">New Short Description</label> <input id=\"short-desc\" name=\"short-desc\" type=\"text\" required class=\"bg-zinc-900 border border-zinc-700 text-zinc-100 px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500\"></div><div class=\"flex justify-end gap-3 pt-4\"><button type=\"button\" class=\"text-zinc-400 hover:text-zinc-100\" hx-get=\"/delete\" hx-target=\"#update-short-desc-form-overlay\" hx-swap=\"delete\">Cancel</button> <button type=\"submit\" class=\"bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md font-medium\">Save</button></div></form></div></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 9, "<div id=\"update-short-desc-form-overlay\" class=\"fixed inset-0 z-50 bg-black/60 flex items-center justify-center\"><!-- Modal Dialog --><div class=\"bg-zinc-800 border border-zinc-700 shadow-lg shadow-black/40 rounded-xl w-full max-w-md p-6 space-y-6 relative\"><div class=\"absolute -top-4 left-6 bg-zinc-900 text-zinc-300 text-lg px-3 py-1 rounded-md border border-zinc-700\">Update Short Description</div><!-- Form --><form hx-post=\"/admin/about/short-desc\" hx-target=\"#update-short-desc-form-overlay\" hx-swap=\"delete\" class=\"space-y-4\"><div class=\"flex flex-col\"><label for=\"short-desc\" class=\"text-zinc-300 mb-1\">New Short Description</label> <input id=\"short-desc\" name=\"short-desc\" type=\"text\" required class=\"bg-zinc-900 border border-zinc-700 text-zinc-100 px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500\"></div><div class=\"flex justify-end gap-3 pt-4\"><button type=\"button\" class=\"text-zinc-400 hover:text-zinc-100\" hx-get=\"/delete\" hx-target=\"#update-short-desc-form-overlay\" hx-swap=\"delete\">Cancel</button> <button type=\"submit\" class=\"bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md font-medium\">Save</button></div></form></div></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -230,9 +230,9 @@ func CreatePostForm() templ.Component {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var9 string
-		templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs("/admin/blog/post")
+		templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs("/admin/blog/posts")
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/forms.templ`, Line: 188, Col: 31}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/forms.templ`, Line: 188, Col: 32}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var9))
 		if templ_7745c5c3_Err != nil {
@@ -292,9 +292,9 @@ func EditPostTitleForm(post *model.Post) templ.Component {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var12 string
-			templ_7745c5c3_Var12, templ_7745c5c3_Err = templ.JoinStringErrs("/admin/blog/post/update-title/" + post.Id.String())
+			templ_7745c5c3_Var12, templ_7745c5c3_Err = templ.JoinStringErrs("/admin/blog/posts/" + post.Id.String() + "/title")
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/forms.templ`, Line: 239, Col: 69}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/forms.templ`, Line: 239, Col: 68}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var12))
 			if templ_7745c5c3_Err != nil {
@@ -327,7 +327,7 @@ func EditPostTitleForm(post *model.Post) templ.Component {
 	})
 }
 
-func EditPostDateForm(id string) templ.Component {
+func EditPostShortDescriptionForm(post *model.Post) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -365,94 +365,34 @@ func EditPostDateForm(id string) templ.Component {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var16 string
-			templ_7745c5c3_Var16, templ_7745c5c3_Err = templ.JoinStringErrs("/admin/blog/post/update-date/" + id)
+			templ_7745c5c3_Var16, templ_7745c5c3_Err = templ.JoinStringErrs("/admin/blog/posts/" + post.Id.String() + "/short-desc")
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/forms.templ`, Line: 269, Col: 54}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/forms.templ`, Line: 269, Col: 73}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var16))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 17, "\" hx-target=\"#overlay\" hx-swap=\"delete\" class=\"space-y-4\"><label for=\"date\" class=\"text-zinc-300 mb-1 block\">Post Date</label> <input type=\"date\" id=\"date\" name=\"date\" class=\"bg-zinc-800 border border-zinc-700 text-zinc-100 text-sm rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-zinc-500\"><div class=\"flex justify-end gap-3\"><button type=\"button\" class=\"text-zinc-400 hover:text-zinc-100\" hx-get=\"/delete\" hx-trigger=\"click\" hx-target=\"#overlay\" hx-swap=\"delete\">Cancel</button> <button type=\"submit\" class=\"bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md font-medium\">Save</button></div></form>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 17, "\" hx-target=\"#overlay\" hx-swap=\"delete\" class=\"space-y-4\"><label for=\"short-description\" class=\"text-zinc-300 mb-1 block\">Short Description</label> <input id=\"short-description\" name=\"short-description\" type=\"text\" required value=\"")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var17 string
+			templ_7745c5c3_Var17, templ_7745c5c3_Err = templ.JoinStringErrs(post.ShortDesc)
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/forms.templ`, Line: 276, Col: 26}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var17))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 18, "\" class=\"w-full bg-zinc-900 border border-zinc-700 text-zinc-100 px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500\"><div class=\"flex justify-end gap-3\"><button type=\"button\" class=\"text-zinc-400 hover:text-zinc-100\" hx-get=\"/delete\" hx-trigger=\"click\" hx-target=\"#overlay\" hx-swap=\"delete\">Cancel</button> <button type=\"submit\" class=\"bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md font-medium\">Save</button></div></form>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			return nil
 		})
-		templ_7745c5c3_Err = shared.Overlay("Edit Post Date").Render(templ.WithChildren(ctx, templ_7745c5c3_Var15), templ_7745c5c3_Buffer)
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		return nil
-	})
-}
-
-func EditPostShortDescriptionForm(post *model.Post) templ.Component {
-	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
-		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
-		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
-			return templ_7745c5c3_CtxErr
-		}
-		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templruntime.GetBuffer(templ_7745c5c3_W)
-		if !templ_7745c5c3_IsBuffer {
-			defer func() {
-				templ_7745c5c3_BufErr := templruntime.ReleaseBuffer(templ_7745c5c3_Buffer)
-				if templ_7745c5c3_Err == nil {
-					templ_7745c5c3_Err = templ_7745c5c3_BufErr
-				}
-			}()
-		}
-		ctx = templ.InitializeContext(ctx)
-		templ_7745c5c3_Var17 := templ.GetChildren(ctx)
-		if templ_7745c5c3_Var17 == nil {
-			templ_7745c5c3_Var17 = templ.NopComponent
-		}
-		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Var18 := templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
-			templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
-			templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templruntime.GetBuffer(templ_7745c5c3_W)
-			if !templ_7745c5c3_IsBuffer {
-				defer func() {
-					templ_7745c5c3_BufErr := templruntime.ReleaseBuffer(templ_7745c5c3_Buffer)
-					if templ_7745c5c3_Err == nil {
-						templ_7745c5c3_Err = templ_7745c5c3_BufErr
-					}
-				}()
-			}
-			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 18, "<form hx-post=\"")
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			var templ_7745c5c3_Var19 string
-			templ_7745c5c3_Var19, templ_7745c5c3_Err = templ.JoinStringErrs("/admin/blog/post/update-short-desc/" + post.Id.String())
-			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/forms.templ`, Line: 297, Col: 74}
-			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var19))
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 19, "\" hx-target=\"#overlay\" hx-swap=\"delete\" class=\"space-y-4\"><label for=\"short-description\" class=\"text-zinc-300 mb-1 block\">Short Description</label> <input id=\"short-description\" name=\"short-description\" type=\"text\" required value=\"")
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			var templ_7745c5c3_Var20 string
-			templ_7745c5c3_Var20, templ_7745c5c3_Err = templ.JoinStringErrs(post.ShortDesc)
-			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/forms.templ`, Line: 304, Col: 26}
-			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var20))
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 20, "\" class=\"w-full bg-zinc-900 border border-zinc-700 text-zinc-100 px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500\"><div class=\"flex justify-end gap-3\"><button type=\"button\" class=\"text-zinc-400 hover:text-zinc-100\" hx-get=\"/delete\" hx-trigger=\"click\" hx-target=\"#overlay\" hx-swap=\"delete\">Cancel</button> <button type=\"submit\" class=\"bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md font-medium\">Save</button></div></form>")
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			return nil
-		})
-		templ_7745c5c3_Err = shared.Overlay("Edit Post Short Description").Render(templ.WithChildren(ctx, templ_7745c5c3_Var18), templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = shared.Overlay("Edit Post Short Description").Render(templ.WithChildren(ctx, templ_7745c5c3_Var15), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -476,38 +416,38 @@ func EditPostContentForm(html string, post *model.Post) templ.Component {
 			}()
 		}
 		ctx = templ.InitializeContext(ctx)
-		templ_7745c5c3_Var21 := templ.GetChildren(ctx)
-		if templ_7745c5c3_Var21 == nil {
-			templ_7745c5c3_Var21 = templ.NopComponent
+		templ_7745c5c3_Var18 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var18 == nil {
+			templ_7745c5c3_Var18 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 21, "<div id=\"overlay\" class=\"fixed inset-0 z-50 bg-black/70 flex items-center justify-center\"><form class=\"bg-zinc-800 border border-zinc-700 shadow-lg shadow-black/40 rounded-xl w-full h-full p-6 flex flex-col space-y-4 overflow-hidden\" hx-post=\"")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 19, "<div id=\"overlay\" class=\"fixed inset-0 z-50 bg-black/70 flex items-center justify-center\"><form class=\"bg-zinc-800 border border-zinc-700 shadow-lg shadow-black/40 rounded-xl w-full h-full p-6 flex flex-col space-y-4 overflow-hidden\" hx-post=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		var templ_7745c5c3_Var22 string
-		templ_7745c5c3_Var22, templ_7745c5c3_Err = templ.JoinStringErrs("/admin/blog/post/update-content/" + post.Id.String())
+		var templ_7745c5c3_Var19 string
+		templ_7745c5c3_Var19, templ_7745c5c3_Err = templ.JoinStringErrs("/admin/blog/posts/" + post.Id.String() + "/content")
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/forms.templ`, Line: 329, Col: 66}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/forms.templ`, Line: 301, Col: 65}
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var22))
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 22, "\" hx-target=\"#overlay\" hx-swap=\"delete\"><div class=\"flex justify-between items-center border-b border-zinc-700 pb-2\"><h2 class=\"text-lg text-zinc-300\">Edit ")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var19))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		var templ_7745c5c3_Var23 string
-		templ_7745c5c3_Var23, templ_7745c5c3_Err = templ.JoinStringErrs(post.Title)
-		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/forms.templ`, Line: 334, Col: 55}
-		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var23))
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 20, "\" hx-target=\"#overlay\" hx-swap=\"delete\"><div class=\"flex justify-between items-center border-b border-zinc-700 pb-2\"><h2 class=\"text-lg text-zinc-300\">Edit ")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 23, "</h2><button class=\"text-zinc-400 hover:text-zinc-100 text-sm\">Save</button> <button type=\"button\" class=\"text-zinc-400 hover:text-zinc-100 text-sm\" hx-get=\"/delete\" hx-target=\"#overlay\" hx-swap=\"delete\">Close</button></div><div class=\"flex-1 overflow-auto\">")
+		var templ_7745c5c3_Var20 string
+		templ_7745c5c3_Var20, templ_7745c5c3_Err = templ.JoinStringErrs(post.Title)
+		if templ_7745c5c3_Err != nil {
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/forms.templ`, Line: 306, Col: 55}
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var20))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 21, "</h2><button class=\"text-zinc-400 hover:text-zinc-100 text-sm\">Save</button> <button type=\"button\" class=\"text-zinc-400 hover:text-zinc-100 text-sm\" hx-get=\"/delete\" hx-target=\"#overlay\" hx-swap=\"delete\">Close</button></div><div class=\"flex-1 overflow-auto\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -515,7 +455,7 @@ func EditPostContentForm(html string, post *model.Post) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 24, "</div></form></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 22, "</div></form></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -539,12 +479,12 @@ func DeletePostForm(post *model.Post) templ.Component {
 			}()
 		}
 		ctx = templ.InitializeContext(ctx)
-		templ_7745c5c3_Var24 := templ.GetChildren(ctx)
-		if templ_7745c5c3_Var24 == nil {
-			templ_7745c5c3_Var24 = templ.NopComponent
+		templ_7745c5c3_Var21 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var21 == nil {
+			templ_7745c5c3_Var21 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Var25 := templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
+		templ_7745c5c3_Var22 := templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 			templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 			templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templruntime.GetBuffer(templ_7745c5c3_W)
 			if !templ_7745c5c3_IsBuffer {
@@ -556,39 +496,39 @@ func DeletePostForm(post *model.Post) templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 25, "<form hx-delete=\"")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 23, "<form hx-delete=\"")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			var templ_7745c5c3_Var26 string
-			templ_7745c5c3_Var26, templ_7745c5c3_Err = templ.JoinStringErrs("/admin/blog/post/" + post.Id.String())
+			var templ_7745c5c3_Var23 string
+			templ_7745c5c3_Var23, templ_7745c5c3_Err = templ.JoinStringErrs("/admin/blog/posts/" + post.Id.String())
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/forms.templ`, Line: 357, Col: 58}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/forms.templ`, Line: 329, Col: 59}
 			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var26))
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 26, "\" hx-target=\"#overlay\" hx-swap=\"delete\" class=\"space-y-4\">Are you sure that you want to delete post \"")
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var23))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			var templ_7745c5c3_Var27 string
-			templ_7745c5c3_Var27, templ_7745c5c3_Err = templ.JoinStringErrs(post.Title)
-			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/forms.templ`, Line: 358, Col: 58}
-			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var27))
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 24, "\" hx-target=\"#overlay\" hx-swap=\"delete\" class=\"space-y-4\">Are you sure that you want to delete post \"")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 27, "\"?<div class=\"flex justify-end gap-3\"><button type=\"button\" class=\"text-zinc-400 hover:text-zinc-100\" hx-get=\"/delete\" hx-trigger=\"click\" hx-target=\"#overlay\" hx-swap=\"delete\">Cancel</button> <button type=\"submit\" class=\"bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md font-medium\">Confirm</button></div></form>")
+			var templ_7745c5c3_Var24 string
+			templ_7745c5c3_Var24, templ_7745c5c3_Err = templ.JoinStringErrs(post.Title)
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/forms.templ`, Line: 330, Col: 58}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var24))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 25, "\"?<div class=\"flex justify-end gap-3\"><button type=\"button\" class=\"text-zinc-400 hover:text-zinc-100\" hx-get=\"/delete\" hx-trigger=\"click\" hx-target=\"#overlay\" hx-swap=\"delete\">Cancel</button> <button type=\"submit\" class=\"bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md font-medium\">Confirm</button></div></form>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			return nil
 		})
-		templ_7745c5c3_Err = shared.Overlay("Delete Post").Render(templ.WithChildren(ctx, templ_7745c5c3_Var25), templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = shared.Overlay("Delete Post").Render(templ.WithChildren(ctx, templ_7745c5c3_Var22), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -612,25 +552,25 @@ func CreateProjectForm() templ.Component {
 			}()
 		}
 		ctx = templ.InitializeContext(ctx)
-		templ_7745c5c3_Var28 := templ.GetChildren(ctx)
-		if templ_7745c5c3_Var28 == nil {
-			templ_7745c5c3_Var28 = templ.NopComponent
+		templ_7745c5c3_Var25 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var25 == nil {
+			templ_7745c5c3_Var25 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 28, "<div id=\"overlay\" class=\"fixed inset-0 z-50 bg-black/70 flex items-center justify-center\"><form class=\"bg-zinc-800 border border-zinc-700 shadow-lg shadow-black/40 rounded-xl w-full h-full p-6 flex flex-col space-y-4 overflow-hidden\" hx-post=\"")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 26, "<div id=\"overlay\" class=\"fixed inset-0 z-50 bg-black/70 flex items-center justify-center\"><form class=\"bg-zinc-800 border border-zinc-700 shadow-lg shadow-black/40 rounded-xl w-full h-full p-6 flex flex-col space-y-4 overflow-hidden\" hx-post=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		var templ_7745c5c3_Var29 string
-		templ_7745c5c3_Var29, templ_7745c5c3_Err = templ.JoinStringErrs("/admin/projects")
+		var templ_7745c5c3_Var26 string
+		templ_7745c5c3_Var26, templ_7745c5c3_Err = templ.JoinStringErrs("/admin/projects")
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/forms.templ`, Line: 381, Col: 30}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/forms.templ`, Line: 353, Col: 30}
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var29))
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var26))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 29, "\" hx-target=\"#overlay\" hx-swap=\"delete\"><div class=\"flex justify-between items-center border-b border-zinc-700 pb-2\"><h2 class=\"text-lg text-zinc-300\">New Project</h2><button class=\"text-zinc-400 hover:text-zinc-100 text-sm\">Save</button> <button type=\"button\" class=\"text-zinc-400 hover:text-zinc-100 text-sm\" hx-get=\"/delete\" hx-target=\"#overlay\" hx-swap=\"delete\">Close</button></div><!-- Title input --><div class=\"flex flex-col gap-1\"><label for=\"title\" class=\"text-sm text-zinc-400\">Title</label> <input id=\"title\" name=\"title\" type=\"text\" class=\"bg-zinc-900 border border-zinc-700 rounded-md px-3 py-2 text-zinc-100 text-sm focus:outline-none focus:ring-2\n          focus:ring-zinc-500 w-3xl\"></div><!-- Short Description input --><div class=\"flex flex-col gap-1\"><label for=\"short-desc\" class=\"text-sm text-zinc-400\">Short Description</label> <input id=\"short-desc\" name=\"short-desc\" type=\"text\" class=\"bg-zinc-900 border border-zinc-700 rounded-md px-3 py-2 text-zinc-100 text-sm focus:outline-none focus:ring-2 \n          focus:ring-zinc-500 w-3xl\"></div><!-- Technologies input --><div class=\"flex flex-col gap-1\"><label for=\"technologies\" class=\"text-sm text-zinc-400\">Technologies (comma separated)</label> <input id=\"technologies\" name=\"technologies\" type=\"text\" placeholder=\"e.g. Go, HTMX, Tailwind\" class=\"bg-zinc-900 border border-zinc-700 rounded-md px-3 py-2 text-zinc-100 text-sm focus:outline-none focus:ring-2 \n          focus:ring-zinc-500 w-3xl\"></div><!-- Description Markdown editor --><div class=\"flex-1 overflow-auto\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 27, "\" hx-target=\"#overlay\" hx-swap=\"delete\"><div class=\"flex justify-between items-center border-b border-zinc-700 pb-2\"><h2 class=\"text-lg text-zinc-300\">New Project</h2><button class=\"text-zinc-400 hover:text-zinc-100 text-sm\">Save</button> <button type=\"button\" class=\"text-zinc-400 hover:text-zinc-100 text-sm\" hx-get=\"/delete\" hx-target=\"#overlay\" hx-swap=\"delete\">Close</button></div><!-- Title input --><div class=\"flex flex-col gap-1\"><label for=\"title\" class=\"text-sm text-zinc-400\">Title</label> <input id=\"title\" name=\"title\" type=\"text\" class=\"bg-zinc-900 border border-zinc-700 rounded-md px-3 py-2 text-zinc-100 text-sm focus:outline-none focus:ring-2\n          focus:ring-zinc-500 w-3xl\"></div><!-- Short Description input --><div class=\"flex flex-col gap-1\"><label for=\"short-desc\" class=\"text-sm text-zinc-400\">Short Description</label> <input id=\"short-desc\" name=\"short-desc\" type=\"text\" class=\"bg-zinc-900 border border-zinc-700 rounded-md px-3 py-2 text-zinc-100 text-sm focus:outline-none focus:ring-2 \n          focus:ring-zinc-500 w-3xl\"></div><!-- Technologies input --><div class=\"flex flex-col gap-1\"><label for=\"technologies\" class=\"text-sm text-zinc-400\">Technologies (comma separated)</label> <input id=\"technologies\" name=\"technologies\" type=\"text\" placeholder=\"e.g. Go, HTMX, Tailwind\" class=\"bg-zinc-900 border border-zinc-700 rounded-md px-3 py-2 text-zinc-100 text-sm focus:outline-none focus:ring-2 \n          focus:ring-zinc-500 w-3xl\"></div><!-- Description Markdown editor --><div class=\"flex-1 overflow-auto\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -638,7 +578,7 @@ func CreateProjectForm() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 30, "</div></form></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 28, "</div></form></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -662,77 +602,77 @@ func UpdateProjectForm(project project.Project) templ.Component {
 			}()
 		}
 		ctx = templ.InitializeContext(ctx)
-		templ_7745c5c3_Var30 := templ.GetChildren(ctx)
-		if templ_7745c5c3_Var30 == nil {
-			templ_7745c5c3_Var30 = templ.NopComponent
+		templ_7745c5c3_Var27 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var27 == nil {
+			templ_7745c5c3_Var27 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 31, "<div id=\"overlay\" class=\"fixed inset-0 z-50 bg-black/70 flex items-center justify-center\"><form class=\"bg-zinc-800 border border-zinc-700 shadow-lg shadow-black/40 rounded-xl w-full h-full p-6 flex flex-col space-y-4 overflow-hidden\" hx-put=\"")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 29, "<div id=\"overlay\" class=\"fixed inset-0 z-50 bg-black/70 flex items-center justify-center\"><form class=\"bg-zinc-800 border border-zinc-700 shadow-lg shadow-black/40 rounded-xl w-full h-full p-6 flex flex-col space-y-4 overflow-hidden\" hx-put=\"")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		var templ_7745c5c3_Var28 string
+		templ_7745c5c3_Var28, templ_7745c5c3_Err = templ.JoinStringErrs("/admin/projects/" + project.ID.String())
+		if templ_7745c5c3_Err != nil {
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/forms.templ`, Line: 418, Col: 52}
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var28))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 30, "\" hx-target=\"#overlay\" hx-swap=\"delete\"><div class=\"flex justify-between items-center border-b border-zinc-700 pb-2\"><h2 class=\"text-lg text-zinc-300\">")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		var templ_7745c5c3_Var29 string
+		templ_7745c5c3_Var29, templ_7745c5c3_Err = templ.JoinStringErrs("Update Project\"" + project.Title + "\"")
+		if templ_7745c5c3_Err != nil {
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/forms.templ`, Line: 423, Col: 81}
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var29))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 31, "</h2><button class=\"text-zinc-400 hover:text-zinc-100 text-sm\">Save</button> <button type=\"button\" class=\"text-zinc-400 hover:text-zinc-100 text-sm\" hx-get=\"/delete\" hx-target=\"#overlay\" hx-swap=\"delete\">Close</button></div><!-- Title input --><div class=\"flex flex-col gap-1\"><label for=\"title\" class=\"text-sm text-zinc-400\">Title</label> <input id=\"title\" name=\"title\" type=\"text\" value=\"")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		var templ_7745c5c3_Var30 string
+		templ_7745c5c3_Var30, templ_7745c5c3_Err = templ.JoinStringErrs(project.Title)
+		if templ_7745c5c3_Err != nil {
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/forms.templ`, Line: 444, Col: 26}
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var30))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 32, "\" class=\"bg-zinc-900 border border-zinc-700 rounded-md px-3 py-2 text-zinc-100 text-sm focus:outline-none focus:ring-2\n          focus:ring-zinc-500 w-3xl\"></div><!-- Short Description input --><div class=\"flex flex-col gap-1\"><label for=\"short-desc\" class=\"text-sm text-zinc-400\">Short Description</label> <input id=\"short-desc\" name=\"short-desc\" type=\"text\" value=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var31 string
-		templ_7745c5c3_Var31, templ_7745c5c3_Err = templ.JoinStringErrs("/admin/projects/" + project.ID.String())
+		templ_7745c5c3_Var31, templ_7745c5c3_Err = templ.JoinStringErrs(project.ShortDesc)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/forms.templ`, Line: 446, Col: 52}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/forms.templ`, Line: 456, Col: 30}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var31))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 32, "\" hx-target=\"#overlay\" hx-swap=\"delete\"><div class=\"flex justify-between items-center border-b border-zinc-700 pb-2\"><h2 class=\"text-lg text-zinc-300\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 33, "\" class=\"bg-zinc-900 border border-zinc-700 rounded-md px-3 py-2 text-zinc-100 text-sm focus:outline-none focus:ring-2 \n          focus:ring-zinc-500 w-3xl\"></div><!-- Technologies input --><div class=\"flex flex-col gap-1\"><label for=\"technologies\" class=\"text-sm text-zinc-400\">Technologies (comma separated)</label> <input id=\"technologies\" name=\"technologies\" type=\"text\" value=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var32 string
-		templ_7745c5c3_Var32, templ_7745c5c3_Err = templ.JoinStringErrs("Update Project\"" + project.Title + "\"")
+		templ_7745c5c3_Var32, templ_7745c5c3_Err = templ.JoinStringErrs(project.TechnologiesJoin())
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/forms.templ`, Line: 451, Col: 81}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/forms.templ`, Line: 468, Col: 39}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var32))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 33, "</h2><button class=\"text-zinc-400 hover:text-zinc-100 text-sm\">Save</button> <button type=\"button\" class=\"text-zinc-400 hover:text-zinc-100 text-sm\" hx-get=\"/delete\" hx-target=\"#overlay\" hx-swap=\"delete\">Close</button></div><!-- Title input --><div class=\"flex flex-col gap-1\"><label for=\"title\" class=\"text-sm text-zinc-400\">Title</label> <input id=\"title\" name=\"title\" type=\"text\" value=\"")
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		var templ_7745c5c3_Var33 string
-		templ_7745c5c3_Var33, templ_7745c5c3_Err = templ.JoinStringErrs(project.Title)
-		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/forms.templ`, Line: 472, Col: 26}
-		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var33))
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 34, "\" class=\"bg-zinc-900 border border-zinc-700 rounded-md px-3 py-2 text-zinc-100 text-sm focus:outline-none focus:ring-2\n          focus:ring-zinc-500 w-3xl\"></div><!-- Short Description input --><div class=\"flex flex-col gap-1\"><label for=\"short-desc\" class=\"text-sm text-zinc-400\">Short Description</label> <input id=\"short-desc\" name=\"short-desc\" type=\"text\" value=\"")
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		var templ_7745c5c3_Var34 string
-		templ_7745c5c3_Var34, templ_7745c5c3_Err = templ.JoinStringErrs(project.ShortDesc)
-		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/forms.templ`, Line: 484, Col: 30}
-		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var34))
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 35, "\" class=\"bg-zinc-900 border border-zinc-700 rounded-md px-3 py-2 text-zinc-100 text-sm focus:outline-none focus:ring-2 \n          focus:ring-zinc-500 w-3xl\"></div><!-- Technologies input --><div class=\"flex flex-col gap-1\"><label for=\"technologies\" class=\"text-sm text-zinc-400\">Technologies (comma separated)</label> <input id=\"technologies\" name=\"technologies\" type=\"text\" value=\"")
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		var templ_7745c5c3_Var35 string
-		templ_7745c5c3_Var35, templ_7745c5c3_Err = templ.JoinStringErrs(project.TechnologiesJoin())
-		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/forms.templ`, Line: 496, Col: 39}
-		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var35))
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 36, "\" placeholder=\"e.g. Go, HTMX, Tailwind\" class=\"bg-zinc-900 border border-zinc-700 rounded-md px-3 py-2 text-zinc-100 text-sm focus:outline-none focus:ring-2 \n          focus:ring-zinc-500 w-3xl\"></div><!-- Description Markdown editor --><div class=\"flex-1 overflow-auto\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 34, "\" placeholder=\"e.g. Go, HTMX, Tailwind\" class=\"bg-zinc-900 border border-zinc-700 rounded-md px-3 py-2 text-zinc-100 text-sm focus:outline-none focus:ring-2 \n          focus:ring-zinc-500 w-3xl\"></div><!-- Description Markdown editor --><div class=\"flex-1 overflow-auto\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -740,7 +680,7 @@ func UpdateProjectForm(project project.Project) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 37, "</div></form></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 35, "</div></form></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -764,12 +704,12 @@ func DeleteProjectForm(project project.Project) templ.Component {
 			}()
 		}
 		ctx = templ.InitializeContext(ctx)
-		templ_7745c5c3_Var36 := templ.GetChildren(ctx)
-		if templ_7745c5c3_Var36 == nil {
-			templ_7745c5c3_Var36 = templ.NopComponent
+		templ_7745c5c3_Var33 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var33 == nil {
+			templ_7745c5c3_Var33 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Var37 := templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
+		templ_7745c5c3_Var34 := templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 			templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 			templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templruntime.GetBuffer(templ_7745c5c3_W)
 			if !templ_7745c5c3_IsBuffer {
@@ -781,39 +721,39 @@ func DeleteProjectForm(project project.Project) templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 38, "<form hx-delete=\"")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 36, "<form hx-delete=\"")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			var templ_7745c5c3_Var38 string
-			templ_7745c5c3_Var38, templ_7745c5c3_Err = templ.JoinStringErrs("/admin/projects/" + project.ID.String())
+			var templ_7745c5c3_Var35 string
+			templ_7745c5c3_Var35, templ_7745c5c3_Err = templ.JoinStringErrs("/admin/projects/" + project.ID.String())
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/forms.templ`, Line: 512, Col: 60}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/forms.templ`, Line: 484, Col: 60}
 			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var38))
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 39, "\" hx-target=\"#overlay\" hx-swap=\"delete\" class=\"space-y-4\">Are you sure that you want to delete project \"")
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var35))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			var templ_7745c5c3_Var39 string
-			templ_7745c5c3_Var39, templ_7745c5c3_Err = templ.JoinStringErrs(project.Title)
-			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/forms.templ`, Line: 513, Col: 64}
-			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var39))
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 37, "\" hx-target=\"#overlay\" hx-swap=\"delete\" class=\"space-y-4\">Are you sure that you want to delete project \"")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 40, "\"?<div class=\"flex justify-end gap-3\"><button type=\"button\" class=\"text-zinc-400 hover:text-zinc-100\" hx-get=\"/delete\" hx-trigger=\"click\" hx-target=\"#overlay\" hx-swap=\"delete\">Cancel</button> <button type=\"submit\" class=\"bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md font-medium\">Confirm</button></div></form>")
+			var templ_7745c5c3_Var36 string
+			templ_7745c5c3_Var36, templ_7745c5c3_Err = templ.JoinStringErrs(project.Title)
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/forms.templ`, Line: 485, Col: 64}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var36))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 38, "\"?<div class=\"flex justify-end gap-3\"><button type=\"button\" class=\"text-zinc-400 hover:text-zinc-100\" hx-get=\"/delete\" hx-trigger=\"click\" hx-target=\"#overlay\" hx-swap=\"delete\">Cancel</button> <button type=\"submit\" class=\"bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md font-medium\">Confirm</button></div></form>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			return nil
 		})
-		templ_7745c5c3_Err = shared.Overlay("Delete Post").Render(templ.WithChildren(ctx, templ_7745c5c3_Var37), templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = shared.Overlay("Delete Post").Render(templ.WithChildren(ctx, templ_7745c5c3_Var34), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -837,12 +777,12 @@ func UploadAssetForm() templ.Component {
 			}()
 		}
 		ctx = templ.InitializeContext(ctx)
-		templ_7745c5c3_Var40 := templ.GetChildren(ctx)
-		if templ_7745c5c3_Var40 == nil {
-			templ_7745c5c3_Var40 = templ.NopComponent
+		templ_7745c5c3_Var37 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var37 == nil {
+			templ_7745c5c3_Var37 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 41, "<div id=\"upload-form-overlay\" class=\"fixed inset-0 z-50 bg-black/60 flex items-center justify-center\"><!-- Modal Dialog --><div class=\"bg-zinc-800 border border-zinc-700 shadow-lg shadow-black/40 rounded-xl w-full max-w-md p-6 space-y-6 relative\"><div class=\"absolute -top-4 left-6 bg-zinc-900 text-zinc-300 text-lg px-3 py-1 rounded-md border border-zinc-700\">Upload File</div><!-- Form --><form hx-post=\"/admin/upload\" hx-encoding=\"multipart/form-data\" hx-swap=\"delete\" hx-target=\"#upload-form-overlay\" class=\"space-y-4\"><div class=\"flex flex-col\"><label for=\"filename\" class=\"text-zinc-300 mb-1\">File Name</label> <input id=\"filename\" name=\"filename\" type=\"text\" required class=\"bg-zinc-900 border border-zinc-700 text-zinc-100 px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500\"></div><div class=\"flex flex-col\"><label for=\"file\" class=\"text-zinc-300 mb-1\">Choose File</label> <input id=\"file\" name=\"file\" type=\"file\" required class=\"text-zinc-100 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-indigo-600 hover:file:bg-indigo-700\"></div><div class=\"flex justify-end gap-3 pt-4\"><button type=\"button\" class=\"text-zinc-400 hover:text-zinc-100\" hx-get=\"/delete\" hx-target=\"#upload-form-overlay\" hx-swap=\"delete\">Cancel</button> <button type=\"submit\" class=\"bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md font-medium\">Upload</button></div></form></div></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 39, "<div id=\"upload-form-overlay\" class=\"fixed inset-0 z-50 bg-black/60 flex items-center justify-center\"><!-- Modal Dialog --><div class=\"bg-zinc-800 border border-zinc-700 shadow-lg shadow-black/40 rounded-xl w-full max-w-md p-6 space-y-6 relative\"><div class=\"absolute -top-4 left-6 bg-zinc-900 text-zinc-300 text-lg px-3 py-1 rounded-md border border-zinc-700\">Upload File</div><!-- Form --><form hx-post=\"/admin/upload\" hx-encoding=\"multipart/form-data\" hx-swap=\"delete\" hx-target=\"#upload-form-overlay\" class=\"space-y-4\"><div class=\"flex flex-col\"><label for=\"filename\" class=\"text-zinc-300 mb-1\">File Name</label> <input id=\"filename\" name=\"filename\" type=\"text\" required class=\"bg-zinc-900 border border-zinc-700 text-zinc-100 px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500\"></div><div class=\"flex flex-col\"><label for=\"file\" class=\"text-zinc-300 mb-1\">Choose File</label> <input id=\"file\" name=\"file\" type=\"file\" required class=\"text-zinc-100 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-indigo-600 hover:file:bg-indigo-700\"></div><div class=\"flex justify-end gap-3 pt-4\"><button type=\"button\" class=\"text-zinc-400 hover:text-zinc-100\" hx-get=\"/delete\" hx-target=\"#upload-form-overlay\" hx-swap=\"delete\">Cancel</button> <button type=\"submit\" class=\"bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md font-medium\">Upload</button></div></form></div></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -866,38 +806,38 @@ func DeleteUploadForm(fileName string) templ.Component {
 			}()
 		}
 		ctx = templ.InitializeContext(ctx)
-		templ_7745c5c3_Var41 := templ.GetChildren(ctx)
-		if templ_7745c5c3_Var41 == nil {
-			templ_7745c5c3_Var41 = templ.NopComponent
+		templ_7745c5c3_Var38 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var38 == nil {
+			templ_7745c5c3_Var38 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 42, "<div id=\"confirm-delete-overlay\" class=\"fixed inset-0 z-50 bg-black/60 flex items-center justify-center\"><div class=\"bg-zinc-800 border border-zinc-700 shadow-lg shadow-black/40 rounded-xl w-full max-w-sm p-6 space-y-6 relative\"><div class=\"absolute -top-4 left-6 bg-zinc-900 text-zinc-300 text-lg px-3 py-1 rounded-md border border-zinc-700\">Confirm Deletion</div><div class=\"text-zinc-300\">Are you sure you want to delete <span class=\"text-red-400 font-semibold\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 40, "<div id=\"confirm-delete-overlay\" class=\"fixed inset-0 z-50 bg-black/60 flex items-center justify-center\"><div class=\"bg-zinc-800 border border-zinc-700 shadow-lg shadow-black/40 rounded-xl w-full max-w-sm p-6 space-y-6 relative\"><div class=\"absolute -top-4 left-6 bg-zinc-900 text-zinc-300 text-lg px-3 py-1 rounded-md border border-zinc-700\">Confirm Deletion</div><div class=\"text-zinc-300\">Are you sure you want to delete <span class=\"text-red-400 font-semibold\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		var templ_7745c5c3_Var42 string
-		templ_7745c5c3_Var42, templ_7745c5c3_Err = templ.JoinStringErrs(fileName)
+		var templ_7745c5c3_Var39 string
+		templ_7745c5c3_Var39, templ_7745c5c3_Err = templ.JoinStringErrs(fileName)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/forms.templ`, Line: 592, Col: 87}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/forms.templ`, Line: 564, Col: 87}
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var42))
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 43, "</span>?</div><div class=\"flex justify-end gap-3 pt-2\"><button type=\"button\" class=\"text-zinc-400 hover:text-zinc-100\" hx-get=\"/delete\" hx-target=\"#confirm-delete-overlay\" hx-swap=\"delete\">Cancel</button> <button class=\"bg-red-700 hover:bg-red-800 text-white px-4 py-2 rounded-md font-medium\" hx-delete=\"")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var39))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		var templ_7745c5c3_Var43 string
-		templ_7745c5c3_Var43, templ_7745c5c3_Err = templ.JoinStringErrs("/admin/upload/" + fileName)
-		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/forms.templ`, Line: 606, Col: 44}
-		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var43))
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 41, "</span>?</div><div class=\"flex justify-end gap-3 pt-2\"><button type=\"button\" class=\"text-zinc-400 hover:text-zinc-100\" hx-get=\"/delete\" hx-target=\"#confirm-delete-overlay\" hx-swap=\"delete\">Cancel</button> <button class=\"bg-red-700 hover:bg-red-800 text-white px-4 py-2 rounded-md font-medium\" hx-delete=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 44, "\" hx-target=\"#confirm-delete-overlay\" hx-swap=\"delete\">Yes, Delete</button></div></div></div>")
+		var templ_7745c5c3_Var40 string
+		templ_7745c5c3_Var40, templ_7745c5c3_Err = templ.JoinStringErrs("/admin/upload/" + fileName)
+		if templ_7745c5c3_Err != nil {
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/forms.templ`, Line: 578, Col: 44}
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var40))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 42, "\" hx-target=\"#confirm-delete-overlay\" hx-swap=\"delete\">Yes, Delete</button></div></div></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

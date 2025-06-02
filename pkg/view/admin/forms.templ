@@ -14,7 +14,7 @@ templ UpdateAboutDescriptionForm(html, markdown string) {
 				<h2 class="text-lg text-zinc-300">Your Title Here</h2>
 				<button
 					class="text-zinc-400 hover:text-zinc-100 text-sm"
-					hx-post="/admin/about/update-description"
+					hx-post="/admin/about/description"
 					hx-target="#update-about-description-form"
 					hx-swap="delete"
 				>
@@ -44,7 +44,7 @@ templ UpdateAvatarForm(files []os.FileInfo) {
 				Update Avatar
 			</div>
 			<form
-				hx-post="/admin/about/update-avatar"
+				hx-post="/admin/about/avatar"
 				hx-target="#update-avatar-form-overlay"
 				hx-swap="delete"
 				class="space-y-4"
@@ -98,7 +98,7 @@ templ UpdateNameForm() {
 			</div>
 			<!-- Form -->
 			<form
-				hx-post="/admin/about/update-name"
+				hx-post="/admin/about/name"
 				hx-target="#update-name-form-overlay"
 				hx-swap="delete"
 				class="space-y-4"
@@ -144,7 +144,7 @@ templ UpdateShortDescForm() {
 			</div>
 			<!-- Form -->
 			<form
-				hx-post="/admin/about/update-short-desc"
+				hx-post="/admin/about/short-desc"
 				hx-target="#update-short-desc-form-overlay"
 				hx-swap="delete"
 				class="space-y-4"
@@ -185,7 +185,7 @@ templ CreatePostForm() {
 	<div id="overlay" class="fixed inset-0 z-50 bg-black/70 flex items-center justify-center">
 		<form
 			class="bg-zinc-800 border border-zinc-700 shadow-lg shadow-black/40 rounded-xl w-full h-full p-6 flex flex-col space-y-4 overflow-hidden"
-			hx-post={ "/admin/blog/post" }
+			hx-post={ "/admin/blog/posts" }
 			hx-target="#overlay"
 			hx-swap="delete"
 		>
@@ -236,7 +236,7 @@ templ CreatePostForm() {
 
 templ EditPostTitleForm(post *model.Post) {
 	@shared.Overlay("Edit Post Title") {
-		<form hx-post={ "/admin/blog/post/update-title/" + post.Id.String() } hx-target="#overlay" hx-swap="delete" class="space-y-4">
+		<form hx-post={ "/admin/blog/posts/" + post.Id.String() + "/title" } hx-target="#overlay" hx-swap="delete" class="space-y-4">
 			<label for="title" class="text-zinc-300 mb-1 block">Post Title</label>
 			<input
 				id="title"
@@ -264,37 +264,9 @@ templ EditPostTitleForm(post *model.Post) {
 	}
 }
 
-templ EditPostDateForm(id string) {
-	@shared.Overlay("Edit Post Date") {
-		<form hx-post={ "/admin/blog/post/update-date/" + id } hx-target="#overlay" hx-swap="delete" class="space-y-4">
-			<label for="date" class="text-zinc-300 mb-1 block">Post Date</label>
-			<input
-				type="date"
-				id="date"
-				name="date"
-				class="bg-zinc-800 border border-zinc-700 text-zinc-100 text-sm rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-zinc-500"
-			/>
-			<div class="flex justify-end gap-3">
-				<button
-					type="button"
-					class="text-zinc-400 hover:text-zinc-100"
-					hx-get="/delete"
-					hx-trigger="click"
-					hx-target="#overlay"
-					hx-swap="delete"
-				>Cancel</button>
-				<button
-					type="submit"
-					class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md font-medium"
-				>Save</button>
-			</div>
-		</form>
-	}
-}
-
 templ EditPostShortDescriptionForm(post *model.Post) {
 	@shared.Overlay("Edit Post Short Description") {
-		<form hx-post={ "/admin/blog/post/update-short-desc/" + post.Id.String() } hx-target="#overlay" hx-swap="delete" class="space-y-4">
+		<form hx-post={ "/admin/blog/posts/" + post.Id.String() + "/short-desc" } hx-target="#overlay" hx-swap="delete" class="space-y-4">
 			<label for="short-description" class="text-zinc-300 mb-1 block">Short Description</label>
 			<input
 				id="short-description"
@@ -326,7 +298,7 @@ templ EditPostContentForm(html string, post *model.Post) {
 	<div id="overlay" class="fixed inset-0 z-50 bg-black/70 flex items-center justify-center">
 		<form
 			class="bg-zinc-800 border border-zinc-700 shadow-lg shadow-black/40 rounded-xl w-full h-full p-6 flex flex-col space-y-4 overflow-hidden"
-			hx-post={ "/admin/blog/post/update-content/" + post.Id.String() }
+			hx-post={ "/admin/blog/posts/" + post.Id.String() + "/content" }
 			hx-target="#overlay"
 			hx-swap="delete"
 		>
@@ -354,7 +326,7 @@ templ EditPostContentForm(html string, post *model.Post) {
 
 templ DeletePostForm(post *model.Post) {
 	@shared.Overlay("Delete Post") {
-		<form hx-delete={ "/admin/blog/post/" + post.Id.String() } hx-target="#overlay" hx-swap="delete" class="space-y-4">
+		<form hx-delete={ "/admin/blog/posts/" + post.Id.String() } hx-target="#overlay" hx-swap="delete" class="space-y-4">
 			Are you sure that you want to delete post "{ post.Title }"?
 			<div class="flex justify-end gap-3">
 				<button

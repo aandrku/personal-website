@@ -6,18 +6,18 @@ func Register(g *echo.Group) {
 	c := NewController()
 
 	// widget
-	g.GET("", c.getBlogManagementWidget)
+	g.GET("/widget", c.getBlogManagementWidget)
 
 	// forms
-	g.GET("/forms/update-title/:postid", c.getEditPostTitleForm)
-	g.GET("/forms/update-short-desc/:postid", c.getEditPostShortDescriptionForm)
-	g.GET("/forms/update-content/:postid", c.getEditContentForm)
-	g.GET("/forms/delete/:postid", c.getDeleteForm)
-	g.GET("/post/create-form", c.getCreateForm)
+	g.GET("/update-title-form/:postid", c.getEditPostTitleForm)
+	g.GET("/update-short-desc-form/:postid", c.getEditPostShortDescriptionForm)
+	g.GET("/update-content-form/:postid", c.getEditContentForm)
+	g.GET("/delete-form/:postid", c.getDeleteForm)
+	g.GET("/create-form", c.getCreateForm)
 
-	g.POST("/post", c.createPost)
-	g.POST("/post/update-title/:postid", c.updatePostTitle)
-	g.POST("/post/update-short-desc/:postid", c.updatePostShortDescription)
-	g.POST("/post/update-content/:postid", c.updatePostContent)
-	g.DELETE("/post/:postid", c.deletePost)
+	g.POST("/posts", c.createPost)
+	g.POST("/posts/:postid/title", c.updatePostTitle)
+	g.POST("/posts/:postid/short-desc", c.updatePostShortDescription)
+	g.POST("/posts/:postid/content", c.updatePostContent)
+	g.DELETE("/posts/:postid", c.deletePost)
 }

@@ -47,7 +47,7 @@ func getUpdateDescriptionForm(c echo.Context) error {
 	return view.Render(c, http.StatusOK, form)
 }
 
-func postUpdateName(c echo.Context) error {
+func updateName(c echo.Context) error {
 	name := c.FormValue("name")
 
 	if err := about.UpdateName(name); err != nil {
@@ -57,7 +57,7 @@ func postUpdateName(c echo.Context) error {
 	return c.NoContent(http.StatusOK)
 }
 
-func postUpdateAvatar(c echo.Context) error {
+func updateAvatar(c echo.Context) error {
 	avatar := c.FormValue("avatar")
 
 	url := fmt.Sprintf("/uploads/%s", avatar)
@@ -69,7 +69,7 @@ func postUpdateAvatar(c echo.Context) error {
 	return c.NoContent(http.StatusOK)
 }
 
-func postUpdateShortDesc(c echo.Context) error {
+func updateShortDesc(c echo.Context) error {
 	sd := c.FormValue("short-desc")
 
 	if err := about.UpdateShortDescription(sd); err != nil {
@@ -79,7 +79,7 @@ func postUpdateShortDesc(c echo.Context) error {
 	return c.NoContent(http.StatusOK)
 }
 
-func postUpdateDescripton(c echo.Context) error {
+func updateDescripton(c echo.Context) error {
 	d := c.FormValue("markdown")
 
 	about.UpdateDescription(d)

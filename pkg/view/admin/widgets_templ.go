@@ -105,7 +105,7 @@ func AboutWidget() templ.Component {
 			templ_7745c5c3_Var4 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "<div id=\"about-widget\" class=\"border border-zinc-700 w-full  rounded-md relative bg-zinc-800 shadow-lg shadow-black/20\"><div class=\"absolute -top-3 left-5 bg-zinc-900 px-2 text-lg text-zinc-400 rounded-md border border-zinc-700\">About</div><div class=\"flex flex-col gap-4 p-6\"><button class=\"w-full text-left bg-zinc-700 hover:bg-zinc-600 text-zinc-100 px-6 py-2 rounded-md text-sm font-medium transition\" hx-get=\"/admin/about/form/update-name\" hx-target=\"#root\" hx-swap=\"afterbegin\">Update Name</button> <button class=\"w-full text-left bg-zinc-700 hover:bg-zinc-600 text-zinc-100 px-6 py-2 rounded-md text-sm font-medium transition\" hx-get=\"/admin/about/form/update-short-desc\" hx-target=\"#root\" hx-swap=\"afterbegin\">Update Short Description</button> <button class=\"w-full text-left bg-zinc-700 hover:bg-zinc-600 text-zinc-100 px-6 py-2 rounded-md text-sm font-medium transition\" hx-get=\"/admin/about/form/update-avatar\" hx-target=\"#root\" hx-swap=\"afterbegin\">Update Avatar</button> <button class=\"w-full text-left bg-zinc-700 hover:bg-zinc-600 text-zinc-100 px-6 py-2 rounded-md text-sm font-medium transition\" hx-get=\"/admin/about/form/update-description\" hx-target=\"#root\" hx-swap=\"afterbegin\">Update Description</button></div></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "<div id=\"about-widget\" class=\"border border-zinc-700 w-full  rounded-md relative bg-zinc-800 shadow-lg shadow-black/20\"><div class=\"absolute -top-3 left-5 bg-zinc-900 px-2 text-lg text-zinc-400 rounded-md border border-zinc-700\">About</div><div class=\"flex flex-col gap-4 p-6\"><button class=\"w-full text-left bg-zinc-700 hover:bg-zinc-600 text-zinc-100 px-6 py-2 rounded-md text-sm font-medium transition\" hx-get=\"/admin/about/update-name-form\" hx-target=\"#root\" hx-swap=\"afterbegin\">Update Name</button> <button class=\"w-full text-left bg-zinc-700 hover:bg-zinc-600 text-zinc-100 px-6 py-2 rounded-md text-sm font-medium transition\" hx-get=\"/admin/about/update-short-desc-form\" hx-target=\"#root\" hx-swap=\"afterbegin\">Update Short Description</button> <button class=\"w-full text-left bg-zinc-700 hover:bg-zinc-600 text-zinc-100 px-6 py-2 rounded-md text-sm font-medium transition\" hx-get=\"/admin/about/update-avatar-form\" hx-target=\"#root\" hx-swap=\"afterbegin\">Update Avatar</button> <button class=\"w-full text-left bg-zinc-700 hover:bg-zinc-600 text-zinc-100 px-6 py-2 rounded-md text-sm font-medium transition\" hx-get=\"/admin/about/update-description-form\" hx-target=\"#root\" hx-swap=\"afterbegin\">Update Description</button></div></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -134,7 +134,7 @@ func BlogWidget(posts []*model.Post) templ.Component {
 			templ_7745c5c3_Var5 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "<div id=\"blog-widget\" class=\"border border-zinc-700 w-full h-full rounded-md relative bg-zinc-800 shadow-lg shadow-black/20\" hx-get=\"/admin/blog\" hx-swap=\"outerHTML\" hx-trigger=\"updateBlog from:body\"><div class=\"absolute -top-3 left-5 bg-zinc-900 px-2 text-lg text-zinc-400 rounded-md border border-zinc-700\">Blog</div><div class=\"absolute top-4 right-4\"><button class=\"bg-zinc-700 hover:bg-zinc-600 text-zinc-100 text-sm font-medium px-3 py-1 rounded-md border border-zinc-600 shadow-sm\" hx-get=\"/admin/blog/post/create-form\" hx-target=\"#root\" hx-swap=\"afterbegin\">+ New Post</button></div><div class=\"flex flex-col gap-6 p-6 pt-10 overflow-y-auto h-full\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "<div id=\"blog-widget\" class=\"border border-zinc-700 w-full h-full rounded-md relative bg-zinc-800 shadow-lg shadow-black/20\" hx-get=\"/admin/blog/widget\" hx-swap=\"outerHTML\" hx-trigger=\"updateBlog from:body\"><div class=\"absolute -top-3 left-5 bg-zinc-900 px-2 text-lg text-zinc-400 rounded-md border border-zinc-700\">Blog</div><div class=\"absolute top-4 right-4\"><button class=\"bg-zinc-700 hover:bg-zinc-600 text-zinc-100 text-sm font-medium px-3 py-1 rounded-md border border-zinc-600 shadow-sm\" hx-get=\"/admin/blog/create-form\" hx-target=\"#root\" hx-swap=\"afterbegin\">+ New Post</button></div><div class=\"flex flex-col gap-6 p-6 pt-10 overflow-y-auto h-full\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -217,9 +217,9 @@ func postCard(post *model.Post) templ.Component {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var10 string
-		templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs("/admin/blog/forms/update-title/" + post.Id.String())
+		templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs("/admin/blog/update-title-form/" + post.Id.String())
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/widgets.templ`, Line: 126, Col: 65}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/widgets.templ`, Line: 126, Col: 64}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var10))
 		if templ_7745c5c3_Err != nil {
@@ -230,9 +230,9 @@ func postCard(post *model.Post) templ.Component {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var11 string
-		templ_7745c5c3_Var11, templ_7745c5c3_Err = templ.JoinStringErrs("/admin/blog/forms/update-short-desc/" + post.Id.String())
+		templ_7745c5c3_Var11, templ_7745c5c3_Err = templ.JoinStringErrs("/admin/blog/update-short-desc-form/" + post.Id.String())
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/widgets.templ`, Line: 134, Col: 70}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/widgets.templ`, Line: 134, Col: 69}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var11))
 		if templ_7745c5c3_Err != nil {
@@ -243,9 +243,9 @@ func postCard(post *model.Post) templ.Component {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var12 string
-		templ_7745c5c3_Var12, templ_7745c5c3_Err = templ.JoinStringErrs("/admin/blog/forms/update-content/" + post.Id.String())
+		templ_7745c5c3_Var12, templ_7745c5c3_Err = templ.JoinStringErrs("/admin/blog/update-content-form/" + post.Id.String())
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/widgets.templ`, Line: 142, Col: 67}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/widgets.templ`, Line: 142, Col: 66}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var12))
 		if templ_7745c5c3_Err != nil {
@@ -256,9 +256,9 @@ func postCard(post *model.Post) templ.Component {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var13 string
-		templ_7745c5c3_Var13, templ_7745c5c3_Err = templ.JoinStringErrs("/admin/blog/forms/delete/" + post.Id.String())
+		templ_7745c5c3_Var13, templ_7745c5c3_Err = templ.JoinStringErrs("/admin/blog/delete-form/" + post.Id.String())
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/widgets.templ`, Line: 150, Col: 59}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/widgets.templ`, Line: 150, Col: 58}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var13))
 		if templ_7745c5c3_Err != nil {

@@ -14,9 +14,8 @@ import (
 	"github.com/aandrku/portfolio-v2/pkg/services/project"
 	"github.com/aandrku/portfolio-v2/pkg/store/fs"
 	"github.com/aandrku/portfolio-v2/pkg/view"
-	"github.com/aandrku/portfolio-v2/pkg/view/components"
-	"github.com/aandrku/portfolio-v2/pkg/view/components/common"
-	"github.com/aandrku/portfolio-v2/pkg/view/pages"
+	"github.com/aandrku/portfolio-v2/pkg/view/home"
+	"github.com/aandrku/portfolio-v2/pkg/view/shared"
 	"github.com/golang-jwt/jwt/v5"
 
 	"github.com/labstack/echo/v4"
@@ -27,13 +26,13 @@ func getIndex(c echo.Context) error {
 	as := analytics.Service{}
 	as.IncrementVisits()
 
-	page := pages.Index()
+	page := home.Index()
 
 	return view.Render(c, http.StatusOK, page)
 }
 
 func getLogin(c echo.Context) error {
-	page := pages.LoginPage()
+	page := home.LoginPage()
 
 	_, err := auth.GetCurrentOTP()
 	if err != nil {
@@ -91,7 +90,7 @@ func getAboutWindow(c echo.Context) error {
 	if err != nil {
 		log.Fatalf("failed to get about info: %v\n", err)
 	}
-	component := components.AboutWindow(info)
+	component := home.AboutWindow(info)
 	return view.Render(c, http.StatusOK, component)
 }
 
@@ -104,14 +103,14 @@ func getProject(c echo.Context) error {
 		return err
 	}
 
-	page := pages.ProjectPage(p)
+	page := home.ProjectPage(p)
 
 	return view.Render(c, http.StatusOK, page)
 }
 
 // getHomeWindow serves home window to the client.
 func getHomeWindow(c echo.Context) error {
-	component := components.HomeWindow()
+	component := home.HomeWindow()
 	return view.Render(c, http.StatusOK, component)
 }
 
@@ -122,13 +121,13 @@ func getProjectsWindow(c echo.Context) error {
 		return err
 	}
 
-	component := components.ProjectsWindow(p)
+	component := home.ProjectsWindow(p)
 	return view.Render(c, http.StatusOK, component)
 }
 
 // getContactWindow serves contact window to the client.
 func getContactWindow(c echo.Context) error {
-	component := components.ContactWindow()
+	component := home.ContactWindow()
 	return view.Render(c, http.StatusOK, component)
 }
 
@@ -138,10 +137,10 @@ func postContact(c echo.Context) error {
 	msg := c.FormValue("message")
 
 	if err := email.SendContact(n, e, msg); err != nil {
-		ntf := common.Notification("Due to my skill issues sending your email failed:(")
+		ntf := shared.Notification("Due to my skill issues sending your email failed:(")
 		return view.Render(c, http.StatusOK, ntf)
 	}
-	ntf := common.Notification("Success! Your email was send and I'll get back to you once I see it.")
+	ntf := shared.Notification("Success! Your email was send and I'll get back to you once I see it.")
 
 	return view.Render(c, http.StatusOK, ntf)
 }

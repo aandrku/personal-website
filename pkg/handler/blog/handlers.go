@@ -1,11 +1,11 @@
 package blog
 
 import (
+	"net/http"
+
 	"github.com/aandrku/portfolio-v2/pkg/services/blog"
 	"github.com/aandrku/portfolio-v2/pkg/view"
-	"github.com/aandrku/portfolio-v2/pkg/view/components"
-	"github.com/aandrku/portfolio-v2/pkg/view/pages"
-	"net/http"
+	"github.com/aandrku/portfolio-v2/pkg/view/home"
 
 	"github.com/labstack/echo/v4"
 )
@@ -18,7 +18,7 @@ func getWindow(c echo.Context) error {
 		return err
 	}
 
-	component := components.BlogWindow(posts)
+	component := home.BlogWindow(posts)
 	return view.Render(c, http.StatusOK, component)
 }
 
@@ -32,7 +32,7 @@ func getPost(c echo.Context) error {
 		return err
 	}
 
-	page := pages.PostPage(post)
+	page := home.PostPage(post)
 
 	return view.Render(c, http.StatusOK, page)
 }

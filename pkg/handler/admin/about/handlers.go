@@ -7,12 +7,12 @@ import (
 	"github.com/aandrku/portfolio-v2/pkg/services/about"
 	"github.com/aandrku/portfolio-v2/pkg/services/uploads"
 	"github.com/aandrku/portfolio-v2/pkg/view"
-	"github.com/aandrku/portfolio-v2/pkg/view/components/forms"
+	"github.com/aandrku/portfolio-v2/pkg/view/admin"
 	"github.com/labstack/echo/v4"
 )
 
 func getUpdateNameForm(c echo.Context) error {
-	form := forms.UpdateName()
+	form := admin.UpdateNameForm()
 	return view.Render(c, http.StatusOK, form)
 }
 
@@ -22,13 +22,13 @@ func getUpdateAvatarForm(c echo.Context) error {
 		return err
 	}
 
-	form := forms.UpdateAvatar(ups)
+	form := admin.UpdateAvatarForm(ups)
 
 	return view.Render(c, http.StatusOK, form)
 }
 
 func getUpdateShortDescForm(c echo.Context) error {
-	form := forms.UpdateShortDescForm()
+	form := admin.UpdateShortDescForm()
 	return view.Render(c, http.StatusOK, form)
 }
 
@@ -43,7 +43,7 @@ func getUpdateDescriptionForm(c echo.Context) error {
 		return nil
 	}
 
-	form := forms.UpdateAboutDescription(html, info.Description)
+	form := admin.UpdateAboutDescriptionForm(html, info.Description)
 	return view.Render(c, http.StatusOK, form)
 }
 

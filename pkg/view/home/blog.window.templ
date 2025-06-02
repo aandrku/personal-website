@@ -1,0 +1,26 @@
+package home
+
+import (
+	"github.com/aandrku/portfolio-v2/pkg/model"
+	"github.com/aandrku/portfolio-v2/pkg/view/shared"
+)
+
+templ BlogWindow(posts []*model.Post) {
+	@shared.WindowBase("blog") {
+		<div class="overflow-auto h-full w-full p-2">
+			for _, v := range posts {
+				@postCard(v)
+			}
+		</div>
+	}
+}
+
+templ postCard(post *model.Post) {
+	<a
+		href={ templ.URL("/blog/post/" + post.Id.String()) }
+		class="flex flex-col gap-1 px-2 py-3 border-b border-zinc-700 hover:bg-zinc-700/20 hover:shadow-sm rounded transition-colors duration-150"
+	>
+		<h3 class="text-zinc-100 text-lg font-semibold">{ post.Title }</h3>
+		<p class="text-zinc-400 text-sm">{ post.UpdatedAt.Format("Jan, 2, 2006") } — { post.ShortDesc }</p>
+	</a>
+}

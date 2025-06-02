@@ -7,8 +7,7 @@ import (
 	"github.com/aandrku/portfolio-v2/pkg/services/blog"
 	"github.com/aandrku/portfolio-v2/pkg/services/markdown"
 	"github.com/aandrku/portfolio-v2/pkg/view"
-	"github.com/aandrku/portfolio-v2/pkg/view/components/dashboard"
-	"github.com/aandrku/portfolio-v2/pkg/view/components/forms"
+	"github.com/aandrku/portfolio-v2/pkg/view/admin"
 	"github.com/labstack/echo/v4"
 )
 
@@ -31,7 +30,7 @@ func (ct *Controller) getBlogManagementWidget(c echo.Context) error {
 		return err
 	}
 
-	w := dashboard.BlogWidget(posts)
+	w := admin.BlogWidget(posts)
 	return view.Render(c, http.StatusOK, w)
 }
 
@@ -44,7 +43,7 @@ func (ct *Controller) getEditPostTitleForm(c echo.Context) error {
 		return err
 	}
 
-	form := forms.EditPostTitle(post)
+	form := admin.EditPostTitleForm(post)
 
 	return view.Render(c, http.StatusOK, form)
 }
@@ -57,7 +56,7 @@ func (ct *Controller) getEditPostShortDescriptionForm(c echo.Context) error {
 		return err
 	}
 
-	form := forms.EditPostShortDescription(post)
+	form := admin.EditPostShortDescriptionForm(post)
 
 	return view.Render(c, http.StatusOK, form)
 }
@@ -74,7 +73,7 @@ func (ct *Controller) getEditContentForm(c echo.Context) error {
 		return nil
 	}
 
-	form := forms.EditPostContent(html, post)
+	form := admin.EditPostContentForm(html, post)
 
 	return view.Render(c, http.StatusOK, form)
 }
@@ -87,13 +86,13 @@ func (ct *Controller) getDeleteForm(c echo.Context) error {
 		return err
 	}
 
-	form := forms.DeletePost(post)
+	form := admin.DeletePostForm(post)
 
 	return view.Render(c, http.StatusOK, form)
 }
 
 func (ct *Controller) getCreateForm(c echo.Context) error {
-	form := forms.CreateForm()
+	form := admin.CreatePostForm()
 
 	return view.Render(c, http.StatusOK, form)
 }

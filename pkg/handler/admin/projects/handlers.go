@@ -7,8 +7,7 @@ import (
 	"github.com/aandrku/portfolio-v2/pkg/services/project"
 	"github.com/aandrku/portfolio-v2/pkg/store/fs"
 	"github.com/aandrku/portfolio-v2/pkg/view"
-	"github.com/aandrku/portfolio-v2/pkg/view/components/dashboard"
-	"github.com/aandrku/portfolio-v2/pkg/view/components/forms"
+	"github.com/aandrku/portfolio-v2/pkg/view/admin"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/gommon/log"
 )
@@ -25,7 +24,7 @@ type Controller struct {
 }
 
 func (ct *Controller) getCreateFrom(c echo.Context) error {
-	f := forms.CreateProjectForm()
+	f := admin.CreateProjectForm()
 
 	return view.Render(c, http.StatusOK, f)
 }
@@ -39,7 +38,7 @@ func (ct *Controller) getUpdateForm(c echo.Context) error {
 		return err
 	}
 
-	form := forms.UpdateProjectForm(p)
+	form := admin.UpdateProjectForm(p)
 
 	return view.Render(c, http.StatusOK, form)
 }
@@ -52,7 +51,7 @@ func (ct *Controller) getDeleteForm(c echo.Context) error {
 		return err
 	}
 
-	form := forms.DeleteProjectForm(p)
+	form := admin.DeleteProjectForm(p)
 
 	return view.Render(c, http.StatusOK, form)
 
@@ -64,7 +63,7 @@ func (ct *Controller) getProjects(c echo.Context) error {
 		return err
 	}
 
-	list := dashboard.ProjectList(p)
+	list := admin.ProjectList(p)
 
 	return view.Render(c, http.StatusOK, list)
 }

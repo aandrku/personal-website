@@ -12,10 +12,7 @@ import (
 	"github.com/aandrku/portfolio-v2/pkg/services/uploads"
 	"github.com/aandrku/portfolio-v2/pkg/store/fs"
 	"github.com/aandrku/portfolio-v2/pkg/view"
-	"github.com/aandrku/portfolio-v2/pkg/view/components/dashboard"
-	"github.com/aandrku/portfolio-v2/pkg/view/components/forms"
-	"github.com/aandrku/portfolio-v2/pkg/view/pages"
-
+	"github.com/aandrku/portfolio-v2/pkg/view/admin"
 	"github.com/labstack/echo/v4"
 )
 
@@ -26,7 +23,7 @@ func getDashboardPage(c echo.Context) error {
 	ps := project.NewManager(fs.Store{})
 
 	// TODO: give this better name, after I get rid of these redundant props
-	awp := dashboard.AnalyticsWidgetProps{
+	awp := admin.AnalyticsWidgetProps{
 		VisitsToday: as.TotalVisits(),
 		VisitsTotal: as.TotalVisits(),
 	}
@@ -55,7 +52,7 @@ func getDashboardPage(c echo.Context) error {
 		return err
 	}
 
-	props := pages.DashboardProps{
+	props := admin.DashboardProps{
 		AnalyticsWidgetProps: awp,
 		Stats:                stats,
 		Uploads:              ups,
@@ -63,7 +60,7 @@ func getDashboardPage(c echo.Context) error {
 		Projects:             projects,
 	}
 
-	dashboard := pages.Dashboard(props)
+	dashboard := admin.Dashboard(props)
 
 	return view.Render(c, http.StatusOK, dashboard)
 }
@@ -72,12 +69,12 @@ func getDashboardPage(c echo.Context) error {
 func getAnalyticsWidget(c echo.Context) error {
 	s := analytics.Service{}
 
-	p := dashboard.AnalyticsWidgetProps{
+	p := admin.AnalyticsWidgetProps{
 		VisitsToday: s.TotalVisits(),
 		VisitsTotal: s.TotalVisits(),
 	}
 
-	w := dashboard.AnalyticsWidget(p)
+	w := admin.AnalyticsWidget(p)
 
 	return view.Render(c, http.StatusOK, w)
 }
@@ -89,7 +86,7 @@ func getStatsWidget(c echo.Context) error {
 		return err
 	}
 
-	w := dashboard.SystemStatsWidget(stats)
+	w := admin.SystemStatsWidget(stats)
 	return view.Render(c, http.StatusOK, w)
 
 }
@@ -100,20 +97,20 @@ func getUploadWidget(c echo.Context) error {
 	if err != nil {
 		return err
 	}
-	w := dashboard.UploadsManagementWidget(ups)
+	w := admin.UploadsManagementWidget(ups)
 	return view.Render(c, http.StatusOK, w)
 }
 
 // getUploadForm serves upload form to the client.
 func getUploadForm(c echo.Context) error {
-	form := forms.UploadAsset()
+	form := admin.UploadAssetForm()
 	return view.Render(c, http.StatusOK, form)
 }
 
 // getUploadDeleteForm server upload-delete form to the client.
 func getUploadDeleteForm(c echo.Context) error {
 	filename := c.Param("filename")
-	form := forms.DeleteUploadConfirmationForm(filename)
+	form := admin.DeleteUploadForm(filename)
 	return view.Render(c, http.StatusOK, form)
 }
 

@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/aandrku/portfolio-v2/pkg/view/components/common"
+	"github.com/aandrku/portfolio-v2/pkg/view/shared"
 	"gopkg.in/gomail.v2"
 )
 
@@ -42,7 +42,7 @@ func SendContact(name string, email string, message string) error {
 
 func renderContactEmail(name, email, message string) (string, error) {
 	var buf bytes.Buffer
-	err := common.Email(name, email, message).Render(context.Background(), &buf)
+	err := shared.Email(name, email, message).Render(context.Background(), &buf)
 	if err != nil {
 		return "", err
 	}

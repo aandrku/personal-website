@@ -1,7 +1,6 @@
 package layout
 
-import "github.com/aandrku/portfolio-v2/pkg/view/components"
-import "github.com/aandrku/portfolio-v2/pkg/view/components/common"
+import "github.com/aandrku/portfolio-v2/pkg/view/shared"
 
 templ Base(title string) {
 	<!DOCTYPE html>
@@ -27,14 +26,14 @@ templ BaseWithBgCanvas(title string) {
 			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		</head>
 		<body ontouchstart="" class="overflow-hidden">
-			@components.CanvasWithParticles()
+			@shared.CanvasWithParticles()
 			<div
 				id="window-container"
 				class="select-none w-screen h-screen fixed z-10 flex justify-start items-start sm:justify-center sm:items-center backdrop-blur-xs sm:p-0"
 			>
 				{ children... }
 			</div>
-			@common.DockContainer()
+			@shared.DockContainer()
 			<script src="https://unpkg.com/htmx.org@2.0.4" integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+" crossorigin="anonymous"></script>
 			<script src="/assets/js/canvas.js"></script>
 		</body>

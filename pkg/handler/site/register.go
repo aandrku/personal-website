@@ -23,17 +23,17 @@ func Register(e *echo.Echo) {
 	e.POST("/login", postLogin)
 
 	// home window
-	e.GET("/home-window", getHomeWindow)
+	e.GET("/home/window", getHomeWindow)
 
 	// about window
-	e.GET("/about-window", getAboutWindow)
+	e.GET("/about/window", getAboutWindow)
 
 	// projects window
-	e.GET("/projects-window", getProjectsWindow)
+	e.GET("/projects/window", getProjectsWindow)
 	e.GET("/projects/:id", getProject)
 
 	// contact window
-	e.GET("/contact-window", getContactWindow)
+	e.GET("/contact/window", getContactWindow)
 
 	e.POST("/contact", postContact, middleware.RateLimiter(middleware.NewRateLimiterMemoryStore(1)))
 

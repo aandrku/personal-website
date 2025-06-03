@@ -8,13 +8,10 @@ package admin
 import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
-import "github.com/aandrku/portfolio-v2/pkg/model"
-
 import "github.com/aandrku/portfolio-v2/pkg/services/project"
 import "github.com/aandrku/portfolio-v2/pkg/view/layout"
 
 type DashboardProps struct {
-	Posts    []*model.Post
 	Projects []project.Project
 }
 
@@ -83,7 +80,7 @@ func Dashboard(props DashboardProps) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = BlogWidget(props.Posts).Render(ctx, templ_7745c5c3_Buffer)
+			templ_7745c5c3_Err = BlogWidget().Render(ctx, templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}

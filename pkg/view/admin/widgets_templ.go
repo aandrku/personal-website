@@ -73,7 +73,7 @@ func AboutWidget() templ.Component {
 	})
 }
 
-func BlogWidget(posts []*model.Post) templ.Component {
+func BlogWidget() templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -94,17 +94,7 @@ func BlogWidget(posts []*model.Post) templ.Component {
 			templ_7745c5c3_Var3 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<div id=\"blog-widget\" class=\"border border-zinc-700 w-full h-full rounded-md relative bg-zinc-800 shadow-lg shadow-black/20\" hx-get=\"/admin/blog/widget\" hx-swap=\"outerHTML\" hx-trigger=\"updateBlog from:body\"><div class=\"absolute -top-3 left-5 bg-zinc-900 px-2 text-lg text-zinc-400 rounded-md border border-zinc-700\">Blog</div><div class=\"absolute top-4 right-4\"><button class=\"bg-zinc-700 hover:bg-zinc-600 text-zinc-100 text-sm font-medium px-3 py-1 rounded-md border border-zinc-600 shadow-sm\" hx-get=\"/admin/blog/create-form\" hx-target=\"#root\" hx-swap=\"afterbegin\">+ New Post</button></div><div class=\"flex flex-col gap-6 p-6 pt-10 overflow-y-auto h-full\">")
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		for _, p := range posts {
-			templ_7745c5c3_Err = postCard(p).Render(ctx, templ_7745c5c3_Buffer)
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "</div></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<div id=\"blog-widget\" class=\"border border-zinc-700 w-full h-full rounded-md relative bg-zinc-800 shadow-lg shadow-black/20\" hx-get=\"/admin/blog/posts\" hx-swap=\"outerHTML\" hx-trigger=\"load, updateBlog from:body\" hx-target=\"#posts\"><div class=\"absolute -top-3 left-5 bg-zinc-900 px-2 text-lg text-zinc-400 rounded-md border border-zinc-700\">Blog</div><div class=\"absolute top-4 right-4\"><button class=\"bg-zinc-700 hover:bg-zinc-600 text-zinc-100 text-sm font-medium px-3 py-1 rounded-md border border-zinc-600 shadow-sm\" hx-get=\"/admin/blog/create-form\" hx-target=\"#root\" hx-swap=\"afterbegin\">+ New Post</button></div><div id=\"posts\" class=\"flex flex-col gap-6 p-6 pt-10 overflow-y-auto h-full\"></div></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -133,98 +123,98 @@ func postCard(post *model.Post) templ.Component {
 			templ_7745c5c3_Var4 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "<div class=\"flex flex-col gap-2\"><h3 class=\"text-zinc-100 text-lg font-semibold\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "<div class=\"flex flex-col gap-2\"><h3 class=\"text-zinc-100 text-lg font-semibold\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var5 string
 		templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(post.Title)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/widgets.templ`, Line: 108, Col: 62}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/widgets.templ`, Line: 105, Col: 62}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "</h3><p class=\"text-zinc-400 text-sm\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "</h3><p class=\"text-zinc-400 text-sm\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var6 string
 		templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(post.UpdatedAt.Format("Jan, 2, 2006"))
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/widgets.templ`, Line: 109, Col: 74}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/widgets.templ`, Line: 106, Col: 74}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, " — ")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, " — ")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var7 string
 		templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(post.ShortDesc)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/widgets.templ`, Line: 109, Col: 97}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/widgets.templ`, Line: 106, Col: 97}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "</p><div class=\"flex justify-between flex-wrap gap-2 text-sm mt-1\"><button class=\"bg-zinc-700 hover:bg-zinc-600 text-zinc-100 px-3 py-1 rounded-md transition\" hx-get=\"")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "</p><div class=\"flex justify-between flex-wrap gap-2 text-sm mt-1\"><button class=\"bg-zinc-700 hover:bg-zinc-600 text-zinc-100 px-3 py-1 rounded-md transition\" hx-get=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var8 string
 		templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs("/admin/blog/update-title-form/" + post.Id.String())
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/widgets.templ`, Line: 113, Col: 64}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/widgets.templ`, Line: 110, Col: 64}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var8))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 9, "\" hx-target=\"#root\" hx-swap=\"afterbegin\">Edit Title</button> <button class=\"bg-zinc-700 hover:bg-zinc-600 text-zinc-100 px-3 py-1 rounded-md transition\" hx-get=\"")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "\" hx-target=\"#root\" hx-swap=\"afterbegin\">Edit Title</button> <button class=\"bg-zinc-700 hover:bg-zinc-600 text-zinc-100 px-3 py-1 rounded-md transition\" hx-get=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var9 string
 		templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs("/admin/blog/update-short-desc-form/" + post.Id.String())
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/widgets.templ`, Line: 121, Col: 69}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/widgets.templ`, Line: 118, Col: 69}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var9))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 10, "\" hx-target=\"#root\" hx-swap=\"afterbegin\">Edit Short Description</button> <button class=\"bg-zinc-700 hover:bg-zinc-600 text-zinc-100 px-3 py-1 rounded-md transition\" hx-get=\"")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 9, "\" hx-target=\"#root\" hx-swap=\"afterbegin\">Edit Short Description</button> <button class=\"bg-zinc-700 hover:bg-zinc-600 text-zinc-100 px-3 py-1 rounded-md transition\" hx-get=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var10 string
 		templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs("/admin/blog/update-content-form/" + post.Id.String())
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/widgets.templ`, Line: 129, Col: 66}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/widgets.templ`, Line: 126, Col: 66}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var10))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 11, "\" hx-target=\"#root\" hx-swap=\"afterbegin\">Edit Content</button> <button class=\"ml-auto bg-red-800/50 hover:bg-red-900 text-white px-3 py-1 rounded-md transition\" hx-get=\"")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 10, "\" hx-target=\"#root\" hx-swap=\"afterbegin\">Edit Content</button> <button class=\"ml-auto bg-red-800/50 hover:bg-red-900 text-white px-3 py-1 rounded-md transition\" hx-get=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var11 string
 		templ_7745c5c3_Var11, templ_7745c5c3_Err = templ.JoinStringErrs("/admin/blog/delete-form/" + post.Id.String())
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/widgets.templ`, Line: 137, Col: 58}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/widgets.templ`, Line: 134, Col: 58}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var11))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 12, "\" hx-target=\"#root\" hx-swap=\"afterbegin\">Remove</button></div></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 11, "\" hx-target=\"#root\" hx-swap=\"afterbegin\">Remove</button></div></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -253,7 +243,7 @@ func ProjectsWidget(projects []project.Project) templ.Component {
 			templ_7745c5c3_Var12 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 13, "<div id=\"projects-widget\" class=\"pt-10 border border-zinc-700 w-full h-3/4 rounded-md relative bg-zinc-800 shadow-lg shadow-black/20\" hx-get=\"/admin/projects\" hx-target=\"#project-list\" hx-trigger=\"updateProjects from:body\" hx-swap=\"outerHTML\"><div class=\"absolute -top-3 left-5 bg-zinc-900 px-2 text-lg text-zinc-400 rounded-md border border-zinc-700\">Projects</div><!-- New Project Button --><div class=\"absolute top-5 right-5\"><button class=\"bg-zinc-700 hover:bg-zinc-600 text-zinc-100 px-3 py-1 rounded-md border border-zinc-600 text-sm transition\" hx-get=\"/admin/projects/create-form\" hx-target=\"body\" hx-swap=\"beforeend\">+ New Project</button></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 12, "<div id=\"projects-widget\" class=\"pt-10 border border-zinc-700 w-full h-3/4 rounded-md relative bg-zinc-800 shadow-lg shadow-black/20\" hx-get=\"/admin/projects\" hx-target=\"#project-list\" hx-trigger=\"updateProjects from:body\" hx-swap=\"outerHTML\"><div class=\"absolute -top-3 left-5 bg-zinc-900 px-2 text-lg text-zinc-400 rounded-md border border-zinc-700\">Projects</div><!-- New Project Button --><div class=\"absolute top-5 right-5\"><button class=\"bg-zinc-700 hover:bg-zinc-600 text-zinc-100 px-3 py-1 rounded-md border border-zinc-600 text-sm transition\" hx-get=\"/admin/projects/create-form\" hx-target=\"body\" hx-swap=\"beforeend\">+ New Project</button></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -261,7 +251,7 @@ func ProjectsWidget(projects []project.Project) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 14, "</div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 13, "</div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -290,7 +280,7 @@ func ProjectList(projects []project.Project) templ.Component {
 			templ_7745c5c3_Var13 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 15, "<div id=\"project-list\" class=\"flex flex-col gap-6 p-6 pt-10 overflow-y-auto h-full\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 14, "<div id=\"project-list\" class=\"flex flex-col gap-6 p-6 pt-10 overflow-y-auto h-full\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -300,7 +290,7 @@ func ProjectList(projects []project.Project) templ.Component {
 				return templ_7745c5c3_Err
 			}
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 16, "</div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 15, "</div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -329,59 +319,59 @@ func projectCard(p project.Project) templ.Component {
 			templ_7745c5c3_Var14 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 17, "<div class=\"flex flex-col border border-zinc-700 rounded-md p-4 bg-zinc-700/20 gap-3\"><div><h3 class=\"text-zinc-100 text-lg font-semibold\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 16, "<div class=\"flex flex-col border border-zinc-700 rounded-md p-4 bg-zinc-700/20 gap-3\"><div><h3 class=\"text-zinc-100 text-lg font-semibold\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var15 string
 		templ_7745c5c3_Var15, templ_7745c5c3_Err = templ.JoinStringErrs(p.Title)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/widgets.templ`, Line: 185, Col: 60}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/widgets.templ`, Line: 182, Col: 60}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var15))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 18, "</h3><p class=\"text-zinc-400 text-sm mt-1\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 17, "</h3><p class=\"text-zinc-400 text-sm mt-1\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var16 string
 		templ_7745c5c3_Var16, templ_7745c5c3_Err = templ.JoinStringErrs(p.ShortDesc)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/widgets.templ`, Line: 186, Col: 54}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/widgets.templ`, Line: 183, Col: 54}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var16))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 19, "</p></div><div class=\"flex flex-wrap gap-2 text-sm justify-end\"><button class=\"bg-zinc-700 hover:bg-zinc-600 text-zinc-100 px-3 py-1 rounded-md transition\" hx-get=\"")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 18, "</p></div><div class=\"flex flex-wrap gap-2 text-sm justify-end\"><button class=\"bg-zinc-700 hover:bg-zinc-600 text-zinc-100 px-3 py-1 rounded-md transition\" hx-get=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var17 string
 		templ_7745c5c3_Var17, templ_7745c5c3_Err = templ.JoinStringErrs("/admin/projects/" + p.ID.String() + "/update-form")
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/widgets.templ`, Line: 191, Col: 64}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/widgets.templ`, Line: 188, Col: 64}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var17))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 20, "\" hx-target=\"#root\" hx-swap=\"afterbegin\">Edit</button> <button hx-get=\"")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 19, "\" hx-target=\"#root\" hx-swap=\"afterbegin\">Edit</button> <button hx-get=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var18 string
 		templ_7745c5c3_Var18, templ_7745c5c3_Err = templ.JoinStringErrs("/admin/projects/" + p.ID.String() + "/delete-form")
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/widgets.templ`, Line: 196, Col: 64}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/widgets.templ`, Line: 193, Col: 64}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var18))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 21, "\" hx-target=\"#root\" hx-swap=\"afterbegin\" class=\"bg-red-800/50 hover:bg-red-900 text-white px-3 py-1 rounded-md transition\">Delete</button></div></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 20, "\" hx-target=\"#root\" hx-swap=\"afterbegin\" class=\"bg-red-800/50 hover:bg-red-900 text-white px-3 py-1 rounded-md transition\">Delete</button></div></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -410,7 +400,7 @@ func SystemStatsWidget() templ.Component {
 			templ_7745c5c3_Var19 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 22, "<div id=\"system-stats-widget\" class=\"border border-zinc-700 w-full flex-grow rounded-md relative bg-zinc-800 shadow-lg shadow-black/20\" hx-get=\"/admin/stats\" hx-trigger=\"load, every 5s\" hx-swap=\"outerHTML\" hx-target=\"#stats\"><div class=\"absolute -top-3 left-5 bg-zinc-900 px-2 text-lg text-zinc-400 rounded-md border border-zinc-700\">System Stats</div><div id=\"stats\" class=\"flex flex-col gap-5 p-6 text-base\"><div class=\"flex justify-between items-center\"><p class=\"text-zinc-300 text-lg\">CPU Usage</p><p class=\"text-zinc-100 text-xl font-semibold\">0.00%</p></div><div class=\"flex justify-between items-center\"><p class=\"text-zinc-300 text-lg\">Memory</p><p class=\"text-zinc-100 text-xl font-semibold\">0.00GB / 0.00GB</p></div><div class=\"flex justify-between items-center\"><p class=\"text-zinc-300 text-lg\">Disk Usage</p><p class=\"text-zinc-100 text-xl font-semibold\">0.00GB / 0.00GB</p></div><div class=\"flex justify-between items-center\"><p class=\"text-zinc-300 text-lg\">Uptime</p><p class=\"text-zinc-100 text-xl font-semibold\">0h00m00s</p></div></div></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 21, "<div id=\"system-stats-widget\" class=\"border border-zinc-700 w-full flex-grow rounded-md relative bg-zinc-800 shadow-lg shadow-black/20\" hx-get=\"/admin/stats\" hx-trigger=\"load, every 5s\" hx-swap=\"outerHTML\" hx-target=\"#stats\"><div class=\"absolute -top-3 left-5 bg-zinc-900 px-2 text-lg text-zinc-400 rounded-md border border-zinc-700\">System Stats</div><div id=\"stats\" class=\"flex flex-col gap-5 p-6 text-base\"><div class=\"flex justify-between items-center\"><p class=\"text-zinc-300 text-lg\">CPU Usage</p><p class=\"text-zinc-100 text-xl font-semibold\">0.00%</p></div><div class=\"flex justify-between items-center\"><p class=\"text-zinc-300 text-lg\">Memory</p><p class=\"text-zinc-100 text-xl font-semibold\">0.00GB / 0.00GB</p></div><div class=\"flex justify-between items-center\"><p class=\"text-zinc-300 text-lg\">Disk Usage</p><p class=\"text-zinc-100 text-xl font-semibold\">0.00GB / 0.00GB</p></div><div class=\"flex justify-between items-center\"><p class=\"text-zinc-300 text-lg\">Uptime</p><p class=\"text-zinc-100 text-xl font-semibold\">0h00m00s</p></div></div></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -439,7 +429,7 @@ func UploadsManagementWidget() templ.Component {
 			templ_7745c5c3_Var20 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 23, "<div id=\"uploads-widget\" class=\"border border-zinc-700 w-full h-1/4 rounded-md relative bg-zinc-800 shadow-lg shadow-black/20\" hx-get=\"/admin/uploads\" hx-trigger=\"load, updateUploads from:body\" hx-swap=\"outerHTML\" hx-target=\"#uploads\"><div class=\"absolute -top-3 left-5 bg-zinc-900 px-2 text-lg text-zinc-400 rounded-md border border-zinc-700\">Uploads Management Widget </div><div id=\"uploads\" class=\"h-full flex flex-col gap-4 p-6 pt-10 overflow-y-auto\"><!-- Upload Button --><button class=\"w-full text-left bg-zinc-700 hover:bg-zinc-600 text-zinc-100 px-4 py-2 rounded-md text-sm font-medium transition\" hx-get=\"/admin/upload/form\" hx-target=\"#root\" hx-swap=\"afterbegin\">Upload New Asset</button></div></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 22, "<div id=\"uploads-widget\" class=\"border border-zinc-700 w-full h-1/4 rounded-md relative bg-zinc-800 shadow-lg shadow-black/20\" hx-get=\"/admin/uploads\" hx-trigger=\"load, updateUploads from:body\" hx-swap=\"outerHTML\" hx-target=\"#uploads\"><div class=\"absolute -top-3 left-5 bg-zinc-900 px-2 text-lg text-zinc-400 rounded-md border border-zinc-700\">Uploads Management Widget </div><div id=\"uploads\" class=\"h-full flex flex-col gap-4 p-6 pt-10 overflow-y-auto\"><!-- Upload Button --><button class=\"w-full text-left bg-zinc-700 hover:bg-zinc-600 text-zinc-100 px-4 py-2 rounded-md text-sm font-medium transition\" hx-get=\"/admin/upload/form\" hx-target=\"#root\" hx-swap=\"afterbegin\">Upload New Asset</button></div></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -468,46 +458,46 @@ func UploadCard(upload os.FileInfo) templ.Component {
 			templ_7745c5c3_Var21 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 24, "<div class=\"flex justify-between items-center text-sm text-zinc-400\"><span>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 23, "<div class=\"flex justify-between items-center text-sm text-zinc-400\"><span>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var22 string
 		templ_7745c5c3_Var22, templ_7745c5c3_Err = templ.JoinStringErrs(upload.Name())
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/widgets.templ`, Line: 266, Col: 23}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/widgets.templ`, Line: 263, Col: 23}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var22))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 25, "</span><div class=\"flex items-center gap-2\"><span>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 24, "</span><div class=\"flex items-center gap-2\"><span>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var23 string
 		templ_7745c5c3_Var23, templ_7745c5c3_Err = templ.JoinStringErrs(bytesToSizeString(upload.Size()))
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/widgets.templ`, Line: 268, Col: 43}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/widgets.templ`, Line: 265, Col: 43}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var23))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 26, "</span> <button class=\"ml-2 bg-red-800/50 hover:bg-red-900 text-white px-2 py-1 rounded-md text-xs transition\" hx-get=\"")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 25, "</span> <button class=\"ml-2 bg-red-800/50 hover:bg-red-900 text-white px-2 py-1 rounded-md text-xs transition\" hx-get=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var24 string
 		templ_7745c5c3_Var24, templ_7745c5c3_Err = templ.JoinStringErrs("/admin/upload/delete-form/" + upload.Name())
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/widgets.templ`, Line: 271, Col: 57}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/widgets.templ`, Line: 268, Col: 57}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var24))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 27, "\" hx-target=\"#root\" hx-swap=\"afterbegin\">Remove</button></div></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 26, "\" hx-target=\"#root\" hx-swap=\"afterbegin\">Remove</button></div></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

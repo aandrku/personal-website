@@ -23,14 +23,14 @@ type Controller struct {
 	service *blog.Service
 }
 
-// getBlogManagementWidget serves a blog management widget to the client.
-func (ct *Controller) getBlogManagementWidget(c echo.Context) error {
+// getPosts serves a blog management widget to the client.
+func (ct *Controller) getPosts(c echo.Context) error {
 	posts, err := ct.service.Posts()
 	if err != nil {
 		return err
 	}
 
-	w := admin.BlogWidget(posts)
+	w := admin.PostList(posts)
 	return view.Render(c, http.StatusOK, w)
 }
 

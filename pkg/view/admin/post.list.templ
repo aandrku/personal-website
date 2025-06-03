@@ -1,0 +1,11 @@
+package admin
+
+import "github.com/aandrku/portfolio-v2/pkg/model"
+
+templ PostList(posts []*model.Post) {
+	<div id="posts" class="flex flex-col gap-6 p-6 pt-10 overflow-y-auto h-full">
+		for _, p := range posts {
+			@postCard(p)
+		}
+	</div>
+}

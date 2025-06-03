@@ -6,7 +6,6 @@ func Register(g *echo.Group) {
 	c := NewController()
 
 	// widget
-	g.GET("/widget", c.getBlogManagementWidget)
 
 	// forms
 	g.GET("/update-title-form/:postid", c.getEditPostTitleForm)
@@ -15,6 +14,7 @@ func Register(g *echo.Group) {
 	g.GET("/delete-form/:postid", c.getDeleteForm)
 	g.GET("/create-form", c.getCreateForm)
 
+	g.GET("/posts", c.getPosts)
 	g.POST("/posts", c.createPost)
 	g.POST("/posts/:postid/title", c.updatePostTitle)
 	g.POST("/posts/:postid/short-desc", c.updatePostShortDescription)

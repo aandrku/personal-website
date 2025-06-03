@@ -4,7 +4,6 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/aandrku/portfolio-v2/pkg/services/blog"
 	"github.com/aandrku/portfolio-v2/pkg/services/markdown"
 	"github.com/aandrku/portfolio-v2/pkg/services/project"
 	"github.com/aandrku/portfolio-v2/pkg/services/stats"
@@ -17,13 +16,7 @@ import (
 
 // getDashboardPage serves dashboard page to the client.
 func getDashboardPage(c echo.Context) error {
-	bs := blog.NewService()
 	ps := project.NewManager(fs.Store{})
-
-	posts, err := bs.Posts()
-	if err != nil {
-		return err
-	}
 
 	projects, err := ps.Projects()
 	if err != nil {
@@ -32,7 +25,6 @@ func getDashboardPage(c echo.Context) error {
 	}
 
 	props := admin.DashboardProps{
-		Posts:    posts,
 		Projects: projects,
 	}
 

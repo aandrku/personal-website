@@ -20,12 +20,6 @@ func getDashboardPage(c echo.Context) error {
 	bs := blog.NewService()
 	ps := project.NewManager(fs.Store{})
 
-	// this is here, cause of error handlign
-	stats, err := stats.Get()
-	if err != nil {
-		return err
-	}
-
 	// same here
 	// ups means uploads
 	ups, err := uploads.Get()
@@ -45,7 +39,6 @@ func getDashboardPage(c echo.Context) error {
 	}
 
 	props := admin.DashboardProps{
-		Stats:    stats,
 		Uploads:  ups,
 		Posts:    posts,
 		Projects: projects,
@@ -56,14 +49,14 @@ func getDashboardPage(c echo.Context) error {
 	return view.Render(c, http.StatusOK, dashboard)
 }
 
-// getStatsWidget serves stats widget to the client.
-func getStatsWidget(c echo.Context) error {
+// getStats serves stats widget to the client.
+func getStats(c echo.Context) error {
 	stats, err := stats.Get()
 	if err != nil {
 		return err
 	}
 
-	w := admin.SystemStatsWidget(stats)
+	w := admin.StatsList(stats)
 	return view.Render(c, http.StatusOK, w)
 
 }

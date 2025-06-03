@@ -1,0 +1,24 @@
+package admin
+
+import "github.com/aandrku/portfolio-v2/pkg/model"
+
+templ StatsList(stats model.Stats) {
+	<div id="stats" class="flex flex-col gap-5 p-6 text-base">
+		<div class="flex justify-between items-center">
+			<p class="text-zinc-300 text-lg">CPU Usage</p>
+			<p class="text-zinc-100 text-xl font-semibold">{ stats.CPUUsagePercent() }</p>
+		</div>
+		<div class="flex justify-between items-center">
+			<p class="text-zinc-300 text-lg">Memory</p>
+			<p class="text-zinc-100 text-xl font-semibold">{ stats.MemoryUsedGB() } / { stats.MemoryTotalGB() }</p>
+		</div>
+		<div class="flex justify-between items-center">
+			<p class="text-zinc-300 text-lg">Disk Usage</p>
+			<p class="text-zinc-100 text-xl font-semibold">{ stats.DiskUsedGB() } / { stats.DiskTotalGB() }</p>
+		</div>
+		<div class="flex justify-between items-center">
+			<p class="text-zinc-300 text-lg">Uptime</p>
+			<p class="text-zinc-100 text-xl font-semibold">{ stats.UptimeString() }</p>
+		</div>
+	</div>
+}

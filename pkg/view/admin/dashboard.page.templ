@@ -6,7 +6,6 @@ import "github.com/aandrku/portfolio-v2/pkg/services/project"
 import "github.com/aandrku/portfolio-v2/pkg/view/layout"
 
 type DashboardProps struct {
-	model.Stats
 	Uploads  []os.FileInfo
 	Posts    []*model.Post
 	Projects []project.Project
@@ -18,7 +17,7 @@ templ Dashboard(props DashboardProps) {
 			<section id="left-column" class="flex flex-col w-full h-full gap-6">
 				@AnalyticsWidget()
 				@AboutWidget()
-				@SystemStatsWidget(props.Stats)
+				@SystemStatsWidget()
 			</section>
 			<section id="middle-column" class="flex flex-col w-full h-full gap-6">
 				@UploadsManagementWidget(props.Uploads)

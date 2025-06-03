@@ -23,7 +23,7 @@ func Register(g *echo.Group) {
 	about.Register(g.Group("/about"))
 
 	// statistics
-	g.GET("/stats", getStatsWidget)
+	g.GET("/stats", getStats)
 
 	// uploads
 	g.GET("/upload", getUploadWidget)

@@ -202,33 +202,34 @@ templ projectCard(p project.Project) {
 	</div>
 }
 
-templ SystemStatsWidget(stats model.Stats) {
+templ SystemStatsWidget() {
 	<div
 		id="system-stats-widget"
 		class="border border-zinc-700 w-full flex-grow rounded-md relative bg-zinc-800 shadow-lg shadow-black/20"
 		hx-get="/admin/stats"
-		hx-trigger="every 5s"
+		hx-trigger="load, every 5s"
 		hx-swap="outerHTML"
+		hx-target="#stats"
 	>
 		<div class="absolute -top-3 left-5 bg-zinc-900 px-2 text-lg text-zinc-400 rounded-md border border-zinc-700">
 			System Stats
 		</div>
-		<div class="flex flex-col gap-5 p-6 text-base">
+		<div id="stats" class="flex flex-col gap-5 p-6 text-base">
 			<div class="flex justify-between items-center">
 				<p class="text-zinc-300 text-lg">CPU Usage</p>
-				<p class="text-zinc-100 text-xl font-semibold">{ stats.CPUUsagePercent() }</p>
+				<p class="text-zinc-100 text-xl font-semibold">0.00%</p>
 			</div>
 			<div class="flex justify-between items-center">
 				<p class="text-zinc-300 text-lg">Memory</p>
-				<p class="text-zinc-100 text-xl font-semibold">{ stats.MemoryUsedGB() } / { stats.MemoryTotalGB() }</p>
+				<p class="text-zinc-100 text-xl font-semibold">0.00GB / 0.00GB</p>
 			</div>
 			<div class="flex justify-between items-center">
 				<p class="text-zinc-300 text-lg">Disk Usage</p>
-				<p class="text-zinc-100 text-xl font-semibold">{ stats.DiskUsedGB() } / { stats.DiskTotalGB() }</p>
+				<p class="text-zinc-100 text-xl font-semibold">0.00GB / 0.00GB</p>
 			</div>
 			<div class="flex justify-between items-center">
 				<p class="text-zinc-300 text-lg">Uptime</p>
-				<p class="text-zinc-100 text-xl font-semibold">{ stats.UptimeString() }</p>
+				<p class="text-zinc-100 text-xl font-semibold">0h00m00s</p>
 			</div>
 		</div>
 	</div>

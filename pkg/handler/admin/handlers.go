@@ -5,10 +5,8 @@ import (
 	"net/http"
 
 	"github.com/aandrku/portfolio-v2/pkg/services/markdown"
-	"github.com/aandrku/portfolio-v2/pkg/services/project"
 	"github.com/aandrku/portfolio-v2/pkg/services/stats"
 	"github.com/aandrku/portfolio-v2/pkg/services/uploads"
-	"github.com/aandrku/portfolio-v2/pkg/store/fs"
 	"github.com/aandrku/portfolio-v2/pkg/view"
 	"github.com/aandrku/portfolio-v2/pkg/view/admin"
 	"github.com/labstack/echo/v4"
@@ -16,19 +14,8 @@ import (
 
 // getDashboardPage serves dashboard page to the client.
 func getDashboardPage(c echo.Context) error {
-	ps := project.NewManager(fs.Store{})
 
-	projects, err := ps.Projects()
-	if err != nil {
-		log.Print(err)
-		return err
-	}
-
-	props := admin.DashboardProps{
-		Projects: projects,
-	}
-
-	dashboard := admin.Dashboard(props)
+	dashboard := admin.Dashboard()
 
 	return view.Render(c, http.StatusOK, dashboard)
 }

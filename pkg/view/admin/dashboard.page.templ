@@ -1,13 +1,8 @@
 package admin
 
-import "github.com/aandrku/portfolio-v2/pkg/services/project"
 import "github.com/aandrku/portfolio-v2/pkg/view/layout"
 
-type DashboardProps struct {
-	Projects []project.Project
-}
-
-templ Dashboard(props DashboardProps) {
+templ Dashboard() {
 	@layout.Base("dashboard") {
 		<div id="root" class="flex flex-row w-full h-full p-10 gap-4 bg-zinc-900 text-zinc-100">
 			<section id="left-column" class="flex flex-col w-full h-full gap-6">
@@ -17,7 +12,7 @@ templ Dashboard(props DashboardProps) {
 			</section>
 			<section id="middle-column" class="flex flex-col w-full h-full gap-6">
 				@UploadsManagementWidget()
-				@ProjectsWidget(props.Projects)
+				@ProjectsWidget()
 			</section>
 			<section id="right-column" class="flex flex-col w-full h-full gap-6">
 				@BlogWidget()

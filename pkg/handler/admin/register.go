@@ -2,6 +2,7 @@ package admin
 
 import (
 	"github.com/aandrku/portfolio-v2/pkg/handler/admin/about"
+	"github.com/aandrku/portfolio-v2/pkg/handler/admin/analytics"
 	"github.com/aandrku/portfolio-v2/pkg/handler/admin/blog"
 	"github.com/aandrku/portfolio-v2/pkg/handler/admin/projects"
 	"github.com/labstack/echo/v4"
@@ -16,7 +17,7 @@ func Register(g *echo.Group) {
 	g.POST("/markdown-preview", postMarkdownPreview)
 
 	// analytics
-	g.GET("/analytics", getAnalyticsWidget)
+	analytics.Register(g.Group("/analytics"))
 
 	// about
 	about.Register(g.Group("/about"))

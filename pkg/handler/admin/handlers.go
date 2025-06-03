@@ -4,7 +4,6 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/aandrku/portfolio-v2/pkg/services/analytics"
 	"github.com/aandrku/portfolio-v2/pkg/services/blog"
 	"github.com/aandrku/portfolio-v2/pkg/services/markdown"
 	"github.com/aandrku/portfolio-v2/pkg/services/project"
@@ -18,15 +17,8 @@ import (
 
 // getDashboardPage serves dashboard page to the client.
 func getDashboardPage(c echo.Context) error {
-	as := analytics.Service{}
 	bs := blog.NewService()
 	ps := project.NewManager(fs.Store{})
-
-	// TODO: give this better name, after I get rid of these redundant props
-	awp := admin.AnalyticsWidgetProps{
-		VisitsToday: as.TotalVisits(),
-		VisitsTotal: as.TotalVisits(),
-	}
 
 	// this is here, cause of error handlign
 	stats, err := stats.Get()
@@ -53,30 +45,15 @@ func getDashboardPage(c echo.Context) error {
 	}
 
 	props := admin.DashboardProps{
-		AnalyticsWidgetProps: awp,
-		Stats:                stats,
-		Uploads:              ups,
-		Posts:                posts,
-		Projects:             projects,
+		Stats:    stats,
+		Uploads:  ups,
+		Posts:    posts,
+		Projects: projects,
 	}
 
 	dashboard := admin.Dashboard(props)
 
 	return view.Render(c, http.StatusOK, dashboard)
-}
-
-// / getAnalyticsWidget serves analytics widget to the client.
-func getAnalyticsWidget(c echo.Context) error {
-	s := analytics.Service{}
-
-	p := admin.AnalyticsWidgetProps{
-		VisitsToday: s.TotalVisits(),
-		VisitsTotal: s.TotalVisits(),
-	}
-
-	w := admin.AnalyticsWidget(p)
-
-	return view.Render(c, http.StatusOK, w)
 }
 
 // getStatsWidget serves stats widget to the client.

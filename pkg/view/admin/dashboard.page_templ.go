@@ -14,7 +14,6 @@ import "github.com/aandrku/portfolio-v2/pkg/services/project"
 import "github.com/aandrku/portfolio-v2/pkg/view/layout"
 
 type DashboardProps struct {
-	AnalyticsWidgetProps
 	model.Stats
 	Uploads  []os.FileInfo
 	Posts    []*model.Post
@@ -58,7 +57,7 @@ func Dashboard(props DashboardProps) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = AnalyticsWidget(props.AnalyticsWidgetProps).Render(ctx, templ_7745c5c3_Buffer)
+			templ_7745c5c3_Err = AnalyticsWidget().Render(ctx, templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}

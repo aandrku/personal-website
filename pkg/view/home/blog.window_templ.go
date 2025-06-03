@@ -100,7 +100,7 @@ func postCard(post *model.Post) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "\" class=\"flex flex-col gap-1 px-2 py-3 border-b border-zinc-700 hover:bg-zinc-700/20 hover:shadow-sm rounded transition-colors duration-150\"><h3 class=\"text-zinc-100 text-lg font-semibold\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "\" class=\"flex flex-col gap-1 px-2 max-w-2xl py-3 border-b border-zinc-700 hover:bg-zinc-700/20 hover:shadow-sm rounded transition-colors duration-150\"><h3 class=\"text-zinc-100 text-lg font-semibold\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

@@ -1,7 +1,6 @@
 package site
 
 import (
-	"github.com/aandrku/portfolio-v2/pkg/handler/admin"
 	"github.com/aandrku/portfolio-v2/pkg/handler/blog"
 
 	"github.com/labstack/echo/v4"
@@ -9,13 +8,6 @@ import (
 )
 
 func Register(e *echo.Echo) {
-	e.Use(middleware.Recover())
-	e.Use(middleware.Logger())
-
-	// static file serving
-	e.Static("/assets", "assets")
-	e.Static("/uploads", "./data/uploads")
-
 	// index page
 	e.GET("/", getIndex)
 
@@ -43,7 +35,4 @@ func Register(e *echo.Echo) {
 	// blog group
 	blog.Register(e.Group("/blog"))
 
-	// admin group
-	// TODO: protect with authentication
-	admin.Register(e.Group("/admin"))
 }

@@ -418,7 +418,7 @@ func SystemStatsWidget() templ.Component {
 	})
 }
 
-func UploadsManagementWidget(uploads []os.FileInfo) templ.Component {
+func UploadsManagementWidget() templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -439,17 +439,7 @@ func UploadsManagementWidget(uploads []os.FileInfo) templ.Component {
 			templ_7745c5c3_Var20 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 23, "<div id=\"uploads-widget\" class=\"border border-zinc-700 w-full h-1/4 rounded-md relative bg-zinc-800 shadow-lg shadow-black/20\" hx-get=\"/admin/upload\" hx-trigger=\"updateUploads from:body\" hx-swap=\"outerHTML\"><div class=\"absolute -top-3 left-5 bg-zinc-900 px-2 text-lg text-zinc-400 rounded-md border border-zinc-700\">Uploads Management Widget</div><div class=\"h-full flex flex-col gap-4 p-6 pt-10 overflow-y-auto\"><!-- Upload Button --><button class=\"w-full text-left bg-zinc-700 hover:bg-zinc-600 text-zinc-100 px-4 py-2 rounded-md text-sm font-medium transition\" hx-get=\"/admin/upload/form\" hx-target=\"#root\" hx-swap=\"afterbegin\">Upload New Asset</button> ")
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		for _, upload := range uploads {
-			templ_7745c5c3_Err = UploadCard(upload).Render(ctx, templ_7745c5c3_Buffer)
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 24, "</div></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 23, "<div id=\"uploads-widget\" class=\"border border-zinc-700 w-full h-1/4 rounded-md relative bg-zinc-800 shadow-lg shadow-black/20\" hx-get=\"/admin/uploads\" hx-trigger=\"load, updateUploads from:body\" hx-swap=\"outerHTML\" hx-target=\"#uploads\"><div class=\"absolute -top-3 left-5 bg-zinc-900 px-2 text-lg text-zinc-400 rounded-md border border-zinc-700\">Uploads Management Widget </div><div id=\"uploads\" class=\"h-full flex flex-col gap-4 p-6 pt-10 overflow-y-auto\"><!-- Upload Button --><button class=\"w-full text-left bg-zinc-700 hover:bg-zinc-600 text-zinc-100 px-4 py-2 rounded-md text-sm font-medium transition\" hx-get=\"/admin/upload/form\" hx-target=\"#root\" hx-swap=\"afterbegin\">Upload New Asset</button></div></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -478,46 +468,46 @@ func UploadCard(upload os.FileInfo) templ.Component {
 			templ_7745c5c3_Var21 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 25, "<div class=\"flex justify-between items-center text-sm text-zinc-400\"><span>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 24, "<div class=\"flex justify-between items-center text-sm text-zinc-400\"><span>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var22 string
 		templ_7745c5c3_Var22, templ_7745c5c3_Err = templ.JoinStringErrs(upload.Name())
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/widgets.templ`, Line: 268, Col: 23}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/widgets.templ`, Line: 266, Col: 23}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var22))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 26, "</span><div class=\"flex items-center gap-2\"><span>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 25, "</span><div class=\"flex items-center gap-2\"><span>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var23 string
 		templ_7745c5c3_Var23, templ_7745c5c3_Err = templ.JoinStringErrs(bytesToSizeString(upload.Size()))
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/widgets.templ`, Line: 270, Col: 43}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/widgets.templ`, Line: 268, Col: 43}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var23))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 27, "</span> <button class=\"ml-2 bg-red-800/50 hover:bg-red-900 text-white px-2 py-1 rounded-md text-xs transition\" hx-get=\"")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 26, "</span> <button class=\"ml-2 bg-red-800/50 hover:bg-red-900 text-white px-2 py-1 rounded-md text-xs transition\" hx-get=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var24 string
 		templ_7745c5c3_Var24, templ_7745c5c3_Err = templ.JoinStringErrs("/admin/upload/delete-form/" + upload.Name())
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/widgets.templ`, Line: 273, Col: 57}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/admin/widgets.templ`, Line: 271, Col: 57}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var24))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 28, "\" hx-target=\"#root\" hx-swap=\"afterbegin\">Remove</button></div></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 27, "\" hx-target=\"#root\" hx-swap=\"afterbegin\">Remove</button></div></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

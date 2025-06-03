@@ -20,13 +20,6 @@ func getDashboardPage(c echo.Context) error {
 	bs := blog.NewService()
 	ps := project.NewManager(fs.Store{})
 
-	// same here
-	// ups means uploads
-	ups, err := uploads.Get()
-	if err != nil {
-		return err
-	}
-
 	posts, err := bs.Posts()
 	if err != nil {
 		return err
@@ -39,7 +32,6 @@ func getDashboardPage(c echo.Context) error {
 	}
 
 	props := admin.DashboardProps{
-		Uploads:  ups,
 		Posts:    posts,
 		Projects: projects,
 	}
@@ -61,13 +53,13 @@ func getStats(c echo.Context) error {
 
 }
 
-// getUploadWidget serves upload widget to the client.
-func getUploadWidget(c echo.Context) error {
+// getUploads serves upload widget to the client.
+func getUploads(c echo.Context) error {
 	ups, err := uploads.Get()
 	if err != nil {
 		return err
 	}
-	w := admin.UploadsManagementWidget(ups)
+	w := admin.UploadsList(ups)
 	return view.Render(c, http.StatusOK, w)
 }
 

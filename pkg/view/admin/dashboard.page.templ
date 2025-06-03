@@ -1,12 +1,11 @@
 package admin
 
 import "github.com/aandrku/portfolio-v2/pkg/model"
-import "os"
+
 import "github.com/aandrku/portfolio-v2/pkg/services/project"
 import "github.com/aandrku/portfolio-v2/pkg/view/layout"
 
 type DashboardProps struct {
-	Uploads  []os.FileInfo
 	Posts    []*model.Post
 	Projects []project.Project
 }
@@ -20,7 +19,7 @@ templ Dashboard(props DashboardProps) {
 				@SystemStatsWidget()
 			</section>
 			<section id="middle-column" class="flex flex-col w-full h-full gap-6">
-				@UploadsManagementWidget(props.Uploads)
+				@UploadsManagementWidget()
 				@ProjectsWidget(props.Projects)
 			</section>
 			<section id="right-column" class="flex flex-col w-full h-full gap-6">

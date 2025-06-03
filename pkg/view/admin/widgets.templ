@@ -235,18 +235,19 @@ templ SystemStatsWidget() {
 	</div>
 }
 
-templ UploadsManagementWidget(uploads []os.FileInfo) {
+templ UploadsManagementWidget() {
 	<div
 		id="uploads-widget"
 		class="border border-zinc-700 w-full h-1/4 rounded-md relative bg-zinc-800 shadow-lg shadow-black/20"
-		hx-get="/admin/upload"
-		hx-trigger="updateUploads from:body"
+		hx-get="/admin/uploads"
+		hx-trigger="load, updateUploads from:body"
 		hx-swap="outerHTML"
+		hx-target="#uploads"
 	>
 		<div class="absolute -top-3 left-5 bg-zinc-900 px-2 text-lg text-zinc-400 rounded-md border border-zinc-700">
-			Uploads Management Widget
+			Uploads Management Widget 
 		</div>
-		<div class="h-full flex flex-col gap-4 p-6 pt-10 overflow-y-auto">
+		<div id="uploads" class="h-full flex flex-col gap-4 p-6 pt-10 overflow-y-auto">
 			<!-- Upload Button -->
 			<button
 				class="w-full text-left bg-zinc-700 hover:bg-zinc-600 text-zinc-100 px-4 py-2 rounded-md text-sm font-medium transition"
@@ -256,9 +257,6 @@ templ UploadsManagementWidget(uploads []os.FileInfo) {
 			>
 				Upload New Asset
 			</button>
-			for _, upload := range uploads {
-				@UploadCard(upload)
-			}
 		</div>
 	</div>
 }

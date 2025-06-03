@@ -26,7 +26,7 @@ func Register(g *echo.Group) {
 	g.GET("/stats", getStats)
 
 	// uploads
-	g.GET("/upload", getUploadWidget)
+	g.GET("/uploads", getUploads)
 	g.GET("/upload/form", getUploadForm)
 	g.GET("/upload/delete-form/:filename", getUploadDeleteForm)
 	g.POST("/upload", postUpload)

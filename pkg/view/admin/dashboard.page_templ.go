@@ -9,12 +9,11 @@ import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
 import "github.com/aandrku/portfolio-v2/pkg/model"
-import "os"
+
 import "github.com/aandrku/portfolio-v2/pkg/services/project"
 import "github.com/aandrku/portfolio-v2/pkg/view/layout"
 
 type DashboardProps struct {
-	Uploads  []os.FileInfo
 	Posts    []*model.Post
 	Projects []project.Project
 }
@@ -72,7 +71,7 @@ func Dashboard(props DashboardProps) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = UploadsManagementWidget(props.Uploads).Render(ctx, templ_7745c5c3_Buffer)
+			templ_7745c5c3_Err = UploadsManagementWidget().Render(ctx, templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}

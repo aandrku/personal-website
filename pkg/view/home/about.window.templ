@@ -6,7 +6,7 @@ import "github.com/aandrku/portfolio-v2/pkg/view/shared"
 
 templ AboutWindow(info about.AboutInfo) {
 	@shared.WindowBase("about") {
-		<div class="w-full h-full sm:h-auto sm:max-w-[48rem] sm:max-h-[75vh] overflow-auto no-scrollbar sm:px-6  py-4 pb-56 sm:pb-4 space-y-4">
+		<div class="w-full h-full sm:h-auto sm:max-w-[48rem] sm:max-h-[75vh] overflow-auto no-scrollbar sm:px-6  pt-4 pb-56 sm:pb-80">
 			@aboutCard(info.Name, info.DescShort, info.AvatarURL)
 			{{ descriptionHTML, err := info.DescriptionHTML() }}
 			if err != nil {

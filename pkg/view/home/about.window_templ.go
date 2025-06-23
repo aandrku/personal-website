@@ -45,7 +45,7 @@ func AboutWindow(info about.AboutInfo) templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"w-full h-full sm:h-auto sm:max-w-[48rem] sm:max-h-[75vh] overflow-auto no-scrollbar sm:px-6  py-4 pb-56 sm:pb-4 space-y-4\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"w-full h-full sm:h-auto sm:max-w-[48rem] sm:max-h-[75vh] overflow-auto no-scrollbar sm:px-6  pt-4 pb-56 sm:pb-80\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}

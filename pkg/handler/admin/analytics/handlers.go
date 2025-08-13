@@ -3,9 +3,9 @@ package analytics
 import (
 	"net/http"
 
-	"github.com/aandrku/portfolio-v2/pkg/services/analytics"
-	"github.com/aandrku/portfolio-v2/pkg/view"
-	"github.com/aandrku/portfolio-v2/pkg/view/admin"
+	"github.com/aandrku/personal-website/pkg/services/analytics"
+	"github.com/aandrku/personal-website/pkg/view"
+	"github.com/aandrku/personal-website/pkg/view/admin"
 	"github.com/labstack/echo/v4"
 )
 

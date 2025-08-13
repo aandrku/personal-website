@@ -8,7 +8,7 @@ package home
 import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
-import "github.com/aandrku/portfolio-v2/pkg/view/layout"
+import "github.com/aandrku/personal-website/pkg/view/layout"
 
 // Login page with OTP form
 func LoginPage() templ.Component {

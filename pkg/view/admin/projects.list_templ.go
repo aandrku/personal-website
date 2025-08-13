@@ -8,7 +8,7 @@ package admin
 import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
-import "github.com/aandrku/portfolio-v2/pkg/services/project"
+import "github.com/aandrku/personal-website/pkg/services/project"
 
 func ProjectList(projects []project.Project) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {

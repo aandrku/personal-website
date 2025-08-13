@@ -4,10 +4,10 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/aandrku/portfolio-v2/pkg/services/project"
-	"github.com/aandrku/portfolio-v2/pkg/store/fs"
-	"github.com/aandrku/portfolio-v2/pkg/view"
-	"github.com/aandrku/portfolio-v2/pkg/view/admin"
+	"github.com/aandrku/personal-website/pkg/services/project"
+	"github.com/aandrku/personal-website/pkg/store/fs"
+	"github.com/aandrku/personal-website/pkg/view"
+	"github.com/aandrku/personal-website/pkg/view/admin"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/gommon/log"
 )

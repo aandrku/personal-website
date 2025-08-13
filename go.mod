@@ -1,4 +1,4 @@
-module github.com/aandrku/portfolio-v2
+module github.com/aandrku/personal-website
 
 go 1.24.2
 

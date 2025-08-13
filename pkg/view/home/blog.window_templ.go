@@ -9,8 +9,8 @@ import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
 import (
-	"github.com/aandrku/portfolio-v2/pkg/model"
-	"github.com/aandrku/portfolio-v2/pkg/view/shared"
+	"github.com/aandrku/personal-website/pkg/model"
+	"github.com/aandrku/personal-website/pkg/view/shared"
 )
 
 func BlogWindow(posts []*model.Post) templ.Component {

@@ -1,8 +1,8 @@
 package handler
 
 import (
-	"github.com/aandrku/portfolio-v2/pkg/handler/admin"
-	"github.com/aandrku/portfolio-v2/pkg/handler/site"
+	"github.com/aandrku/personal-website/pkg/handler/admin"
+	"github.com/aandrku/personal-website/pkg/handler/site"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 )

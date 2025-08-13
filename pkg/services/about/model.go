@@ -1,6 +1,6 @@
 package about
 
-import "github.com/aandrku/portfolio-v2/pkg/services/markdown"
+import "github.com/aandrku/personal-website/pkg/services/markdown"
 
 func newDefaultAboutInfo() AboutInfo {
 	return AboutInfo{

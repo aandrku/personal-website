@@ -1,7 +1,7 @@
 package site
 
 import (
-	"github.com/aandrku/portfolio-v2/pkg/handler/blog"
+	"github.com/aandrku/personal-website/pkg/handler/blog"
 
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"

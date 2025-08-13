@@ -1,9 +1,9 @@
 package blog
 
 import (
-	"github.com/aandrku/portfolio-v2/pkg/model"
-	"github.com/aandrku/portfolio-v2/pkg/store"
-	"github.com/aandrku/portfolio-v2/pkg/store/fs"
+	"github.com/aandrku/personal-website/pkg/model"
+	"github.com/aandrku/personal-website/pkg/store"
+	"github.com/aandrku/personal-website/pkg/store/fs"
 )
 
 func NewService() *Service {

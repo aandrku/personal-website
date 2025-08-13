@@ -3,11 +3,11 @@ package blog
 import (
 	"net/http"
 
-	"github.com/aandrku/portfolio-v2/pkg/model"
-	"github.com/aandrku/portfolio-v2/pkg/services/blog"
-	"github.com/aandrku/portfolio-v2/pkg/services/markdown"
-	"github.com/aandrku/portfolio-v2/pkg/view"
-	"github.com/aandrku/portfolio-v2/pkg/view/admin"
+	"github.com/aandrku/personal-website/pkg/model"
+	"github.com/aandrku/personal-website/pkg/services/blog"
+	"github.com/aandrku/personal-website/pkg/services/markdown"
+	"github.com/aandrku/personal-website/pkg/view"
+	"github.com/aandrku/personal-website/pkg/view/admin"
 	"github.com/labstack/echo/v4"
 )
 

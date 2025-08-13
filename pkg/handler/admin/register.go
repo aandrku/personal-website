@@ -1,10 +1,10 @@
 package admin
 
 import (
-	"github.com/aandrku/portfolio-v2/pkg/handler/admin/about"
-	"github.com/aandrku/portfolio-v2/pkg/handler/admin/analytics"
-	"github.com/aandrku/portfolio-v2/pkg/handler/admin/blog"
-	"github.com/aandrku/portfolio-v2/pkg/handler/admin/projects"
+	"github.com/aandrku/personal-website/pkg/handler/admin/about"
+	"github.com/aandrku/personal-website/pkg/handler/admin/analytics"
+	"github.com/aandrku/personal-website/pkg/handler/admin/blog"
+	"github.com/aandrku/personal-website/pkg/handler/admin/projects"
 	"github.com/labstack/echo/v4"
 )
 

@@ -10,9 +10,9 @@ import templruntime "github.com/a-h/templ/runtime"
 
 import "bytes"
 import "github.com/yuin/goldmark"
-import "github.com/aandrku/portfolio-v2/pkg/view"
-import "github.com/aandrku/portfolio-v2/pkg/services/project"
-import "github.com/aandrku/portfolio-v2/pkg/view/layout"
+import "github.com/aandrku/personal-website/pkg/view"
+import "github.com/aandrku/personal-website/pkg/services/project"
+import "github.com/aandrku/personal-website/pkg/view/layout"
 
 func projectContentToTempl(content string) templ.Component {
 	var buf bytes.Buffer

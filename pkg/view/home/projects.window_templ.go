@@ -9,8 +9,8 @@ import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
 import (
-	"github.com/aandrku/portfolio-v2/pkg/services/project"
-	"github.com/aandrku/portfolio-v2/pkg/view/shared"
+	"github.com/aandrku/personal-website/pkg/services/project"
+	"github.com/aandrku/personal-website/pkg/view/shared"
 )
 
 func ProjectsWindow(projects []project.Project) templ.Component {

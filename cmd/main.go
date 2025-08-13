@@ -3,8 +3,8 @@ package main
 import (
 	"flag"
 
-	"github.com/aandrku/portfolio-v2/pkg/handler"
-	"github.com/aandrku/portfolio-v2/pkg/services/auth"
+	"github.com/aandrku/personal-website/pkg/handler"
+	"github.com/aandrku/personal-website/pkg/services/auth"
 	"github.com/joho/godotenv"
 	"github.com/labstack/echo/v4"
 )

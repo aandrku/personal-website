@@ -10,7 +10,7 @@ import templruntime "github.com/a-h/templ/runtime"
 
 import (
 	"fmt"
-	"github.com/aandrku/portfolio-v2/pkg/model"
+	"github.com/aandrku/personal-website/pkg/model"
 	"os"
 )
 

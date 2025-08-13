@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/aandrku/portfolio-v2/pkg/view/shared"
+	"github.com/aandrku/personal-website/pkg/view/shared"
 	"gopkg.in/gomail.v2"
 )
 

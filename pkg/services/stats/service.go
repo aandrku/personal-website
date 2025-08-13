@@ -3,7 +3,7 @@ package stats
 import (
 	"time"
 
-	"github.com/aandrku/portfolio-v2/pkg/model"
+	"github.com/aandrku/personal-website/pkg/model"
 	"github.com/shirou/gopsutil/v4/cpu"
 	"github.com/shirou/gopsutil/v4/disk"
 	"github.com/shirou/gopsutil/v4/host"

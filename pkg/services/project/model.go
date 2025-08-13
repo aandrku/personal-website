@@ -3,7 +3,7 @@ package project
 import (
 	"strings"
 
-	"github.com/aandrku/portfolio-v2/pkg/services/markdown"
+	"github.com/aandrku/personal-website/pkg/services/markdown"
 	"github.com/google/uuid"
 )
 

@@ -3,7 +3,7 @@ package auth
 import (
 	"time"
 
-	"github.com/aandrku/portfolio-v2/pkg/services/email"
+	"github.com/aandrku/personal-website/pkg/services/email"
 	"github.com/google/uuid"
 )
 

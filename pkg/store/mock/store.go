@@ -3,7 +3,7 @@ package mock
 import (
 	"errors"
 
-	"github.com/aandrku/portfolio-v2/pkg/model"
+	"github.com/aandrku/personal-website/pkg/model"
 	"github.com/google/uuid"
 )
 

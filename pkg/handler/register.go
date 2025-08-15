@@ -1,7 +1,6 @@
 package handler
 
 import (
-	"github.com/aandrku/personal-website/pkg/handler/admin"
 	"github.com/aandrku/personal-website/pkg/handler/site"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
@@ -17,7 +16,4 @@ func Register(e *echo.Echo) {
 	e.Use(middleware.Logger())
 
 	site.Register(e)
-
-	// admin group
-	admin.Register(e.Group("/admin"))
 }

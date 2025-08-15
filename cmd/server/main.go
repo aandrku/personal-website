@@ -2,11 +2,8 @@ package main
 
 import (
 	"flag"
-
-	"github.com/aandrku/personal-website/pkg/handler"
 	"github.com/aandrku/personal-website/pkg/services/auth"
 	"github.com/joho/godotenv"
-	"github.com/labstack/echo/v4"
 )
 
 func main() {
@@ -25,11 +22,13 @@ func main() {
 		panic(err)
 	}
 
-	e := echo.New()
-	handler.Register(e)
+	app := &application{}
+
+	r := app.router()
+
 	if *tls {
-		e.Logger.Fatal(e.StartTLS(":"+*port, "tls/certFile", "tls/keyFile"))
+		r.Logger.Fatal(r.StartTLS(":"+*port, "tls/certFile", "tls/keyFile"))
 	} else {
-		e.Logger.Fatal(e.Start(":" + *port))
+		r.Logger.Fatal(r.Start(":" + *port))
 	}
 }

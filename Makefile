@@ -1,7 +1,7 @@
 .PHONY: run
 run:
 	templ generate .
-	go run cmd/main.go
+	go run ./cmd/server
 
 .PHONY: live/templ
 live/templ:
@@ -10,7 +10,7 @@ live/templ:
 .PHONY: live/server
 live/server:
 	go run github.com/cosmtrek/air@v1.51.0 \
-	--build.cmd "go build  -o tmp/bin/main cmd/main.go" --build.bin "tmp/bin/main" --build.delay "100" \
+	--build.cmd "go build  -o tmp/bin/main ./cmd/server" --build.bin "tmp/bin/main" --build.delay "100" \
 	--build.exclude_dir "node_modules" \
 	--build.include_ext "go" \
 	--build.stop_on_error "false" \
@@ -40,7 +40,7 @@ build/tailwind:
 
 .PHONY: build/server
 build/server:
-	go build -o main cmd/main.go
+	go build -o main ./cmd/server
 
 .PHONY: build
 build:

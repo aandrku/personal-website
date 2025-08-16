@@ -3,6 +3,11 @@ run:
 	templ generate .
 	go run ./cmd/server
 
+.PHONY: run/generator
+run/generator:
+	templ generate .
+	go run ./cmd/generator
+
 .PHONY: live/templ
 live/templ:
 	templ generate --watch --proxy="http://localhost:3000" --proxybind="0.0.0.0" --open-browser=false -v

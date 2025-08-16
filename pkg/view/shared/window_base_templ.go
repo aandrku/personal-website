@@ -29,20 +29,20 @@ func WindowBase(title string) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"relative w-full h-screen sm:h-auto sm:max-w-3/4 sm:w-auto  sm:max-h-3/4 sm:rounded-xl sm:border border-blue-950 bg-zinc-800/30 backdrop-blur-md shadow-xl overflow-hidden\"><!-- Top bar: hidden on mobile --><div class=\"hidden sm:flex items-center justify-between px-4 py-2 border-b border-blue-950 bg-zinc-900/40 backdrop-blur-sm\"><div class=\"flex items-center space-x-2\"><div hx-get=\"/delete\" hx-target=\"#window-container\" hx-swap=\"innerHTML\" class=\"w-3 h-3 bg-red-500/50 rounded-full cursor-pointer\"></div></div><span class=\"text-sm text-blue-300 font-medium\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"relative w-full h-screen sm:h-auto sm:max-w-3/4 sm:w-auto  sm:max-h-3/4 sm:rounded-xl sm:border border-blue-950 bg-zinc-800/30 backdrop-blur-md shadow-xl overflow-hidden\"><div class=\"hidden sm:flex items-center justify-between px-4 py-2 border-b border-blue-950 bg-zinc-900/40 backdrop-blur-sm\"><div class=\"flex items-center space-x-2\"><div hx-get=\"/delete\" hx-target=\"#window-container\" hx-swap=\"innerHTML\" class=\"w-3 h-3 bg-red-500/50 rounded-full cursor-pointer\"></div></div><span class=\"text-sm text-blue-300 font-medium\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var2 string
 		templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(title)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/shared/window_base.templ`, Line: 10, Col: 58}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/shared/window_base.templ`, Line: 9, Col: 58}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</span><div></div></div><!-- Window content area --><div class=\"flex-1 overflow-auto p-2 text-zinc-200 text-sm h-full sm:h-auto\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</span><div></div></div><div class=\"flex-1 overflow-auto p-2 text-zinc-200 text-sm h-full sm:h-auto\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

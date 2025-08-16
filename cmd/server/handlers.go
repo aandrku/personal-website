@@ -1,10 +1,8 @@
 package main
 
 import (
-	"log"
 	"net/http"
 
-	"github.com/aandrku/personal-website/pkg/services/about"
 	"github.com/aandrku/personal-website/pkg/services/analytics"
 	"github.com/aandrku/personal-website/pkg/services/blog"
 	"github.com/aandrku/personal-website/pkg/services/project"
@@ -27,12 +25,7 @@ func getIndex(c echo.Context) error {
 
 // getAboutWindow serves about window to the client.
 func getAboutWindow(c echo.Context) error {
-	info, err := about.GetInfo()
-	if err != nil {
-		log.Fatalf("failed to get about info: %v\n", err)
-	}
-	component := home.AboutWindow(info)
-	return view.Render(c, http.StatusOK, component)
+	return c.File("./public/about.html")
 }
 
 func getProject(c echo.Context) error {

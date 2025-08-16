@@ -1,0 +1,26 @@
+package home
+
+import (
+	"github.com/aandrku/personal-website/pkg/model"
+	"github.com/aandrku/personal-website/pkg/view/shared"
+)
+
+templ MiscWindow(posts []model.Postt) {
+	@shared.WindowBase("blog") {
+		<div class="overflow-auto h-full w-full p-2">
+			for _, v := range posts {
+				@miscCard(v)
+			}
+		</div>
+	}
+}
+
+templ miscCard(post model.Postt) {
+	<a
+		href={ templ.URL("/misc/posts/" + post.Slug) }
+		class="flex flex-col gap-1 px-2 max-w-2xl py-3 border-b border-zinc-700 hover:bg-zinc-700/20 hover:shadow-sm rounded transition-colors duration-150"
+	>
+		<h3 class="text-zinc-100 text-lg font-semibold">{ post.Title }</h3>
+		<p class="text-zinc-400 text-sm">{ post.UpdatedAt.Format("Jan, 2, 2006") } — {  }</p>
+	</a>
+}

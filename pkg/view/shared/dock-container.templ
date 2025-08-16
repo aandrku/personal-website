@@ -9,20 +9,11 @@ templ DockContainer() {
 			<button
 				class="w-12 h-12 aspect-square bg-zinc-700/60 hover:bg-zinc-600 border border-zinc-600 
                      rounded-xl shadow-md flex items-center justify-center transition-all hover:scale-105"
-				hx-get="/home/window"
-				hx-target="#window-container"
-				hx-swap="innerHTML"
-			>
-				<img src="/uploads/home.svg" alt="Home" class="w-6 h-6 invert"/>
-			</button>
-			<button
-				class="w-12 h-12 aspect-square bg-zinc-700/60 hover:bg-zinc-600 border border-zinc-600 
-                     rounded-xl shadow-md flex items-center justify-center transition-all hover:scale-105"
 				hx-get="/about/window"
 				hx-target="#window-container"
 				hx-swap="innerHTML"
 			>
-				<img src="/uploads/cookie-man.svg" alt="About" class="w-6 h-6 invert"/>
+				<img src="/uploads/home.svg" alt="Home" class="w-6 h-6 invert"/>
 			</button>
 			<button
 				class="w-12 h-12 aspect-square bg-zinc-700/60 hover:bg-zinc-600 border border-zinc-600 
@@ -41,6 +32,15 @@ templ DockContainer() {
 				hx-swap="innerHTML"
 			>
 				<img src="/uploads/code.svg" alt="Projects" class="w-6 h-6 invert"/>
+			</button>
+			<button
+				class="w-12 h-12 aspect-square bg-zinc-700/60 hover:bg-zinc-600 border border-zinc-600 
+                     rounded-xl shadow-md flex items-center justify-center transition-all hover:scale-105"
+				hx-get="/misc/window"
+				hx-target="#window-container"
+				hx-swap="innerHTML"
+			>
+				<img src="/uploads/cookie-man.svg" alt="About" class="w-6 h-6 invert"/>
 			</button>
 		</div>
 	</div>

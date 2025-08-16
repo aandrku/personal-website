@@ -3,9 +3,6 @@ package main
 import (
 	"net/http"
 
-	"github.com/aandrku/personal-website/pkg/services/analytics"
-	"github.com/aandrku/personal-website/pkg/services/project"
-	"github.com/aandrku/personal-website/pkg/store/fs"
 	"github.com/aandrku/personal-website/pkg/view"
 	"github.com/aandrku/personal-website/pkg/view/home"
 
@@ -14,12 +11,7 @@ import (
 
 // getIndex serves index page to the client.
 func getIndex(c echo.Context) error {
-	as := analytics.Service{}
-	as.IncrementVisits()
-
-	page := home.Index()
-
-	return view.Render(c, http.StatusOK, page)
+	return c.File("./public/index.html")
 }
 
 // getAboutWindow serves about window to the client.
@@ -28,17 +20,8 @@ func getAboutWindow(c echo.Context) error {
 }
 
 func getProject(c echo.Context) error {
-	id := c.Param("id")
-	s := project.NewManager(fs.Store{})
-
-	p, err := s.FindProject(id)
-	if err != nil {
-		return err
-	}
-
-	page := home.ProjectPage(p)
-
-	return view.Render(c, http.StatusOK, page)
+	slug := c.Param("slug")
+	return c.File("./public/projects/" + slug + ".html")
 }
 
 // getHomeWindow serves home window to the client.
@@ -48,14 +31,7 @@ func getHomeWindow(c echo.Context) error {
 }
 
 func getProjectsWindow(c echo.Context) error {
-	s := project.NewManager(fs.Store{})
-	p, err := s.Projects()
-	if err != nil {
-		return err
-	}
-
-	component := home.ProjectsWindow(p)
-	return view.Render(c, http.StatusOK, component)
+	return c.File("./public/projects.html")
 }
 
 // getDelete serves empty http response to the client.
@@ -75,5 +51,13 @@ func getPost(c echo.Context) error {
 	slug := c.Param("slug")
 
 	return c.File("./public/blog/" + slug + ".html")
+}
+func getMiscWindow(c echo.Context) error {
+	return c.File("./public/misc.html")
+}
 
+func getMiscPost(c echo.Context) error {
+	slug := c.Param("slug")
+
+	return c.File("./public/misc/" + slug + ".html")
 }

@@ -45,6 +45,18 @@ func main() {
 	}
 	log.Println(Green, "blog was succesfully generated!", Reset)
 
+	err = generateProjects()
+	if err != nil {
+		log.Fatalf("%s failed to generate projects: %v %s", Red, err, Reset)
+	}
+	log.Println(Green, "projects was succesfully generated!", Reset)
+
+	err = generateMisc()
+	if err != nil {
+		log.Fatalf("%s failed to generate misc: %v %s", Red, err, Reset)
+	}
+	log.Println(Green, "misc was succesfully generated!", Reset)
+
 }
 
 func generateAbout() error {
@@ -86,11 +98,22 @@ func generateAbout() error {
 		return err
 	}
 
+	tmpl = home.Index(html, fm.ImgURL)
+	f, err = os.OpenFile(publicDir+"index.html", os.O_RDWR|os.O_CREATE, 0750)
+	if err != nil {
+		return err
+	}
+	defer f.Close()
+
+	err = tmpl.Render(context.Background(), f)
+	if err != nil {
+		return err
+	}
+
 	return nil
 }
 
 func generateBlog() error {
-
 	err := os.Mkdir(publicDir+"blog", 0750)
 	if err != nil {
 		return err
@@ -148,11 +171,115 @@ func generateBlog() error {
 }
 
 func generateProjects() error {
+	err := os.Mkdir(publicDir+"projects", 0750)
+	if err != nil {
+		return err
+	}
+
+	files, err := os.ReadDir("./content/projects")
+	if err != nil {
+		return err
+	}
+
+	projects := make([]model.Project, 0, len(files))
+	for _, f := range files {
+		var project model.Project
+		data, err := os.ReadFile("./content/projects/" + f.Name())
+		if err != nil {
+			return err
+		}
+
+		yml, md, err := markdown.ExtractYAML(string(data))
+		if err != nil {
+			return err
+		}
+
+		if err = yaml.Unmarshal([]byte(yml), &project); err != nil {
+			return err
+		}
+
+		if project.Content, err = markdown.ToHTML(md); err != nil {
+			return err
+		}
+
+		pFile, err := os.OpenFile(publicDir+"projects/"+project.Slug+".html", os.O_RDWR|os.O_CREATE, 0750)
+		if err != nil {
+			return err
+		}
+		defer pFile.Close()
+
+		page := home.ProjectPage(project)
+
+		page.Render(context.Background(), pFile)
+
+		projects = append(projects, project)
+	}
+
+	f, err := os.OpenFile(publicDir+"projects.html", os.O_RDWR|os.O_CREATE, 0750)
+	if err != nil {
+		return err
+	}
+	defer f.Close()
+	page := home.ProjectsWindow(projects)
+
+	page.Render(context.Background(), f)
 
 	return nil
 }
 
 func generateMisc() error {
+	err := os.Mkdir(publicDir+"misc", 0750)
+	if err != nil {
+		return err
+	}
+
+	files, err := os.ReadDir("./content/misc")
+	if err != nil {
+		return err
+	}
+
+	posts := make([]model.Postt, 0, len(files))
+	for _, f := range files {
+		var post model.Postt
+		data, err := os.ReadFile("./content/misc/" + f.Name())
+		if err != nil {
+			return err
+		}
+
+		yml, md, err := markdown.ExtractYAML(string(data))
+		if err != nil {
+			return err
+		}
+
+		if err = yaml.Unmarshal([]byte(yml), &post); err != nil {
+			return err
+		}
+
+		if post.Content, err = markdown.ToHTML(md); err != nil {
+			return err
+		}
+
+		pFile, err := os.OpenFile(publicDir+"misc/"+post.Slug+".html", os.O_RDWR|os.O_CREATE, 0750)
+		if err != nil {
+			return err
+		}
+		defer pFile.Close()
+
+		page := home.PostPage(post)
+
+		page.Render(context.Background(), pFile)
+
+		posts = append(posts, post)
+	}
+
+	f, err := os.OpenFile(publicDir+"misc.html", os.O_RDWR|os.O_CREATE, 0750)
+	if err != nil {
+		return err
+	}
+	defer f.Close()
+	page := home.MiscWindow(posts)
+
+	page.Render(context.Background(), f)
 
 	return nil
 }

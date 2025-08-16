@@ -17,10 +17,12 @@ func (a *application) router() *echo.Echo {
 	e.GET("/home/window", getHomeWindow)
 	e.GET("/about/window", getAboutWindow)
 	e.GET("/projects/window", getProjectsWindow)
-	e.GET("/projects/:id", getProject)
+	e.GET("/projects/:slug", getProject)
 	e.GET("/delete", getDelete)
 	e.GET("/blog/window", getBlogWindow)
 	e.GET("/blog/posts/:slug", getPost)
+	e.GET("/misc/window", getMiscWindow)
+	e.GET("/misc/posts/:slug", getMiscPost)
 
 	return e
 }

@@ -2,8 +2,8 @@ package home
 
 import "github.com/aandrku/personal-website/pkg/view/layout"
 
-templ Index() {
+templ Index(content, imgURL string) {
 	@layout.BaseWithBgCanvas("aandrku | software developer") {
-		@HomeWindow()
+		@AboutWindow(content, imgURL)
 	}
 }

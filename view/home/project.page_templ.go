@@ -8,7 +8,7 @@ package home
 import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
-import "github.com/aandrku/personal-website/pkg/view/layout"
+import "github.com/aandrku/personal-website/view/layout"
 import "github.com/aandrku/personal-website/pkg/model"
 
 func ProjectPage(project model.Project) templ.Component {

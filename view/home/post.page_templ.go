@@ -10,7 +10,7 @@ import templruntime "github.com/a-h/templ/runtime"
 
 import "github.com/aandrku/personal-website/pkg/model"
 
-import "github.com/aandrku/personal-website/pkg/view/layout"
+import "github.com/aandrku/personal-website/view/layout"
 
 func errorRenderingPostContent() templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {

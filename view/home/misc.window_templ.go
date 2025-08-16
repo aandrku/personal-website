@@ -10,7 +10,7 @@ import templruntime "github.com/a-h/templ/runtime"
 
 import (
 	"github.com/aandrku/personal-website/pkg/model"
-	"github.com/aandrku/personal-website/pkg/view/shared"
+	"github.com/aandrku/personal-website/view/shared"
 )
 
 func MiscWindow(posts []model.Postt) templ.Component {

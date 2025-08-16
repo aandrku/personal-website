@@ -8,7 +8,7 @@ package home
 import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
-import "github.com/aandrku/personal-website/pkg/view/shared"
+import "github.com/aandrku/personal-website/view/shared"
 
 type linkProps struct {
 	name string

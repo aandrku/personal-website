@@ -6,8 +6,8 @@ import (
 	"log"
 	"os"
 
+	"github.com/aandrku/personal-website/pkg/markdown"
 	"github.com/aandrku/personal-website/pkg/model"
-	"github.com/aandrku/personal-website/pkg/services/markdown"
 	"github.com/aandrku/personal-website/pkg/view/home"
 	"gopkg.in/yaml.v3"
 )

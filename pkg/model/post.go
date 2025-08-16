@@ -26,6 +26,14 @@ type Post struct {
 	ViewCount int       `json:"viewCount"`
 }
 
+type Postt struct {
+	Title     string    `yaml:"title"`
+	Slug      string    `yaml:"slug"`
+	CreatedAt time.Time `yaml:"created_at"`
+	UpdatedAt time.Time `yaml:"updated_at"`
+	Content   string
+}
+
 func (p *Post) Filename() string {
 	return p.Id.String() + ".json"
 }

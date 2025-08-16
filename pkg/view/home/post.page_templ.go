@@ -9,19 +9,8 @@ import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
 import "github.com/aandrku/personal-website/pkg/model"
-import "bytes"
-import "github.com/yuin/goldmark"
-import "github.com/aandrku/personal-website/pkg/view"
+
 import "github.com/aandrku/personal-website/pkg/view/layout"
-
-func postContentToTempl(content string) templ.Component {
-	var buf bytes.Buffer
-	if err := goldmark.Convert([]byte(content), &buf); err != nil {
-		return errorRenderingPostContent()
-	}
-
-	return view.Unsafe(buf.String())
-}
 
 func errorRenderingPostContent() templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
@@ -52,7 +41,7 @@ func errorRenderingPostContent() templ.Component {
 	})
 }
 
-func PostPage(post *model.Post) templ.Component {
+func PostPage(post model.Postt) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -85,54 +74,41 @@ func PostPage(post *model.Post) templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<section class=\"w-full sm:px-6 lg:px-8 sm:py-10 flex justify-center\"><article class=\"w-full min-h-screen sm:min-h-auto lg:max-w-4xl backdrop-blur-sm bg-zinc-800/60 sm:rounded-xl shadow-md px-4 sm:px-6 lg:px-10 py-8 flex flex-col gap-6\"><!-- Title --><h1 class=\"text-3xl sm:text-4xl font-semibold text-zinc-100 leading-tight\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<section class=\"w-full sm:px-6 lg:px-8 sm:py-10 flex justify-center\"><article class=\"w-full min-h-screen sm:min-h-auto lg:max-w-4xl backdrop-blur-sm bg-zinc-800/60 sm:rounded-xl shadow-md px-4 sm:px-6 lg:px-10 py-8 flex flex-col gap-6\"><h1 class=\"text-3xl sm:text-4xl font-semibold text-zinc-100 leading-tight\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var4 string
 			templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(post.Title)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/home/post.page.templ`, Line: 28, Col: 17}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/home/post.page.templ`, Line: 16, Col: 17}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</h1><!-- Date and Short Description --><p class=\"text-sm sm:text-base text-zinc-400 border-b border-zinc-700 pb-4\">Last updated ")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</h1><p class=\"text-sm sm:text-base text-zinc-400 border-b border-zinc-700 pb-4\">Last updated ")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var5 string
 			templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(post.UpdatedAt.Format("Jan, 2, 2006"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/home/post.page.templ`, Line: 32, Col: 57}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/home/post.page.templ`, Line: 19, Col: 57}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, " — ")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, " — </p><div class=\"markdown text-zinc-300 w-full max-w-full\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			var templ_7745c5c3_Var6 string
-			templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(post.ShortDesc)
-			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/view/home/post.page.templ`, Line: 32, Col: 80}
-			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
+			templ_7745c5c3_Err = templ.Raw(post.Content).Render(ctx, templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "</p><!-- Full-width Post Content --><div class=\"markdown text-zinc-300 w-full max-w-full\">")
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			templ_7745c5c3_Err = postContentToTempl(post.Content).Render(ctx, templ_7745c5c3_Buffer)
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "</div><!-- Sticky Back Button --><div class=\"sticky bottom-8 self-end\"><a href=\"/\" class=\"text-sm bg-zinc-700 hover:bg-zinc-600 text-zinc-100 px-4 py-2 rounded-md shadow transition\">← Back to home</a></div></article></section>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "</div><div class=\"sticky bottom-8 self-end\"><a href=\"/\" class=\"text-sm bg-zinc-700 hover:bg-zinc-600 text-zinc-100 px-4 py-2 rounded-md shadow transition\">← Back to home</a></div></article></section>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}

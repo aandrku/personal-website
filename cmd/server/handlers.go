@@ -4,7 +4,6 @@ import (
 	"net/http"
 
 	"github.com/aandrku/personal-website/pkg/services/analytics"
-	"github.com/aandrku/personal-website/pkg/services/blog"
 	"github.com/aandrku/personal-website/pkg/services/project"
 	"github.com/aandrku/personal-website/pkg/store/fs"
 	"github.com/aandrku/personal-website/pkg/view"
@@ -66,29 +65,15 @@ func getDelete(c echo.Context) error {
 	return c.NoContent(http.StatusOK)
 }
 
-// getWindow serves a blog window to the client.
-func getWindow(c echo.Context) error {
-	service := blog.NewService()
-	posts, err := service.Posts()
-	if err != nil {
-		return err
-	}
-
-	component := home.BlogWindow(posts)
-	return view.Render(c, http.StatusOK, component)
+// getBlogWindow serves a blog window to the client.
+func getBlogWindow(c echo.Context) error {
+	return c.File("./public/blog.html")
 }
 
 // getPost serves a post to the client.
 func getPost(c echo.Context) error {
-	id := c.Param("id")
-	service := blog.NewService()
+	slug := c.Param("slug")
 
-	post, err := service.FindPost(id)
-	if err != nil {
-		return err
-	}
+	return c.File("./public/blog/" + slug + ".html")
 
-	page := home.PostPage(post)
-
-	return view.Render(c, http.StatusOK, page)
 }

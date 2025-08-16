@@ -6,6 +6,7 @@ import (
 	"log"
 	"os"
 
+	"github.com/aandrku/personal-website/pkg/model"
 	"github.com/aandrku/personal-website/pkg/services/markdown"
 	"github.com/aandrku/personal-website/pkg/view/home"
 	"gopkg.in/yaml.v3"
@@ -37,6 +38,12 @@ func main() {
 		log.Fatalf("%s failed to generate about page: %v %s", Red, err, Reset)
 	}
 	log.Println(Green, "about page was succesfully generated!", Reset)
+
+	err = generateBlog()
+	if err != nil {
+		log.Fatalf("%s failed to generate blog: %v %s", Red, err, Reset)
+	}
+	log.Println(Green, "blog was succesfully generated!", Reset)
 
 }
 
@@ -72,6 +79,7 @@ func generateAbout() error {
 	if err != nil {
 		return err
 	}
+	defer f.Close()
 
 	err = tmpl.Render(context.Background(), f)
 	if err != nil {
@@ -82,6 +90,59 @@ func generateAbout() error {
 }
 
 func generateBlog() error {
+
+	err := os.Mkdir(publicDir+"blog", 0750)
+	if err != nil {
+		return err
+	}
+
+	files, err := os.ReadDir("./content/blog")
+	if err != nil {
+		return err
+	}
+
+	posts := make([]model.Postt, 0, len(files))
+	for _, f := range files {
+		var post model.Postt
+		data, err := os.ReadFile("./content/blog/" + f.Name())
+		if err != nil {
+			return err
+		}
+
+		yml, md, err := markdown.ExtractYAML(string(data))
+		if err != nil {
+			return err
+		}
+
+		if err = yaml.Unmarshal([]byte(yml), &post); err != nil {
+			return err
+		}
+
+		if post.Content, err = markdown.ToHTML(md); err != nil {
+			return err
+		}
+
+		pFile, err := os.OpenFile(publicDir+"blog/"+post.Slug+".html", os.O_RDWR|os.O_CREATE, 0750)
+		if err != nil {
+			return err
+		}
+		defer pFile.Close()
+
+		page := home.PostPage(post)
+
+		page.Render(context.Background(), pFile)
+
+		posts = append(posts, post)
+	}
+
+	f, err := os.OpenFile(publicDir+"blog.html", os.O_RDWR|os.O_CREATE, 0750)
+	if err != nil {
+		return err
+	}
+	defer f.Close()
+	page := home.BlogWindow(posts)
+
+	page.Render(context.Background(), f)
 
 	return nil
 }

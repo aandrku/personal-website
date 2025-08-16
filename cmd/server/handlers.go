@@ -3,9 +3,6 @@ package main
 import (
 	"net/http"
 
-	"github.com/aandrku/personal-website/pkg/view"
-	"github.com/aandrku/personal-website/pkg/view/home"
-
 	"github.com/labstack/echo/v4"
 )
 
@@ -22,12 +19,6 @@ func getAboutWindow(c echo.Context) error {
 func getProject(c echo.Context) error {
 	slug := c.Param("slug")
 	return c.File("./public/projects/" + slug + ".html")
-}
-
-// getHomeWindow serves home window to the client.
-func getHomeWindow(c echo.Context) error {
-	component := home.HomeWindow()
-	return view.Render(c, http.StatusOK, component)
 }
 
 func getProjectsWindow(c echo.Context) error {

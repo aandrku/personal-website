@@ -8,7 +8,7 @@ import (
 
 	"github.com/aandrku/personal-website/pkg/markdown"
 	"github.com/aandrku/personal-website/pkg/model"
-	"github.com/aandrku/personal-website/pkg/view/home"
+	"github.com/aandrku/personal-website/view/home"
 	"gopkg.in/yaml.v3"
 )
 

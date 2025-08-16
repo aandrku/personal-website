@@ -14,7 +14,6 @@ func (a *application) router() *echo.Echo {
 	e.Use(middleware.Logger())
 
 	e.GET("/", getIndex)
-	e.GET("/home/window", getHomeWindow)
 	e.GET("/about/window", getAboutWindow)
 	e.GET("/projects/window", getProjectsWindow)
 	e.GET("/projects/:slug", getProject)

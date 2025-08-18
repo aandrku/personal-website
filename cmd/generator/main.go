@@ -9,6 +9,7 @@ import (
 	"github.com/aandrku/personal-website/pkg/markdown"
 	"github.com/aandrku/personal-website/pkg/model"
 	"github.com/aandrku/personal-website/view/home"
+	"github.com/aandrku/personal-website/view/pages"
 	"gopkg.in/yaml.v3"
 )
 
@@ -85,7 +86,7 @@ func generateAbout() error {
 		return err
 	}
 
-	tmpl := home.AboutWindow(html, fm.ImgURL)
+	tmpl := pages.About(html, fm.ImgURL)
 
 	f, err := os.OpenFile(publicDir+"about.html", os.O_RDWR|os.O_CREATE, 0750)
 	if err != nil {
@@ -98,7 +99,7 @@ func generateAbout() error {
 		return err
 	}
 
-	tmpl = home.Index(html, fm.ImgURL)
+	tmpl = pages.About(html, fm.ImgURL)
 	f, err = os.OpenFile(publicDir+"index.html", os.O_RDWR|os.O_CREATE, 0750)
 	if err != nil {
 		return err

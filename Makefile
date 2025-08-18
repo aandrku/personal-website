@@ -31,15 +31,6 @@ live/generator:
 	--build.stop_on_error "false" \
 	--misc.clean_on_exit true
 
-## live/server: live reload go server
-.PHONY: live/server
-live/server:
-	go run github.com/cosmtrek/air@v1.51.0 \
-	--build.cmd "go build  -o tmp/bin/server ./cmd/server" --build.bin "tmp/bin/server" --build.delay "100" \
-	--build.exclude_dir "node_modules" \
-	--build.include_ext "go,templ" \
-	--build.stop_on_error "false" \
-	--misc.clean_on_exit true
 
 ## live/tailwind: live reload tailwindcss
 .PHONY: live/tailwind
@@ -61,7 +52,7 @@ live/sync_assets:
 ## live: start live reloading
 .PHONY: live
 live:
-	make -j4 live/templ live/server live/generator live/sync_assets
+	make -j4 live/templ run/server live/generator live/sync_assets
 
 ## build/tailwind: compile tailwind
 .PHONY: build/tailwind

@@ -2,7 +2,7 @@ package layout
 
 templ BaseNew(title string) {
 	<!DOCTYPE html>
-	<html class="bg-bg font-[Platypi] text-text2">
+	<html class="bg-bg font-[Platypi] text-text2 ">
 		<head>
 			<title>{ title }</title>
 			<link href="/assets/css/tailwind.css" rel="stylesheet"/>
@@ -25,13 +25,13 @@ templ BaseNew(title string) {
 }
 
 templ nav() {
-	<div class="flex flex-col pl-2 sm:flex-row text-3xl sm:p-8 font-[Pixelify_Sans] justify-between">
+	<div class="flex flex-col pl-2 sm:flex-row sticky top-0 bg-bg text-3xl sm:p-8 font-[Pixelify_Sans] justify-between">
 		<div class="text-nice-blue">aandrku<span class="text-nice-green">.dev</span></div>
 		<div class="flex flex-row gap-2 text-nice-lightblue text-xl">
-			<a href="/about">/about</a>
-			<a href="/blog">/blog</a>
-			<a href="/projects">/projects</a>
-			<a href="/misc">/misc</a>
+			<a class="hover:underline" href="/about">/about</a>
+			<a class="hover:underline" href="/blog">/blog</a>
+			<a class="hover:underline" href="/projects">/projects</a>
+			<a class="hover:underline" href="/misc">/misc</a>
 		</div>
 	</div>
 }

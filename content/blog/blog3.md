@@ -1,11 +1,13 @@
 ---
-title: "Blog 3"
+title: "Lost Tools of the Internet"
+short_description: "Exploring forgotten websites, communities, and software that once shaped the web."
+thumbnail_url: "/assets/imgs/test.png"
 slug: "blog-3"
-created_at: 2025-08-15T12:34:56Z
-updated_at: 2025-08-13T12:34:56Z
+created_at: 2025-08-17T14:30:00Z
+updated_at: 2025-08-17T14:30:00Z
 ---
-### Welcome to my little blog3
+### A trip back in time
 
-Here we are going to explore some stuff
+Before algorithms dominated, the internet felt like a strange, handcrafted world. Here are some treasures worth revisiting.
 
 

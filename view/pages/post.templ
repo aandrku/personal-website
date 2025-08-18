@@ -1,6 +1,14 @@
 package pages
 
 import "github.com/aandrku/personal-website/pkg/model"
+import "github.com/aandrku/personal-website/view/layout"
 
 templ Post(post model.Postt) {
+	@layout.BaseNew(post.Title) {
+		<div>
+			<div class="markdown p-4">
+				@templ.Raw(post.Content)
+			</div>
+		</div>
+	}
 }

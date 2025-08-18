@@ -1,6 +1,6 @@
 @layer components {
   .markdown {
-    @apply text-zinc-300 text-base leading-relaxed;
+    @apply text-text2 text-base leading-relaxed;
   }
 
   .markdown h1 {
@@ -12,15 +12,24 @@
   }
 
   .markdown h3 {
-    @apply text-lg font-semibold mt-5 mb-2 text-blue-100;
+    @apply text-lg font-semibold mt-5 mb-2 text-nice-lightblue font-[Pixelify_Sans] ;
+  }
+  .markdown h4 {
+    @apply text-base font-semibold mt-5 mb-2 font-[Pixelify_Sans];
+  }
+  .markdown h5 {
+    @apply text-sm font-semibold mt-5 mb-2 font-[Pixelify_Sans];
+  }
+  .markdown h6 {
+    @apply text-xs font-semibold mt-5 mb-2 font-[Pixelify_Sans];
   }
 
   .markdown p {
-    @apply text-text2 mb-4;
+    @apply  mb-4;
   }
 
   .markdown a {
-    @apply text-blue-300 hover:text-blue-200 underline underline-offset-2 transition;
+    @apply text-nice-lightblue hover:text-blue-200 underline underline-offset-2 transition;
   }
 
   .markdown ul {
@@ -36,15 +45,15 @@
   }
 
   .markdown blockquote {
-    @apply border-l-4 border-blue-900 pl-4 italic text-blue-200 my-4;
+    @apply border-l-4 border-text3 pl-4 italic text-text3  my-4;
   }
 
   .markdown code {
-    @apply bg-blue-950 text-sm px-1.5 py-0.5 rounded font-mono text-blue-200;
+    @apply bg-ui text-sm px-1.5 py-0.5 rounded font-mono text-text2;
   }
 
   .markdown pre {
-    @apply bg-zinc-900 text-blue-100 text-sm p-4 rounded overflow-x-auto my-4 border border-blue-900;
+    @apply bg-ui text-sm p-4 rounded overflow-x-auto my-4 ;
   }
 
   .markdown pre code {
@@ -52,7 +61,7 @@
   }
 
   .markdown hr {
-    @apply my-6 border-t border-blue-900;
+    @apply my-6 border-t  border-r-text3/20;
   }
 
   .markdown table {
@@ -60,15 +69,15 @@
   }
 
   .markdown th {
-    @apply border border-blue-900 bg-zinc-800 px-4 py-2 text-left text-blue-200;
+    @apply border border-text3  px-4 py-2 text-left text-nice-lightblue;
   }
 
   .markdown td {
-    @apply border border-zinc-700 px-4 py-2 text-zinc-300;
+    @apply border border-text3 px-4 py-2 text-text2;
   }
 
   .markdown img {
-    @apply max-w-full rounded shadow-md border border-blue-900;
+    @apply max-w-4/5 rounded shadow-md block mx-auto ;
   }
 }
 

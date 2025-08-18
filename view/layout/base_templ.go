@@ -29,7 +29,7 @@ func BaseNew(title string) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<!doctype html><html class=\"bg-bg font-[Platypi] text-text2\"><head><title>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<!doctype html><html class=\"bg-bg font-[Platypi] text-text2 \"><head><title>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -83,7 +83,7 @@ func nav() templ.Component {
 			templ_7745c5c3_Var3 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "<div class=\"flex flex-col pl-2 sm:flex-row text-3xl sm:p-8 font-[Pixelify_Sans] justify-between\"><div class=\"text-nice-blue\">aandrku<span class=\"text-nice-green\">.dev</span></div><div class=\"flex flex-row gap-2 text-nice-lightblue text-xl\"><a href=\"/about\">/about</a> <a href=\"/blog\">/blog</a> <a href=\"/projects\">/projects</a> <a href=\"/misc\">/misc</a></div></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "<div class=\"flex flex-col pl-2 sm:flex-row sticky top-0 bg-bg text-3xl sm:p-8 font-[Pixelify_Sans] justify-between\"><div class=\"text-nice-blue\">aandrku<span class=\"text-nice-green\">.dev</span></div><div class=\"flex flex-row gap-2 text-nice-lightblue text-xl\"><a class=\"hover:underline\" href=\"/about\">/about</a> <a class=\"hover:underline\" href=\"/blog\">/blog</a> <a class=\"hover:underline\" href=\"/projects\">/projects</a> <a class=\"hover:underline\" href=\"/misc\">/misc</a></div></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

@@ -27,11 +27,13 @@ type Post struct {
 }
 
 type Postt struct {
-	Title     string    `yaml:"title"`
-	Slug      string    `yaml:"slug"`
-	CreatedAt time.Time `yaml:"created_at"`
-	UpdatedAt time.Time `yaml:"updated_at"`
-	Content   string
+	Title            string    `yaml:"title"`
+	ShortDescription string    `yaml:"short_description"`
+	ThumbnailURL     string    `yaml:"thumbnail_url"`
+	Slug             string    `yaml:"slug"`
+	CreatedAt        time.Time `yaml:"created_at"`
+	UpdatedAt        time.Time `yaml:"updated_at"`
+	Content          string
 }
 
 func (p *Post) Filename() string {

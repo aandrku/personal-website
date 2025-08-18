@@ -2,12 +2,21 @@
 @import "./no-scroll-bar.css";
 @import "./markdown.css";
 
+@layer base {
+  html {
+    font-size: 16px; /* sets 1rem = 18px */
+  }
+}
+
 
 @custom-variant dark (&:where(.dark, .dark *));
 @theme { 
 	--color-bg: #1A1B26;
+	--color-ui: #1F2030;
+
 	--color-text1: #EEEEF0;
 	--color-text2: #B2B4BD;
+	--color-text3: #7A7C87;
 	--color-nice-green: #9ECE6A;
 	--color-nice-blue: #7AA2F7;
 	--color-nice-lightblue: #7DCFFF;

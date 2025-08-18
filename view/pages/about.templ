@@ -4,7 +4,7 @@ import "github.com/aandrku/personal-website/view/layout"
 
 templ About(content, imgURL string) {
 	@layout.BaseNew("about") {
-		<img class="size-30 sm:size-40 rounded-2xl float-right mt-14 ml-2 mr-6" src={ imgURL }/>
+		<img class="size-30 sm:size-40 rounded-2xl float-left m-4 mt-8" src={ imgURL }/>
 		<div class="markdown p-4">
 			@templ.Raw(content)
 		</div>

@@ -1,9 +1,11 @@
 ---
-title: "Blog 4"
+title: "Chasing Productivity Without Burnout"
+short_description: "Thoughts on finding balance between ambition and rest in a world that never stops."
+thumbnail_url: "/assets/imgs/test.png"
 slug: "blog-4"
-created_at: 2025-08-15T12:34:56Z
-updated_at: 2025-08-13T12:34:56Z
+created_at: 2025-08-18T09:45:00Z
+updated_at: 2025-08-18T09:45:00Z
 ---
-### Welcome to my little blog4
+### Working smarter, not harder
 
-Here we are going to explore some stuff
+Productivity hacks are everywhere—but not all of them lead to a better life. This post explores strategies that keep energy and creativity alive.

@@ -4,6 +4,30 @@ import "github.com/aandrku/personal-website/view/layout"
 import "github.com/aandrku/personal-website/pkg/model"
 
 templ Misc(posts []model.Postt) {
-	@layout.BaseNew("misc") {
+	@layout.BaseNew("blog") {
+		<div class="flex flex-col gap-4 p-4">
+			for _, p := range posts {
+				@miscPostCard(p)
+			}
+		</div>
 	}
+}
+
+templ miscPostCard(post model.Postt) {
+	<a
+		href={ "/misc/posts/" + post.Slug }
+		class="flex flex-col sm:gap-4 sm:justify-end
+	sm:flex-row-reverse bg-ui p-3 rounded-lg"
+	>
+		if post.ThumbnailURL != "" {
+			<div class="max-w-full sm:max-w-1/3"><img class="rounded-sm" src={ post.ThumbnailURL }/></div>
+		}
+		<div class="w-full">
+			<h1 class="text-2xl text-nice-green m-2 font-[Pixelify_Sans]">{ post.Title }</h1>
+			<p>{ post.ShortDescription }</p>
+			<div class="w-full text-right text-sm italic text-text3">
+				{ post.UpdatedAt.Format("Last updated on January, 01, 2006") }
+			</div>
+		</div>
+	</a>
 }

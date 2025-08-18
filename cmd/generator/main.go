@@ -8,7 +8,6 @@ import (
 
 	"github.com/aandrku/personal-website/pkg/markdown"
 	"github.com/aandrku/personal-website/pkg/model"
-	"github.com/aandrku/personal-website/view/home"
 	"github.com/aandrku/personal-website/view/pages"
 	"gopkg.in/yaml.v3"
 )
@@ -152,7 +151,7 @@ func generateBlog() error {
 		}
 		defer pFile.Close()
 
-		page := home.PostPage(post)
+		page := pages.Post(post)
 
 		page.Render(context.Background(), pFile)
 
@@ -209,7 +208,7 @@ func generateProjects() error {
 		}
 		defer pFile.Close()
 
-		page := home.ProjectPage(project)
+		page := pages.Project(project)
 
 		page.Render(context.Background(), pFile)
 
@@ -266,7 +265,7 @@ func generateMisc() error {
 		}
 		defer pFile.Close()
 
-		page := home.PostPage(post)
+		page := pages.Post(post)
 
 		page.Render(context.Background(), pFile)
 

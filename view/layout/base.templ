@@ -1,22 +1,5 @@
 package layout
 
-import "github.com/aandrku/personal-website/view/shared"
-
-templ Base(title string) {
-	<!DOCTYPE html>
-	<html class="bg-neutral-400 dark:bg-stone-900 font-mono dark">
-		<head>
-			<title>{ title }</title>
-			<link href="/assets/css/tailwind.css" rel="stylesheet"/>
-			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-		</head>
-		<body ontouchstart="" class="h-screen overflow-hidden">
-			{ children... }
-			<script src="https://unpkg.com/htmx.org@2.0.4" integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+" crossorigin="anonymous"></script>
-		</body>
-	</html>
-}
-
 templ BaseNew(title string) {
 	<!DOCTYPE html>
 	<html class="bg-bg font-[Platypi] text-text2">
@@ -51,29 +34,6 @@ templ nav() {
 			<a href="/misc">/misc</a>
 		</div>
 	</div>
-}
-
-templ BaseWithBgCanvas(title string) {
-	<!DOCTYPE html>
-	<html class="bg-neutral-400 dark:bg-stone-900 font-mono dark">
-		<head>
-			<title>{ title }</title>
-			<link href="/assets/css/tailwind.css" rel="stylesheet"/>
-			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-		</head>
-		<body ontouchstart="" class="overflow-hidden">
-			@shared.CanvasWithParticles()
-			<div
-				id="window-container"
-				class="select-none w-screen h-screen fixed z-10 flex justify-start items-start sm:justify-center sm:items-center backdrop-blur-xs sm:p-0"
-			>
-				{ children... }
-			</div>
-			@shared.DockContainer()
-			<script src="https://unpkg.com/htmx.org@2.0.4" integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+" crossorigin="anonymous"></script>
-			<script src="/assets/js/canvas.js"></script>
-		</body>
-	</html>
 }
 
 templ ArticleBase(title string) {

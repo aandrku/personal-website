@@ -4,7 +4,9 @@ image_url: "/assets/imgs/avatar.jpg"
 ## Hello! I'm Andrii.
 
 Welcome to my little corner on the Internet, where I write things about computers,
-tech, development and other.
+tech, development and other. 
+
+
 
 ## My goals
 

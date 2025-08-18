@@ -164,7 +164,7 @@ func generateBlog() error {
 		return err
 	}
 	defer f.Close()
-	page := home.BlogWindow(posts)
+	page := pages.Blog(posts)
 
 	page.Render(context.Background(), f)
 
@@ -221,7 +221,7 @@ func generateProjects() error {
 		return err
 	}
 	defer f.Close()
-	page := home.ProjectsWindow(projects)
+	page := pages.Projects(projects)
 
 	page.Render(context.Background(), f)
 
@@ -278,7 +278,7 @@ func generateMisc() error {
 		return err
 	}
 	defer f.Close()
-	page := home.MiscWindow(posts)
+	page := pages.Misc(posts)
 
 	page.Render(context.Background(), f)
 

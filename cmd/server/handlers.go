@@ -11,8 +11,8 @@ func getIndex(c echo.Context) error {
 	return c.File("./public/index.html")
 }
 
-// getAboutWindow serves about window to the client.
-func getAboutWindow(c echo.Context) error {
+// getAbout serves about window to the client.
+func getAbout(c echo.Context) error {
 	return c.File("./public/about.html")
 }
 
@@ -21,7 +21,7 @@ func getProject(c echo.Context) error {
 	return c.File("./public/projects/" + slug + ".html")
 }
 
-func getProjectsWindow(c echo.Context) error {
+func getProjects(c echo.Context) error {
 	return c.File("./public/projects.html")
 }
 
@@ -32,8 +32,8 @@ func getDelete(c echo.Context) error {
 	return c.NoContent(http.StatusOK)
 }
 
-// getBlogWindow serves a blog window to the client.
-func getBlogWindow(c echo.Context) error {
+// getBlog serves a blog window to the client.
+func getBlog(c echo.Context) error {
 	return c.File("./public/blog.html")
 }
 
@@ -43,7 +43,7 @@ func getPost(c echo.Context) error {
 
 	return c.File("./public/blog/" + slug + ".html")
 }
-func getMiscWindow(c echo.Context) error {
+func getMisc(c echo.Context) error {
 	return c.File("./public/misc.html")
 }
 

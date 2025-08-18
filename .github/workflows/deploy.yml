@@ -31,6 +31,9 @@ jobs:
     - name: Build
       run: make build
 
+    - name: Generate public
+      run: make run/generator
+
     - name: Remove old server files
       uses: appleboy/ssh-action@v1.2.2
       with:

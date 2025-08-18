@@ -1,5 +1,5 @@
 ---
-image_url: "/assets/imgs/avatar.jpg"
+image_url: "/assets/imgs/sleeping-gopher.png"
 ---
 # Hello! I'm Andrii.
 

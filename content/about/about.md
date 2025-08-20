@@ -4,7 +4,7 @@ image_url: "/assets/imgs/sleeping-gopher.png"
 # Hello! I'm Andrii.
 
 Welcome to my little corner on the Internet, where I write things about computers,
-tech, development and other. Hello
+tech, development and other.
 
 
 
@@ -19,7 +19,7 @@ my exploration of computer world.
 
 ## Social media
 
-You can find me on Github, Linkedin and Discord.
+You can find me on [Github](https://github.com/aandrku), [Linkedin](https://www.linkedin.com/in/aandrku) and [Discord](https://discordapp.com/users/andrku).
 
 ## Contact
 

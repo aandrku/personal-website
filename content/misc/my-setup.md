@@ -3,6 +3,8 @@ title: "My Setup"
 slug: "my-setup"
 created_at: 2025-08-15T12:34:56Z
 updated_at: 2025-08-19T21:25:56Z
+short_description: Showcase of my developer setup.
+thumbnail_url: /assets/imgs/setup/setup.jpg
 ---
 # My Setup
 ![My Setup Picture](/assets/imgs/setup/setup.jpg)

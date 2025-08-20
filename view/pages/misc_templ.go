@@ -125,7 +125,7 @@ func miscPostCard(post model.Postt) templ.Component {
 				return templ_7745c5c3_Err
 			}
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "<div class=\"w-full flex flex-col flex-1 justify-between h-full\"><div><h1 class=\"text-2xl text-nice-green m-2 font-[Pixelify_Sans]\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "<div class=\"w-full flex flex-col flex-1 justify-between\"><div><h1 class=\"text-2xl text-nice-green m-2 font-[Pixelify_Sans]\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
